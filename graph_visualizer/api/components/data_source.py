@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from api.model.graph import Graph
 
-
 class DataSourceService(ABC):
 
     @abstractmethod
