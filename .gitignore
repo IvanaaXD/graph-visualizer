@@ -1,1 +1,8 @@
 .DS_Store
+/venv/
+
+*/.egg-info/
+*.egg-info/
+
+**/_pycache_/
+_pycache_/
