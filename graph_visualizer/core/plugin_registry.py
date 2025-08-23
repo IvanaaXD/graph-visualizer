@@ -1,6 +1,6 @@
 from typing import Dict, List
 from api.components.visualizer import VisualizerPlugin
-
+from .exceptions import VisualizerNotFound
 _visualizers: Dict[str, VisualizerPlugin] = {}
 
 def register_visualizer(plugin: VisualizerPlugin) -> None:
@@ -12,7 +12,7 @@ def get_visualizer(key: str) -> VisualizerPlugin:
     try:
         return _visualizers[key]
     except KeyError:
-        raise KeyError(f"Visualizer '{key}' not registered")
+        raise VisualizerNotFound(key)
 
 def available_visualizers() -> List[str]:
     return list(_visualizers.keys())
