@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Graph Visualizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  {% load static %}
+<link rel="stylesheet" href="{% static 'explorer.css' %}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">GV</div>
+      <div>
+        <h1>Graph Visualizer</h1>
+        <p class="subtitle">Simple view · Server-side search & filter</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <form action="/search" method="get" class="tool">
+        <label class="sr-only" for="q">Search</label>
+        <input id="q" name="q" type="text" placeholder="Search… (e.g. Alice, Gender, 45)" />
+        <button type="submit" class="btn primary">Search</button>
+      </form>
+
+      <form action="/filter" method="get" class="tool">
+        <label class="sr-only" for="expr">Filter</label>
+        <input id="expr" name="expr" type="text" placeholder="Filter… e.g. Age >= 30" />
+        <button type="submit" class="btn">Apply</button>
+      </form>
+
+      <form action="/reset" method="post" class="tool">{% csrf_token %}
+        <button type="submit" class="btn ghost" title="Reset to initial graph">Reset</button>
+      </form>
+
+      <div class="tool compact">
+        <button type="button" id="theme-toggle" class="btn ghost icon-btn" title="Dark mode" aria-label="Toggle theme">🌙</button>
+        <select id="accent-select" class="select" title="Accent color">
+          <option value="blue">Blue</option>
+          <option value="emerald">Emerald</option>
+          <option value="rose">Rose</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  {% if error %}
+    <div class="alert error">
+      <strong>Error:</strong> {{ error }}
+    </div>
+  {% endif %}
+
+  <section class="chips">
+    <span class="chips-label">Applied:</span>
+    {% if applied_queries %}
+      {% for q in applied_queries %}
+        <span class="chip">
+          <span class="chip-dot"></span>
+          {{ q.label }}
+          <form action="/remove-query" method="post" class="chip-close">
+            {% csrf_token %}
+            <input type="hidden" name="idx" value="{{ forloop.counter0 }}"/>
+            <button aria-label="remove">×</button>
+          </form>
+        </span>
+      {% endfor %}
+    {% else %}
+      <span class="muted">none</span>
+    {% endif %}
+  </section>
+
+  <main class="layout">
+    <aside class="panel">
+      <div class="panel-header">
+        <h3>Tree View</h3>
+      </div>
+      <div class="panel-body tree">
+        {{ tree_html|safe }}
+      </div>
+
+      <div class="panel-header spaced">
+        <h3>Bird View</h3>
+      </div>
+      <div class="panel-body bird">
+        {{ bird_html|safe }}
+      </div>
+    </aside>
+
+    <section class="panel main">
+      <div class="panel-header">
+        <h3>Main View (Simple)</h3>
+      </div>
+      <div class="panel-body canvas" id="main-host">
+        {{ main_html|safe }}
+      </div>
+    </section>
+
+    <aside class="panel info">
+      <div class="panel-header">
+        <h3>Info</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="stats">
+          <li><span>Nodes</span><strong>{{ stats.nodes }}</strong></li>
+          <li><span>Edges</span><strong>{{ stats.edges }}</strong></li>
+        </ul>
+        <p class="muted small">Tip: Successive Search/Filter forms a subgraph; "Reset" returns the initial graph.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <span class="muted small">© Graph Visualizer · Demo workspace</span>
+  </footer>
+
+  <script src="{% static 'explorer.js' %}"></script>
+  
+</body>
+</html>
