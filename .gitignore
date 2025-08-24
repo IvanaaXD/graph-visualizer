@@ -4,5 +4,5 @@
 */.egg-info/
 *.egg-info/
 
-**/_pycache_/
-_pycache_/
+**/__pycache__/
+__pycache__/
