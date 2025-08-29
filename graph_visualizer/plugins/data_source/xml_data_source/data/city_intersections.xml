@@ -1,0 +1,3060 @@
+<CityMap type="directed">
+<Street id="S1">
+<name>Cedar Lane</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S2"/>
+<Street ref="S3"/>
+<Street ref="S4"/>
+<Street ref="S5"/>
+<Street ref="S6"/>
+<Street ref="S7"/>
+<Street ref="S8"/>
+</Neighbours>
+</Street>
+<Street id="S2">
+<name>Juniper Lane</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S144"/>
+<Street ref="S156"/>
+<Street ref="S3"/>
+<Street ref="S4"/>
+<Street ref="S70"/>
+</Neighbours>
+</Street>
+<Street id="S3">
+<name>Elm Street</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S113"/>
+<Street ref="S186"/>
+<Street ref="S2"/>
+<Street ref="S4"/>
+</Neighbours>
+</Street>
+<Street id="S4">
+<name>Walnut Street</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S15"/>
+<Street ref="S190"/>
+<Street ref="S2"/>
+<Street ref="S3"/>
+</Neighbours>
+</Street>
+<Street id="S5">
+<name>SpruceTerrace</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S174"/>
+<Street ref="S180"/>
+<Street ref="S196"/>
+<Street ref="S227"/>
+<Street ref="S228"/>
+<Street ref="S229"/>
+<Street ref="S6"/>
+<Street ref="S68"/>
+<Street ref="S7"/>
+<Street ref="S8"/>
+</Neighbours>
+</Street>
+<Street id="S6">
+<name>Aspen Road</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S100"/>
+<Street ref="S5"/>
+<Street ref="S50"/>
+<Street ref="S7"/>
+<Street ref="S8"/>
+<Street ref="S89"/>
+</Neighbours>
+</Street>
+<Street id="S7">
+<name>Poplar Street</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S5"/>
+<Street ref="S6"/>
+<Street ref="S8"/>
+</Neighbours>
+</Street>
+<Street id="S8">
+<name>Main Street</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S1"/>
+<Street ref="S137"/>
+<Street ref="S184"/>
+<Street ref="S5"/>
+<Street ref="S6"/>
+<Street ref="S7"/>
+</Neighbours>
+</Street>
+<Street id="S9">
+<name>Magnolia Avenue</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S10"/>
+<Street ref="S11"/>
+</Neighbours>
+</Street>
+<Street id="S10">
+<name>Pine Street</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S11"/>
+<Street ref="S175"/>
+<Street ref="S9"/>
+</Neighbours>
+</Street>
+<Street id="S11">
+<name>GroveRoad</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S10"/>
+<Street ref="S177"/>
+<Street ref="S9"/>
+</Neighbours>
+</Street>
+<Street id="S12">
+<name>SpruceRoad</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S121"/>
+<Street ref="S13"/>
+<Street ref="S14"/>
+<Street ref="S15"/>
+<Street ref="S43"/>
+</Neighbours>
+</Street>
+<Street id="S13">
+<name>Willow Way</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S12"/>
+<Street ref="S14"/>
+<Street ref="S15"/>
+<Street ref="S61"/>
+</Neighbours>
+</Street>
+<Street id="S14">
+<name>MeadowBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S12"/>
+<Street ref="S13"/>
+<Street ref="S15"/>
+<Street ref="S208"/>
+<Street ref="S209"/>
+<Street ref="S210"/>
+</Neighbours>
+</Street>
+<Street id="S15">
+<name>Beech Street</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S12"/>
+<Street ref="S13"/>
+<Street ref="S14"/>
+<Street ref="S190"/>
+<Street ref="S4"/>
+</Neighbours>
+</Street>
+<Street id="S16">
+<name>RiverWay</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S17"/>
+<Street ref="S18"/>
+<Street ref="S19"/>
+<Street ref="S68"/>
+<Street ref="S69"/>
+<Street ref="S70"/>
+<Street ref="S71"/>
+<Street ref="S72"/>
+</Neighbours>
+</Street>
+<Street id="S17">
+<name>GoldenRoad</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S16"/>
+<Street ref="S18"/>
+<Street ref="S19"/>
+</Neighbours>
+</Street>
+<Street id="S18">
+<name>HollyAvenue</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S16"/>
+<Street ref="S17"/>
+<Street ref="S19"/>
+<Street ref="S237"/>
+</Neighbours>
+</Street>
+<Street id="S19">
+<name>LakeTerrace</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S16"/>
+<Street ref="S17"/>
+<Street ref="S18"/>
+</Neighbours>
+</Street>
+<Street id="S20">
+<name>Oak Avenue</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S145"/>
+<Street ref="S21"/>
+<Street ref="S224"/>
+<Street ref="S249"/>
+<Street ref="S40"/>
+</Neighbours>
+</Street>
+<Street id="S21">
+<name>SpringRoad</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S169"/>
+<Street ref="S178"/>
+<Street ref="S20"/>
+</Neighbours>
+</Street>
+<Street id="S22">
+<name>Chestnut Boulevard</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S154"/>
+<Street ref="S155"/>
+<Street ref="S31"/>
+</Neighbours>
+</Street>
+<Street id="S23">
+<name>Maple Road</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S24"/>
+<Street ref="S25"/>
+<Street ref="S26"/>
+<Street ref="S27"/>
+<Street ref="S28"/>
+<Street ref="S29"/>
+</Neighbours>
+</Street>
+<Street id="S24">
+<name>GoldenLane</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S162"/>
+<Street ref="S163"/>
+<Street ref="S164"/>
+<Street ref="S165"/>
+<Street ref="S23"/>
+</Neighbours>
+</Street>
+<Street id="S25">
+<name>BridgePlace</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S112"/>
+<Street ref="S114"/>
+<Street ref="S115"/>
+<Street ref="S23"/>
+<Street ref="S26"/>
+<Street ref="S27"/>
+<Street ref="S28"/>
+<Street ref="S29"/>
+</Neighbours>
+</Street>
+<Street id="S26">
+<name>ChestnutWay</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S23"/>
+<Street ref="S25"/>
+<Street ref="S27"/>
+<Street ref="S28"/>
+<Street ref="S29"/>
+</Neighbours>
+</Street>
+<Street id="S27">
+<name>Birch Avenue</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S206"/>
+<Street ref="S23"/>
+<Street ref="S25"/>
+<Street ref="S26"/>
+<Street ref="S28"/>
+<Street ref="S29"/>
+</Neighbours>
+</Street>
+<Street id="S28">
+<name>AutumnLane</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S181"/>
+<Street ref="S189"/>
+<Street ref="S23"/>
+<Street ref="S25"/>
+<Street ref="S26"/>
+<Street ref="S27"/>
+<Street ref="S29"/>
+</Neighbours>
+</Street>
+<Street id="S29">
+<name>CottonwoodStreet</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S204"/>
+<Street ref="S23"/>
+<Street ref="S25"/>
+<Street ref="S26"/>
+<Street ref="S27"/>
+<Street ref="S28"/>
+</Neighbours>
+</Street>
+<Street id="S30">
+<name>LakePlace</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S31"/>
+<Street ref="S32"/>
+<Street ref="S33"/>
+<Street ref="S34"/>
+<Street ref="S35"/>
+<Street ref="S47"/>
+<Street ref="S48"/>
+</Neighbours>
+</Street>
+<Street id="S31">
+<name>PineDrive</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S154"/>
+<Street ref="S155"/>
+<Street ref="S22"/>
+<Street ref="S30"/>
+<Street ref="S32"/>
+<Street ref="S33"/>
+<Street ref="S34"/>
+<Street ref="S35"/>
+</Neighbours>
+</Street>
+<Street id="S32">
+<name>Dogwood Drive</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S188"/>
+<Street ref="S189"/>
+<Street ref="S190"/>
+<Street ref="S30"/>
+<Street ref="S31"/>
+<Street ref="S33"/>
+<Street ref="S34"/>
+<Street ref="S35"/>
+<Street ref="S75"/>
+</Neighbours>
+</Street>
+<Street id="S33">
+<name>ValleyLane</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S30"/>
+<Street ref="S31"/>
+<Street ref="S32"/>
+<Street ref="S34"/>
+<Street ref="S35"/>
+<Street ref="S45"/>
+</Neighbours>
+</Street>
+<Street id="S34">
+<name>WinterStreet</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S221"/>
+<Street ref="S30"/>
+<Street ref="S31"/>
+<Street ref="S32"/>
+<Street ref="S33"/>
+<Street ref="S35"/>
+</Neighbours>
+</Street>
+<Street id="S35">
+<name>RiverTerrace</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S210"/>
+<Street ref="S30"/>
+<Street ref="S31"/>
+<Street ref="S32"/>
+<Street ref="S33"/>
+<Street ref="S34"/>
+</Neighbours>
+</Street>
+<Street id="S36">
+<name>Ash Drive</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S104"/>
+<Street ref="S105"/>
+<Street ref="S185"/>
+<Street ref="S186"/>
+<Street ref="S187"/>
+<Street ref="S37"/>
+</Neighbours>
+</Street>
+<Street id="S37">
+<name>RedwoodAvenue</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S152"/>
+<Street ref="S36"/>
+</Neighbours>
+</Street>
+<Street id="S38">
+<name>LaurelRoad</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S39"/>
+<Street ref="S40"/>
+<Street ref="S41"/>
+<Street ref="S42"/>
+<Street ref="S64"/>
+<Street ref="S80"/>
+<Street ref="S95"/>
+<Street ref="S96"/>
+<Street ref="S97"/>
+<Street ref="S98"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S39">
+<name>LakeCourt</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S148"/>
+<Street ref="S205"/>
+<Street ref="S206"/>
+<Street ref="S38"/>
+<Street ref="S40"/>
+<Street ref="S41"/>
+<Street ref="S42"/>
+</Neighbours>
+</Street>
+<Street id="S40">
+<name>ShadowDrive</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S145"/>
+<Street ref="S20"/>
+<Street ref="S224"/>
+<Street ref="S249"/>
+<Street ref="S38"/>
+<Street ref="S39"/>
+<Street ref="S41"/>
+<Street ref="S42"/>
+</Neighbours>
+</Street>
+<Street id="S41">
+<name>SpringStreet</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S38"/>
+<Street ref="S39"/>
+<Street ref="S40"/>
+<Street ref="S42"/>
+<Street ref="S62"/>
+</Neighbours>
+</Street>
+<Street id="S42">
+<name>Spruce Street</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S38"/>
+<Street ref="S39"/>
+<Street ref="S40"/>
+<Street ref="S41"/>
+<Street ref="S63"/>
+</Neighbours>
+</Street>
+<Street id="S43">
+<name>BirchBoulevard</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S12"/>
+<Street ref="S121"/>
+<Street ref="S44"/>
+<Street ref="S45"/>
+<Street ref="S46"/>
+</Neighbours>
+</Street>
+<Street id="S44">
+<name>MapleRoad</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S114"/>
+<Street ref="S139"/>
+<Street ref="S43"/>
+<Street ref="S45"/>
+<Street ref="S46"/>
+</Neighbours>
+</Street>
+<Street id="S45">
+<name>Sycamore Road</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S33"/>
+<Street ref="S43"/>
+<Street ref="S44"/>
+<Street ref="S46"/>
+</Neighbours>
+</Street>
+<Street id="S46">
+<name>Hickory Lane</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S43"/>
+<Street ref="S44"/>
+<Street ref="S45"/>
+</Neighbours>
+</Street>
+<Street id="S47">
+<name>CedarWay</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S247"/>
+<Street ref="S248"/>
+<Street ref="S30"/>
+<Street ref="S48"/>
+</Neighbours>
+</Street>
+<Street id="S48">
+<name>GroveTerrace</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S130"/>
+<Street ref="S30"/>
+<Street ref="S47"/>
+</Neighbours>
+</Street>
+<Street id="S49">
+<name>ValleyStreet</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S104"/>
+<Street ref="S105"/>
+<Street ref="S50"/>
+<Street ref="S51"/>
+</Neighbours>
+</Street>
+<Street id="S50">
+<name>WillowStreet</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S100"/>
+<Street ref="S49"/>
+<Street ref="S51"/>
+<Street ref="S6"/>
+<Street ref="S89"/>
+</Neighbours>
+</Street>
+<Street id="S51">
+<name>SycamoreLane</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S140"/>
+<Street ref="S49"/>
+<Street ref="S50"/>
+</Neighbours>
+</Street>
+<Street id="S52">
+<name>HollyCourt</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S125"/>
+<Street ref="S182"/>
+<Street ref="S53"/>
+</Neighbours>
+</Street>
+<Street id="S53">
+<name>StoneWay</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S111"/>
+<Street ref="S236"/>
+<Street ref="S52"/>
+</Neighbours>
+</Street>
+<Street id="S54">
+<name>SilverPlace</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S224"/>
+<Street ref="S225"/>
+<Street ref="S226"/>
+<Street ref="S55"/>
+<Street ref="S56"/>
+</Neighbours>
+</Street>
+<Street id="S55">
+<name>PineStreet</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S54"/>
+<Street ref="S56"/>
+</Neighbours>
+</Street>
+<Street id="S56">
+<name>PineRoad</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S200"/>
+<Street ref="S211"/>
+<Street ref="S244"/>
+<Street ref="S54"/>
+<Street ref="S55"/>
+</Neighbours>
+</Street>
+<Street id="S57">
+<name>ChestnutAvenue</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S237"/>
+<Street ref="S238"/>
+<Street ref="S58"/>
+<Street ref="S59"/>
+</Neighbours>
+</Street>
+<Street id="S58">
+<name>HollyLane</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S233"/>
+<Street ref="S57"/>
+<Street ref="S59"/>
+</Neighbours>
+</Street>
+<Street id="S59">
+<name>PalmDrive</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S123"/>
+<Street ref="S227"/>
+<Street ref="S57"/>
+<Street ref="S58"/>
+</Neighbours>
+</Street>
+<Street id="S60">
+<name>ForestLane</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S103"/>
+<Street ref="S61"/>
+<Street ref="S62"/>
+<Street ref="S63"/>
+<Street ref="S95"/>
+</Neighbours>
+</Street>
+<Street id="S61">
+<name>PalmStreet</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S13"/>
+<Street ref="S60"/>
+<Street ref="S62"/>
+<Street ref="S63"/>
+</Neighbours>
+</Street>
+<Street id="S62">
+<name>ElmCourt</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S41"/>
+<Street ref="S60"/>
+<Street ref="S61"/>
+<Street ref="S63"/>
+</Neighbours>
+</Street>
+<Street id="S63">
+<name>SilverDrive</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S42"/>
+<Street ref="S60"/>
+<Street ref="S61"/>
+<Street ref="S62"/>
+</Neighbours>
+</Street>
+<Street id="S64">
+<name>SummerDrive</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S38"/>
+<Street ref="S65"/>
+<Street ref="S66"/>
+<Street ref="S67"/>
+<Street ref="S80"/>
+<Street ref="S95"/>
+<Street ref="S96"/>
+<Street ref="S97"/>
+<Street ref="S98"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S65">
+<name>HillRoad</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S138"/>
+<Street ref="S139"/>
+<Street ref="S140"/>
+<Street ref="S64"/>
+<Street ref="S66"/>
+<Street ref="S67"/>
+</Neighbours>
+</Street>
+<Street id="S66">
+<name>SycamorePlace</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S64"/>
+<Street ref="S65"/>
+<Street ref="S67"/>
+</Neighbours>
+</Street>
+<Street id="S67">
+<name>BridgeWay</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S141"/>
+<Street ref="S158"/>
+<Street ref="S231"/>
+<Street ref="S64"/>
+<Street ref="S65"/>
+<Street ref="S66"/>
+</Neighbours>
+</Street>
+<Street id="S68">
+<name>SummerPlace</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S16"/>
+<Street ref="S174"/>
+<Street ref="S180"/>
+<Street ref="S196"/>
+<Street ref="S227"/>
+<Street ref="S228"/>
+<Street ref="S229"/>
+<Street ref="S5"/>
+<Street ref="S69"/>
+<Street ref="S70"/>
+<Street ref="S71"/>
+<Street ref="S72"/>
+</Neighbours>
+</Street>
+<Street id="S69">
+<name>WillowCourt</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S143"/>
+<Street ref="S150"/>
+<Street ref="S16"/>
+<Street ref="S68"/>
+<Street ref="S70"/>
+<Street ref="S71"/>
+<Street ref="S72"/>
+</Neighbours>
+</Street>
+<Street id="S70">
+<name>BrookStreet</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S144"/>
+<Street ref="S156"/>
+<Street ref="S16"/>
+<Street ref="S2"/>
+<Street ref="S68"/>
+<Street ref="S69"/>
+<Street ref="S71"/>
+<Street ref="S72"/>
+</Neighbours>
+</Street>
+<Street id="S71">
+<name>SummerCourt</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S16"/>
+<Street ref="S68"/>
+<Street ref="S69"/>
+<Street ref="S70"/>
+<Street ref="S72"/>
+</Neighbours>
+</Street>
+<Street id="S72">
+<name>HillPlace</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S16"/>
+<Street ref="S68"/>
+<Street ref="S69"/>
+<Street ref="S70"/>
+<Street ref="S71"/>
+</Neighbours>
+</Street>
+<Street id="S73">
+<name>CedarBoulevard</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S74"/>
+<Street ref="S75"/>
+<Street ref="S76"/>
+<Street ref="S77"/>
+<Street ref="S78"/>
+<Street ref="S79"/>
+<Street ref="S80"/>
+<Street ref="S81"/>
+<Street ref="S82"/>
+<Street ref="S83"/>
+<Street ref="S84"/>
+</Neighbours>
+</Street>
+<Street id="S74">
+<name>ShadowLane</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S108"/>
+<Street ref="S109"/>
+<Street ref="S110"/>
+<Street ref="S111"/>
+<Street ref="S73"/>
+<Street ref="S75"/>
+<Street ref="S76"/>
+<Street ref="S77"/>
+<Street ref="S78"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S75">
+<name>WillowAvenue</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S188"/>
+<Street ref="S189"/>
+<Street ref="S190"/>
+<Street ref="S32"/>
+<Street ref="S73"/>
+<Street ref="S74"/>
+<Street ref="S76"/>
+<Street ref="S77"/>
+<Street ref="S78"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S76">
+<name>ForestAvenue</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S149"/>
+<Street ref="S230"/>
+<Street ref="S231"/>
+<Street ref="S73"/>
+<Street ref="S74"/>
+<Street ref="S75"/>
+<Street ref="S77"/>
+<Street ref="S78"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S77">
+<name>ChestnutTerrace</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S173"/>
+<Street ref="S73"/>
+<Street ref="S74"/>
+<Street ref="S75"/>
+<Street ref="S76"/>
+<Street ref="S78"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S78">
+<name>RiverCourt</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S73"/>
+<Street ref="S74"/>
+<Street ref="S75"/>
+<Street ref="S76"/>
+<Street ref="S77"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S79">
+<name>StoneCourt</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S159"/>
+<Street ref="S213"/>
+<Street ref="S245"/>
+<Street ref="S73"/>
+<Street ref="S74"/>
+<Street ref="S75"/>
+<Street ref="S76"/>
+<Street ref="S77"/>
+<Street ref="S78"/>
+</Neighbours>
+</Street>
+<Street id="S80">
+<name>SpruceDrive</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S38"/>
+<Street ref="S64"/>
+<Street ref="S73"/>
+<Street ref="S81"/>
+<Street ref="S82"/>
+<Street ref="S83"/>
+<Street ref="S84"/>
+<Street ref="S95"/>
+<Street ref="S96"/>
+<Street ref="S97"/>
+<Street ref="S98"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S81">
+<name>MapleLane</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S166"/>
+<Street ref="S199"/>
+<Street ref="S233"/>
+<Street ref="S234"/>
+<Street ref="S235"/>
+<Street ref="S236"/>
+<Street ref="S73"/>
+<Street ref="S80"/>
+<Street ref="S82"/>
+<Street ref="S83"/>
+<Street ref="S84"/>
+</Neighbours>
+</Street>
+<Street id="S82">
+<name>ValleyAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S188"/>
+<Street ref="S73"/>
+<Street ref="S80"/>
+<Street ref="S81"/>
+<Street ref="S83"/>
+<Street ref="S84"/>
+</Neighbours>
+</Street>
+<Street id="S83">
+<name>ChestnutCourt</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S230"/>
+<Street ref="S247"/>
+<Street ref="S73"/>
+<Street ref="S80"/>
+<Street ref="S81"/>
+<Street ref="S82"/>
+<Street ref="S84"/>
+</Neighbours>
+</Street>
+<Street id="S84">
+<name>HollyPlace</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S109"/>
+<Street ref="S240"/>
+<Street ref="S73"/>
+<Street ref="S80"/>
+<Street ref="S81"/>
+<Street ref="S82"/>
+<Street ref="S83"/>
+</Neighbours>
+</Street>
+<Street id="S85">
+<name>OakBoulevard</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S129"/>
+<Street ref="S86"/>
+</Neighbours>
+</Street>
+<Street id="S86">
+<name>MagnoliaStreet</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S85"/>
+</Neighbours>
+</Street>
+<Street id="S87">
+<name>MagnoliaTerrace</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S162"/>
+<Street ref="S245"/>
+<Street ref="S246"/>
+<Street ref="S88"/>
+</Neighbours>
+</Street>
+<Street id="S88">
+<name>OakLane</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S164"/>
+<Street ref="S87"/>
+</Neighbours>
+</Street>
+<Street id="S89">
+<name>ForestWay</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S100"/>
+<Street ref="S50"/>
+<Street ref="S6"/>
+</Neighbours>
+</Street>
+<Street id="S90">
+<name>RiverStreet</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S131"/>
+<Street ref="S132"/>
+<Street ref="S133"/>
+<Street ref="S91"/>
+<Street ref="S92"/>
+<Street ref="S93"/>
+<Street ref="S94"/>
+</Neighbours>
+</Street>
+<Street id="S91">
+<name>LaurelLane</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S241"/>
+<Street ref="S90"/>
+<Street ref="S92"/>
+<Street ref="S93"/>
+<Street ref="S94"/>
+</Neighbours>
+</Street>
+<Street id="S92">
+<name>SilverCourt</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S208"/>
+<Street ref="S244"/>
+<Street ref="S90"/>
+<Street ref="S91"/>
+<Street ref="S93"/>
+<Street ref="S94"/>
+</Neighbours>
+</Street>
+<Street id="S93">
+<name>GroveWay</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S138"/>
+<Street ref="S90"/>
+<Street ref="S91"/>
+<Street ref="S92"/>
+<Street ref="S94"/>
+</Neighbours>
+</Street>
+<Street id="S94">
+<name>AshDrive</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S222"/>
+<Street ref="S90"/>
+<Street ref="S91"/>
+<Street ref="S92"/>
+<Street ref="S93"/>
+</Neighbours>
+</Street>
+<Street id="S95">
+<name>ClearCourt</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S103"/>
+<Street ref="S38"/>
+<Street ref="S60"/>
+<Street ref="S64"/>
+<Street ref="S80"/>
+<Street ref="S96"/>
+<Street ref="S97"/>
+<Street ref="S98"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S96">
+<name>AshTerrace</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S136"/>
+<Street ref="S137"/>
+<Street ref="S38"/>
+<Street ref="S64"/>
+<Street ref="S80"/>
+<Street ref="S95"/>
+<Street ref="S97"/>
+<Street ref="S98"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S97">
+<name>WinterWay</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S198"/>
+<Street ref="S38"/>
+<Street ref="S64"/>
+<Street ref="S80"/>
+<Street ref="S95"/>
+<Street ref="S96"/>
+<Street ref="S98"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S98">
+<name>WillowLane</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S214"/>
+<Street ref="S38"/>
+<Street ref="S64"/>
+<Street ref="S80"/>
+<Street ref="S95"/>
+<Street ref="S96"/>
+<Street ref="S97"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S99">
+<name>SpringBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S193"/>
+<Street ref="S38"/>
+<Street ref="S64"/>
+<Street ref="S80"/>
+<Street ref="S95"/>
+<Street ref="S96"/>
+<Street ref="S97"/>
+<Street ref="S98"/>
+</Neighbours>
+</Street>
+<Street id="S100">
+<name>RiverPlace</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S101"/>
+<Street ref="S102"/>
+<Street ref="S50"/>
+<Street ref="S6"/>
+<Street ref="S89"/>
+</Neighbours>
+</Street>
+<Street id="S101">
+<name>SummerStreet</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S100"/>
+<Street ref="S102"/>
+<Street ref="S243"/>
+</Neighbours>
+</Street>
+<Street id="S102">
+<name>SpruceWay</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S100"/>
+<Street ref="S101"/>
+<Street ref="S135"/>
+</Neighbours>
+</Street>
+<Street id="S103">
+<name>CedarPlace</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S121"/>
+<Street ref="S60"/>
+<Street ref="S95"/>
+</Neighbours>
+</Street>
+<Street id="S104">
+<name>ClearStreet</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S105"/>
+<Street ref="S185"/>
+<Street ref="S186"/>
+<Street ref="S187"/>
+<Street ref="S36"/>
+<Street ref="S49"/>
+</Neighbours>
+</Street>
+<Street id="S105">
+<name>LakeDrive</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S104"/>
+<Street ref="S185"/>
+<Street ref="S186"/>
+<Street ref="S187"/>
+<Street ref="S36"/>
+<Street ref="S49"/>
+</Neighbours>
+</Street>
+<Street id="S106">
+<name>CedarDrive</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S107"/>
+<Street ref="S195"/>
+</Neighbours>
+</Street>
+<Street id="S107">
+<name>BirchPlace</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S106"/>
+<Street ref="S116"/>
+<Street ref="S239"/>
+</Neighbours>
+</Street>
+<Street id="S108">
+<name>BrookDrive</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S109"/>
+<Street ref="S110"/>
+<Street ref="S111"/>
+<Street ref="S74"/>
+</Neighbours>
+</Street>
+<Street id="S109">
+<name>SpringPlace</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S108"/>
+<Street ref="S110"/>
+<Street ref="S111"/>
+<Street ref="S240"/>
+<Street ref="S74"/>
+<Street ref="S84"/>
+</Neighbours>
+</Street>
+<Street id="S110">
+<name>StoneBoulevard</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S108"/>
+<Street ref="S109"/>
+<Street ref="S111"/>
+<Street ref="S209"/>
+<Street ref="S248"/>
+<Street ref="S74"/>
+</Neighbours>
+</Street>
+<Street id="S111">
+<name>RiverBoulevard</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S108"/>
+<Street ref="S109"/>
+<Street ref="S110"/>
+<Street ref="S236"/>
+<Street ref="S53"/>
+<Street ref="S74"/>
+</Neighbours>
+</Street>
+<Street id="S112">
+<name>LakeLane</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S113"/>
+<Street ref="S114"/>
+<Street ref="S115"/>
+<Street ref="S25"/>
+</Neighbours>
+</Street>
+<Street id="S113">
+<name>SpringDrive</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S112"/>
+<Street ref="S186"/>
+<Street ref="S3"/>
+</Neighbours>
+</Street>
+<Street id="S114">
+<name>ElmBoulevard</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S112"/>
+<Street ref="S115"/>
+<Street ref="S139"/>
+<Street ref="S25"/>
+<Street ref="S44"/>
+</Neighbours>
+</Street>
+<Street id="S115">
+<name>DogwoodRoad</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S112"/>
+<Street ref="S114"/>
+<Street ref="S119"/>
+<Street ref="S234"/>
+<Street ref="S25"/>
+</Neighbours>
+</Street>
+<Street id="S116">
+<name>OakDrive</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S107"/>
+<Street ref="S117"/>
+<Street ref="S239"/>
+</Neighbours>
+</Street>
+<Street id="S117">
+<name>SunnyTerrace</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S116"/>
+<Street ref="S229"/>
+</Neighbours>
+</Street>
+<Street id="S118">
+<name>SycamoreRoad</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S119"/>
+<Street ref="S120"/>
+</Neighbours>
+</Street>
+<Street id="S119">
+<name>BridgeLane</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S115"/>
+<Street ref="S118"/>
+<Street ref="S120"/>
+<Street ref="S234"/>
+</Neighbours>
+</Street>
+<Street id="S120">
+<name>ShadowAvenue</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S118"/>
+<Street ref="S119"/>
+<Street ref="S219"/>
+</Neighbours>
+</Street>
+<Street id="S121">
+<name>GroveCourt</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S103"/>
+<Street ref="S12"/>
+<Street ref="S43"/>
+</Neighbours>
+</Street>
+<Street id="S122">
+<name>ElmStreet</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S123"/>
+<Street ref="S124"/>
+<Street ref="S125"/>
+<Street ref="S205"/>
+</Neighbours>
+</Street>
+<Street id="S123">
+<name>BirchWay</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S122"/>
+<Street ref="S124"/>
+<Street ref="S125"/>
+<Street ref="S227"/>
+<Street ref="S59"/>
+</Neighbours>
+</Street>
+<Street id="S124">
+<name>HillStreet</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S122"/>
+<Street ref="S123"/>
+<Street ref="S125"/>
+<Street ref="S201"/>
+</Neighbours>
+</Street>
+<Street id="S125">
+<name>MeadowCourt</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S122"/>
+<Street ref="S123"/>
+<Street ref="S124"/>
+<Street ref="S182"/>
+<Street ref="S52"/>
+</Neighbours>
+</Street>
+<Street id="S126">
+<name>BridgeStreet</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S127"/>
+<Street ref="S128"/>
+<Street ref="S129"/>
+<Street ref="S130"/>
+<Street ref="S134"/>
+<Street ref="S135"/>
+</Neighbours>
+</Street>
+<Street id="S127">
+<name>OakAvenue</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S126"/>
+<Street ref="S128"/>
+<Street ref="S129"/>
+<Street ref="S130"/>
+<Street ref="S131"/>
+</Neighbours>
+</Street>
+<Street id="S128">
+<name>OakRoad</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S126"/>
+<Street ref="S127"/>
+<Street ref="S129"/>
+<Street ref="S130"/>
+</Neighbours>
+</Street>
+<Street id="S129">
+<name>DogwoodDrive</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S126"/>
+<Street ref="S127"/>
+<Street ref="S128"/>
+<Street ref="S130"/>
+<Street ref="S85"/>
+</Neighbours>
+</Street>
+<Street id="S130">
+<name>GoldenPlace</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S126"/>
+<Street ref="S127"/>
+<Street ref="S128"/>
+<Street ref="S129"/>
+<Street ref="S48"/>
+</Neighbours>
+</Street>
+<Street id="S131">
+<name>AspenWay</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S127"/>
+<Street ref="S132"/>
+<Street ref="S133"/>
+<Street ref="S90"/>
+</Neighbours>
+</Street>
+<Street id="S132">
+<name>MagnoliaPlace</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S131"/>
+<Street ref="S133"/>
+<Street ref="S184"/>
+<Street ref="S90"/>
+</Neighbours>
+</Street>
+<Street id="S133">
+<name>BrookAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S131"/>
+<Street ref="S132"/>
+<Street ref="S90"/>
+</Neighbours>
+</Street>
+<Street id="S134">
+<name>BirchDrive</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S126"/>
+<Street ref="S135"/>
+</Neighbours>
+</Street>
+<Street id="S135">
+<name>GoldenDrive</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S102"/>
+<Street ref="S126"/>
+<Street ref="S134"/>
+</Neighbours>
+</Street>
+<Street id="S136">
+<name>SpringLane</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S137"/>
+<Street ref="S96"/>
+</Neighbours>
+</Street>
+<Street id="S137">
+<name>AutumnWay</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S136"/>
+<Street ref="S184"/>
+<Street ref="S8"/>
+<Street ref="S96"/>
+</Neighbours>
+</Street>
+<Street id="S138">
+<name>DogwoodLane</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S139"/>
+<Street ref="S140"/>
+<Street ref="S65"/>
+<Street ref="S93"/>
+</Neighbours>
+</Street>
+<Street id="S139">
+<name>DogwoodPlace</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S114"/>
+<Street ref="S138"/>
+<Street ref="S140"/>
+<Street ref="S44"/>
+<Street ref="S65"/>
+</Neighbours>
+</Street>
+<Street id="S140">
+<name>SunnyStreet</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S138"/>
+<Street ref="S139"/>
+<Street ref="S51"/>
+<Street ref="S65"/>
+</Neighbours>
+</Street>
+<Street id="S141">
+<name>SpruceLane</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S158"/>
+<Street ref="S231"/>
+<Street ref="S67"/>
+</Neighbours>
+</Street>
+<Street id="S142">
+<name>ValleyBoulevard</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S143"/>
+<Street ref="S144"/>
+<Street ref="S145"/>
+<Street ref="S146"/>
+<Street ref="S147"/>
+<Street ref="S180"/>
+<Street ref="S181"/>
+<Street ref="S182"/>
+<Street ref="S183"/>
+</Neighbours>
+</Street>
+<Street id="S143">
+<name>RedwoodDrive</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S144"/>
+<Street ref="S145"/>
+<Street ref="S146"/>
+<Street ref="S147"/>
+<Street ref="S150"/>
+<Street ref="S69"/>
+</Neighbours>
+</Street>
+<Street id="S144">
+<name>MagnoliaDrive</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S143"/>
+<Street ref="S145"/>
+<Street ref="S146"/>
+<Street ref="S147"/>
+<Street ref="S156"/>
+<Street ref="S2"/>
+<Street ref="S70"/>
+</Neighbours>
+</Street>
+<Street id="S145">
+<name>AutumnAvenue</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S143"/>
+<Street ref="S144"/>
+<Street ref="S146"/>
+<Street ref="S147"/>
+<Street ref="S20"/>
+<Street ref="S224"/>
+<Street ref="S249"/>
+<Street ref="S40"/>
+</Neighbours>
+</Street>
+<Street id="S146">
+<name>MapleTerrace</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S143"/>
+<Street ref="S144"/>
+<Street ref="S145"/>
+<Street ref="S147"/>
+</Neighbours>
+</Street>
+<Street id="S147">
+<name>StoneLane</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S143"/>
+<Street ref="S144"/>
+<Street ref="S145"/>
+<Street ref="S146"/>
+<Street ref="S195"/>
+<Street ref="S215"/>
+<Street ref="S246"/>
+</Neighbours>
+</Street>
+<Street id="S148">
+<name>BridgeRoad</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S149"/>
+<Street ref="S150"/>
+<Street ref="S151"/>
+<Street ref="S152"/>
+<Street ref="S153"/>
+<Street ref="S205"/>
+<Street ref="S206"/>
+<Street ref="S39"/>
+</Neighbours>
+</Street>
+<Street id="S149">
+<name>ElmPlace</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S148"/>
+<Street ref="S150"/>
+<Street ref="S151"/>
+<Street ref="S152"/>
+<Street ref="S153"/>
+<Street ref="S230"/>
+<Street ref="S231"/>
+<Street ref="S76"/>
+</Neighbours>
+</Street>
+<Street id="S150">
+<name>BirchAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S143"/>
+<Street ref="S148"/>
+<Street ref="S149"/>
+<Street ref="S151"/>
+<Street ref="S152"/>
+<Street ref="S153"/>
+<Street ref="S69"/>
+</Neighbours>
+</Street>
+<Street id="S151">
+<name>BirchTerrace</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S148"/>
+<Street ref="S149"/>
+<Street ref="S150"/>
+<Street ref="S152"/>
+<Street ref="S153"/>
+<Street ref="S202"/>
+<Street ref="S235"/>
+<Street ref="S241"/>
+</Neighbours>
+</Street>
+<Street id="S152">
+<name>ValleyTerrace</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S148"/>
+<Street ref="S149"/>
+<Street ref="S150"/>
+<Street ref="S151"/>
+<Street ref="S153"/>
+<Street ref="S37"/>
+</Neighbours>
+</Street>
+<Street id="S153">
+<name>SummerAvenue</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S148"/>
+<Street ref="S149"/>
+<Street ref="S150"/>
+<Street ref="S151"/>
+<Street ref="S152"/>
+<Street ref="S168"/>
+</Neighbours>
+</Street>
+<Street id="S154">
+<name>SunnyPlace</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S155"/>
+<Street ref="S192"/>
+<Street ref="S193"/>
+<Street ref="S194"/>
+<Street ref="S22"/>
+<Street ref="S31"/>
+</Neighbours>
+</Street>
+<Street id="S155">
+<name>SycamoreStreet</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S154"/>
+<Street ref="S160"/>
+<Street ref="S22"/>
+<Street ref="S31"/>
+</Neighbours>
+</Street>
+<Street id="S156">
+<name>BridgeBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S144"/>
+<Street ref="S157"/>
+<Street ref="S158"/>
+<Street ref="S159"/>
+<Street ref="S160"/>
+<Street ref="S2"/>
+<Street ref="S70"/>
+</Neighbours>
+</Street>
+<Street id="S157">
+<name>SilverTerrace</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S156"/>
+<Street ref="S158"/>
+<Street ref="S159"/>
+<Street ref="S160"/>
+<Street ref="S218"/>
+</Neighbours>
+</Street>
+<Street id="S158">
+<name>AspenRoad</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S141"/>
+<Street ref="S156"/>
+<Street ref="S157"/>
+<Street ref="S159"/>
+<Street ref="S160"/>
+<Street ref="S231"/>
+<Street ref="S67"/>
+</Neighbours>
+</Street>
+<Street id="S159">
+<name>GoldenBoulevard</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S156"/>
+<Street ref="S157"/>
+<Street ref="S158"/>
+<Street ref="S160"/>
+<Street ref="S213"/>
+<Street ref="S245"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S160">
+<name>SpringCourt</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S155"/>
+<Street ref="S156"/>
+<Street ref="S157"/>
+<Street ref="S158"/>
+<Street ref="S159"/>
+</Neighbours>
+</Street>
+<Street id="S161">
+<name>SummerRoad</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S162"/>
+<Street ref="S163"/>
+<Street ref="S164"/>
+<Street ref="S165"/>
+<Street ref="S218"/>
+<Street ref="S219"/>
+<Street ref="S220"/>
+<Street ref="S221"/>
+<Street ref="S24"/>
+</Neighbours>
+</Street>
+<Street id="S162">
+<name>BirchCourt</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S163"/>
+<Street ref="S164"/>
+<Street ref="S165"/>
+<Street ref="S24"/>
+<Street ref="S245"/>
+<Street ref="S246"/>
+<Street ref="S87"/>
+</Neighbours>
+</Street>
+<Street id="S163">
+<name>AutumnBoulevard</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S162"/>
+<Street ref="S164"/>
+<Street ref="S165"/>
+<Street ref="S24"/>
+</Neighbours>
+</Street>
+<Street id="S164">
+<name>RedwoodRoad</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S162"/>
+<Street ref="S163"/>
+<Street ref="S165"/>
+<Street ref="S24"/>
+<Street ref="S88"/>
+</Neighbours>
+</Street>
+<Street id="S165">
+<name>PinePlace</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S162"/>
+<Street ref="S163"/>
+<Street ref="S164"/>
+<Street ref="S232"/>
+<Street ref="S24"/>
+</Neighbours>
+</Street>
+<Street id="S166">
+<name>ShadowWay</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S167"/>
+<Street ref="S168"/>
+<Street ref="S169"/>
+<Street ref="S170"/>
+<Street ref="S199"/>
+<Street ref="S233"/>
+<Street ref="S234"/>
+<Street ref="S235"/>
+<Street ref="S236"/>
+<Street ref="S81"/>
+</Neighbours>
+</Street>
+<Street id="S167">
+<name>GoldenTerrace</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S166"/>
+<Street ref="S168"/>
+<Street ref="S169"/>
+<Street ref="S170"/>
+</Neighbours>
+</Street>
+<Street id="S168">
+<name>ValleyWay</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S153"/>
+<Street ref="S166"/>
+<Street ref="S167"/>
+<Street ref="S169"/>
+<Street ref="S170"/>
+</Neighbours>
+</Street>
+<Street id="S169">
+<name>SpringAvenue</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S166"/>
+<Street ref="S167"/>
+<Street ref="S168"/>
+<Street ref="S170"/>
+<Street ref="S178"/>
+<Street ref="S21"/>
+</Neighbours>
+</Street>
+<Street id="S170">
+<name>BrookBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S166"/>
+<Street ref="S167"/>
+<Street ref="S168"/>
+<Street ref="S169"/>
+<Street ref="S194"/>
+</Neighbours>
+</Street>
+<Street id="S171">
+<name>RedwoodCourt</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S172"/>
+<Street ref="S173"/>
+<Street ref="S249"/>
+<Street ref="S250"/>
+</Neighbours>
+</Street>
+<Street id="S172">
+<name>CottonwoodWay</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S171"/>
+<Street ref="S173"/>
+<Street ref="S192"/>
+</Neighbours>
+</Street>
+<Street id="S173">
+<name>BridgeTerrace</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S171"/>
+<Street ref="S172"/>
+<Street ref="S77"/>
+</Neighbours>
+</Street>
+<Street id="S174">
+<name>HillBoulevard</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S175"/>
+<Street ref="S176"/>
+<Street ref="S177"/>
+<Street ref="S178"/>
+<Street ref="S179"/>
+<Street ref="S180"/>
+<Street ref="S196"/>
+<Street ref="S227"/>
+<Street ref="S228"/>
+<Street ref="S229"/>
+<Street ref="S5"/>
+<Street ref="S68"/>
+</Neighbours>
+</Street>
+<Street id="S175">
+<name>MeadowTerrace</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S10"/>
+<Street ref="S174"/>
+<Street ref="S176"/>
+<Street ref="S177"/>
+<Street ref="S178"/>
+<Street ref="S179"/>
+</Neighbours>
+</Street>
+<Street id="S176">
+<name>ForestBoulevard</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S174"/>
+<Street ref="S175"/>
+<Street ref="S177"/>
+<Street ref="S178"/>
+<Street ref="S179"/>
+</Neighbours>
+</Street>
+<Street id="S177">
+<name>AutumnPlace</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S11"/>
+<Street ref="S174"/>
+<Street ref="S175"/>
+<Street ref="S176"/>
+<Street ref="S178"/>
+<Street ref="S179"/>
+</Neighbours>
+</Street>
+<Street id="S178">
+<name>CedarStreet</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S169"/>
+<Street ref="S174"/>
+<Street ref="S175"/>
+<Street ref="S176"/>
+<Street ref="S177"/>
+<Street ref="S179"/>
+<Street ref="S21"/>
+</Neighbours>
+</Street>
+<Street id="S179">
+<name>LaurelStreet</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S174"/>
+<Street ref="S175"/>
+<Street ref="S176"/>
+<Street ref="S177"/>
+<Street ref="S178"/>
+</Neighbours>
+</Street>
+<Street id="S180">
+<name>RedwoodTerrace</name>
+<type>Residential</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S174"/>
+<Street ref="S181"/>
+<Street ref="S182"/>
+<Street ref="S183"/>
+<Street ref="S196"/>
+<Street ref="S227"/>
+<Street ref="S228"/>
+<Street ref="S229"/>
+<Street ref="S5"/>
+<Street ref="S68"/>
+</Neighbours>
+</Street>
+<Street id="S181">
+<name>SunnyLane</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S180"/>
+<Street ref="S182"/>
+<Street ref="S183"/>
+<Street ref="S189"/>
+<Street ref="S28"/>
+</Neighbours>
+</Street>
+<Street id="S182">
+<name>RedwoodPlace</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S125"/>
+<Street ref="S142"/>
+<Street ref="S180"/>
+<Street ref="S181"/>
+<Street ref="S183"/>
+<Street ref="S52"/>
+</Neighbours>
+</Street>
+<Street id="S183">
+<name>PineWay</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S142"/>
+<Street ref="S180"/>
+<Street ref="S181"/>
+<Street ref="S182"/>
+</Neighbours>
+</Street>
+<Street id="S184">
+<name>BirchRoad</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S132"/>
+<Street ref="S137"/>
+<Street ref="S8"/>
+</Neighbours>
+</Street>
+<Street id="S185">
+<name>PineBoulevard</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S104"/>
+<Street ref="S105"/>
+<Street ref="S186"/>
+<Street ref="S187"/>
+<Street ref="S228"/>
+<Street ref="S36"/>
+</Neighbours>
+</Street>
+<Street id="S186">
+<name>HillAvenue</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S104"/>
+<Street ref="S105"/>
+<Street ref="S113"/>
+<Street ref="S185"/>
+<Street ref="S187"/>
+<Street ref="S3"/>
+<Street ref="S36"/>
+</Neighbours>
+</Street>
+<Street id="S187">
+<name>ShadowStreet</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S104"/>
+<Street ref="S105"/>
+<Street ref="S185"/>
+<Street ref="S186"/>
+<Street ref="S36"/>
+</Neighbours>
+</Street>
+<Street id="S188">
+<name>MagnoliaRoad</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S189"/>
+<Street ref="S190"/>
+<Street ref="S32"/>
+<Street ref="S75"/>
+<Street ref="S82"/>
+</Neighbours>
+</Street>
+<Street id="S189">
+<name>HillDrive</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S181"/>
+<Street ref="S188"/>
+<Street ref="S190"/>
+<Street ref="S28"/>
+<Street ref="S32"/>
+<Street ref="S75"/>
+</Neighbours>
+</Street>
+<Street id="S190">
+<name>AspenStreet</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S15"/>
+<Street ref="S188"/>
+<Street ref="S189"/>
+<Street ref="S32"/>
+<Street ref="S4"/>
+<Street ref="S75"/>
+</Neighbours>
+</Street>
+<Street id="S191">
+<name>LaurelTerrace</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours/>
+</Street>
+<Street id="S192">
+<name>RiverAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S154"/>
+<Street ref="S172"/>
+<Street ref="S193"/>
+<Street ref="S194"/>
+</Neighbours>
+</Street>
+<Street id="S193">
+<name>RedwoodStreet</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S154"/>
+<Street ref="S192"/>
+<Street ref="S194"/>
+<Street ref="S99"/>
+</Neighbours>
+</Street>
+<Street id="S194">
+<name>SilverStreet</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S154"/>
+<Street ref="S170"/>
+<Street ref="S192"/>
+<Street ref="S193"/>
+</Neighbours>
+</Street>
+<Street id="S195">
+<name>ChestnutPlace</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S106"/>
+<Street ref="S147"/>
+<Street ref="S215"/>
+<Street ref="S246"/>
+</Neighbours>
+</Street>
+<Street id="S196">
+<name>AutumnDrive</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S174"/>
+<Street ref="S180"/>
+<Street ref="S197"/>
+<Street ref="S198"/>
+<Street ref="S227"/>
+<Street ref="S228"/>
+<Street ref="S229"/>
+<Street ref="S5"/>
+<Street ref="S68"/>
+</Neighbours>
+</Street>
+<Street id="S197">
+<name>BirchStreet</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S196"/>
+<Street ref="S198"/>
+</Neighbours>
+</Street>
+<Street id="S198">
+<name>ClearDrive</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S196"/>
+<Street ref="S197"/>
+<Street ref="S97"/>
+</Neighbours>
+</Street>
+<Street id="S199">
+<name>AspenLane</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S166"/>
+<Street ref="S200"/>
+<Street ref="S201"/>
+<Street ref="S233"/>
+<Street ref="S234"/>
+<Street ref="S235"/>
+<Street ref="S236"/>
+<Street ref="S81"/>
+</Neighbours>
+</Street>
+<Street id="S200">
+<name>LaurelPlace</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S199"/>
+<Street ref="S201"/>
+<Street ref="S211"/>
+<Street ref="S244"/>
+<Street ref="S56"/>
+</Neighbours>
+</Street>
+<Street id="S201">
+<name>SunnyBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S124"/>
+<Street ref="S199"/>
+<Street ref="S200"/>
+</Neighbours>
+</Street>
+<Street id="S202">
+<name>ForestCourt</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S151"/>
+<Street ref="S203"/>
+<Street ref="S204"/>
+<Street ref="S235"/>
+<Street ref="S241"/>
+</Neighbours>
+</Street>
+<Street id="S203">
+<name>SpruceBoulevard</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S202"/>
+<Street ref="S204"/>
+</Neighbours>
+</Street>
+<Street id="S204">
+<name>BrookLane</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S202"/>
+<Street ref="S203"/>
+<Street ref="S29"/>
+</Neighbours>
+</Street>
+<Street id="S205">
+<name>SilverAvenue</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S122"/>
+<Street ref="S148"/>
+<Street ref="S206"/>
+<Street ref="S39"/>
+</Neighbours>
+</Street>
+<Street id="S206">
+<name>MagnoliaLane</name>
+<type>Residential</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S148"/>
+<Street ref="S205"/>
+<Street ref="S27"/>
+<Street ref="S39"/>
+</Neighbours>
+</Street>
+<Street id="S207">
+<name>CedarLane</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours/>
+</Street>
+<Street id="S208">
+<name>WinterAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S14"/>
+<Street ref="S209"/>
+<Street ref="S210"/>
+<Street ref="S244"/>
+<Street ref="S92"/>
+</Neighbours>
+</Street>
+<Street id="S209">
+<name>MapleAvenue</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S110"/>
+<Street ref="S14"/>
+<Street ref="S208"/>
+<Street ref="S210"/>
+<Street ref="S248"/>
+</Neighbours>
+</Street>
+<Street id="S210">
+<name>AspenDrive</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S14"/>
+<Street ref="S208"/>
+<Street ref="S209"/>
+<Street ref="S35"/>
+</Neighbours>
+</Street>
+<Street id="S211">
+<name>BrookRoad</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S200"/>
+<Street ref="S212"/>
+<Street ref="S213"/>
+<Street ref="S214"/>
+<Street ref="S244"/>
+<Street ref="S56"/>
+</Neighbours>
+</Street>
+<Street id="S212">
+<name>DogwoodAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S211"/>
+<Street ref="S213"/>
+<Street ref="S214"/>
+<Street ref="S238"/>
+</Neighbours>
+</Street>
+<Street id="S213">
+<name>ValleyDrive</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S159"/>
+<Street ref="S211"/>
+<Street ref="S212"/>
+<Street ref="S214"/>
+<Street ref="S245"/>
+<Street ref="S79"/>
+</Neighbours>
+</Street>
+<Street id="S214">
+<name>SilverLane</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S211"/>
+<Street ref="S212"/>
+<Street ref="S213"/>
+<Street ref="S98"/>
+</Neighbours>
+</Street>
+<Street id="S215">
+<name>MapleBoulevard</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S147"/>
+<Street ref="S195"/>
+<Street ref="S216"/>
+<Street ref="S217"/>
+<Street ref="S246"/>
+</Neighbours>
+</Street>
+<Street id="S216">
+<name>HollyWay</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S215"/>
+<Street ref="S217"/>
+</Neighbours>
+</Street>
+<Street id="S217">
+<name>StonePlace</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S215"/>
+<Street ref="S216"/>
+</Neighbours>
+</Street>
+<Street id="S218">
+<name>GoldenCourt</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S157"/>
+<Street ref="S161"/>
+<Street ref="S219"/>
+<Street ref="S220"/>
+<Street ref="S221"/>
+</Neighbours>
+</Street>
+<Street id="S219">
+<name>LakeBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S120"/>
+<Street ref="S161"/>
+<Street ref="S218"/>
+<Street ref="S220"/>
+<Street ref="S221"/>
+</Neighbours>
+</Street>
+<Street id="S220">
+<name>GoldenWay</name>
+<type>Pedestrian</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S218"/>
+<Street ref="S219"/>
+<Street ref="S221"/>
+</Neighbours>
+</Street>
+<Street id="S221">
+<name>AshPlace</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S161"/>
+<Street ref="S218"/>
+<Street ref="S219"/>
+<Street ref="S220"/>
+<Street ref="S34"/>
+</Neighbours>
+</Street>
+<Street id="S222">
+<name>WillowDrive</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S223"/>
+<Street ref="S94"/>
+</Neighbours>
+</Street>
+<Street id="S223">
+<name>ClearBoulevard</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S222"/>
+</Neighbours>
+</Street>
+<Street id="S224">
+<name>AshBoulevard</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S145"/>
+<Street ref="S20"/>
+<Street ref="S225"/>
+<Street ref="S226"/>
+<Street ref="S249"/>
+<Street ref="S40"/>
+<Street ref="S54"/>
+</Neighbours>
+</Street>
+<Street id="S225">
+<name>GroveBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S224"/>
+<Street ref="S226"/>
+<Street ref="S54"/>
+</Neighbours>
+</Street>
+<Street id="S226">
+<name>ClearPlace</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S224"/>
+<Street ref="S225"/>
+<Street ref="S54"/>
+</Neighbours>
+</Street>
+<Street id="S227">
+<name>MeadowLane</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S123"/>
+<Street ref="S174"/>
+<Street ref="S180"/>
+<Street ref="S196"/>
+<Street ref="S228"/>
+<Street ref="S229"/>
+<Street ref="S5"/>
+<Street ref="S59"/>
+<Street ref="S68"/>
+</Neighbours>
+</Street>
+<Street id="S228">
+<name>MapleCourt</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S174"/>
+<Street ref="S180"/>
+<Street ref="S185"/>
+<Street ref="S196"/>
+<Street ref="S227"/>
+<Street ref="S229"/>
+<Street ref="S5"/>
+<Street ref="S68"/>
+</Neighbours>
+</Street>
+<Street id="S229">
+<name>RiverDrive</name>
+<type>Highway</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S117"/>
+<Street ref="S174"/>
+<Street ref="S180"/>
+<Street ref="S196"/>
+<Street ref="S227"/>
+<Street ref="S228"/>
+<Street ref="S5"/>
+<Street ref="S68"/>
+</Neighbours>
+</Street>
+<Street id="S230">
+<name>CottonwoodCourt</name>
+<type>Highway</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S149"/>
+<Street ref="S231"/>
+<Street ref="S247"/>
+<Street ref="S76"/>
+<Street ref="S83"/>
+</Neighbours>
+</Street>
+<Street id="S231">
+<name>HollyDrive</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S141"/>
+<Street ref="S149"/>
+<Street ref="S158"/>
+<Street ref="S230"/>
+<Street ref="S67"/>
+<Street ref="S76"/>
+</Neighbours>
+</Street>
+<Street id="S232">
+<name>RedwoodLane</name>
+<type>Commercial</type>
+<speed_limit>80</speed_limit>
+<Neighbours>
+<Street ref="S165"/>
+</Neighbours>
+</Street>
+<Street id="S233">
+<name>WinterPlace</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S166"/>
+<Street ref="S199"/>
+<Street ref="S234"/>
+<Street ref="S235"/>
+<Street ref="S236"/>
+<Street ref="S58"/>
+<Street ref="S81"/>
+</Neighbours>
+</Street>
+<Street id="S234">
+<name>PineCourt</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S115"/>
+<Street ref="S119"/>
+<Street ref="S166"/>
+<Street ref="S199"/>
+<Street ref="S233"/>
+<Street ref="S235"/>
+<Street ref="S236"/>
+<Street ref="S81"/>
+</Neighbours>
+</Street>
+<Street id="S235">
+<name>AspenTerrace</name>
+<type>Pedestrian</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S151"/>
+<Street ref="S166"/>
+<Street ref="S199"/>
+<Street ref="S202"/>
+<Street ref="S233"/>
+<Street ref="S234"/>
+<Street ref="S236"/>
+<Street ref="S241"/>
+<Street ref="S81"/>
+</Neighbours>
+</Street>
+<Street id="S236">
+<name>SycamoreCourt</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S111"/>
+<Street ref="S166"/>
+<Street ref="S199"/>
+<Street ref="S233"/>
+<Street ref="S234"/>
+<Street ref="S235"/>
+<Street ref="S53"/>
+<Street ref="S81"/>
+</Neighbours>
+</Street>
+<Street id="S237">
+<name>CottonwoodAvenue</name>
+<type>Commercial</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S18"/>
+<Street ref="S238"/>
+<Street ref="S57"/>
+</Neighbours>
+</Street>
+<Street id="S238">
+<name>HillWay</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S212"/>
+<Street ref="S237"/>
+<Street ref="S57"/>
+</Neighbours>
+</Street>
+<Street id="S239">
+<name>LakeStreet</name>
+<type>Residential</type>
+<speed_limit>60</speed_limit>
+<Neighbours>
+<Street ref="S107"/>
+<Street ref="S116"/>
+<Street ref="S240"/>
+</Neighbours>
+</Street>
+<Street id="S240">
+<name>WillowBoulevard</name>
+<type>Highway</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S109"/>
+<Street ref="S239"/>
+<Street ref="S84"/>
+</Neighbours>
+</Street>
+<Street id="S241">
+<name>PineAvenue</name>
+<type>Commercial</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S151"/>
+<Street ref="S202"/>
+<Street ref="S235"/>
+<Street ref="S91"/>
+</Neighbours>
+</Street>
+<Street id="S242">
+<name>ChestnutDrive</name>
+<type>Residential</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S243"/>
+</Neighbours>
+</Street>
+<Street id="S243">
+<name>SpruceCourt</name>
+<type>Commercial</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S101"/>
+<Street ref="S242"/>
+</Neighbours>
+</Street>
+<Street id="S244">
+<name>AspenBoulevard</name>
+<type>Pedestrian</type>
+<speed_limit>40</speed_limit>
+<Neighbours>
+<Street ref="S200"/>
+<Street ref="S208"/>
+<Street ref="S211"/>
+<Street ref="S56"/>
+<Street ref="S92"/>
+</Neighbours>
+</Street>
+<Street id="S245">
+<name>ShadowBoulevard</name>
+<type>Highway</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S159"/>
+<Street ref="S162"/>
+<Street ref="S213"/>
+<Street ref="S246"/>
+<Street ref="S79"/>
+<Street ref="S87"/>
+</Neighbours>
+</Street>
+<Street id="S246">
+<name>MagnoliaBoulevard</name>
+<type>Highway</type>
+<speed_limit>30</speed_limit>
+<Neighbours>
+<Street ref="S147"/>
+<Street ref="S162"/>
+<Street ref="S195"/>
+<Street ref="S215"/>
+<Street ref="S245"/>
+<Street ref="S87"/>
+</Neighbours>
+</Street>
+<Street id="S247">
+<name>AspenAvenue</name>
+<type>Pedestrian</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S230"/>
+<Street ref="S248"/>
+<Street ref="S47"/>
+<Street ref="S83"/>
+</Neighbours>
+</Street>
+<Street id="S248">
+<name>SummerBoulevard</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S110"/>
+<Street ref="S209"/>
+<Street ref="S247"/>
+<Street ref="S47"/>
+</Neighbours>
+</Street>
+<Street id="S249">
+<name>MagnoliaAvenue</name>
+<type>Residential</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S145"/>
+<Street ref="S171"/>
+<Street ref="S20"/>
+<Street ref="S224"/>
+<Street ref="S250"/>
+<Street ref="S40"/>
+</Neighbours>
+</Street>
+<Street id="S250">
+<name>HillCourt</name>
+<type>Commercial</type>
+<speed_limit>50</speed_limit>
+<Neighbours>
+<Street ref="S171"/>
+<Street ref="S249"/>
+</Neighbours>
+</Street>
+</CityMap>
