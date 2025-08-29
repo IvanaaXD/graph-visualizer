@@ -15,4 +15,4 @@ class Edge:
 
     def __str__(self):
         arrow = "->" if self.directed else "--"
-        return f"{self.from_node.name} {arrow} {self.to_node.name}"
+        return f"{self.from_node.name} {arrow} ({self.type}) {self.to_node.name}"
