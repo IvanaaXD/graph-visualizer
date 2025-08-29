@@ -3,7 +3,8 @@ from api.model.edge import Edge
 from api.model.node import Node
 
 class Graph:
-    def __init__(self):
+    def __init__(self, directed: bool):
+        self.directed = directed
         self.nodes: List[Node] = []
         self.edges: List[Edge] = []
 
