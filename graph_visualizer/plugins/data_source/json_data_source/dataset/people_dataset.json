@@ -1,4 +1,5 @@
 {
+    "directed" : true,
     "person179": {
       "gender": "Male",
       "knows": [
