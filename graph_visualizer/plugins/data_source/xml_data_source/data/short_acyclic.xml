@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<university type = "undirected">
+    <info>
+        <name>Central City University</name>
+        <address>Knowledge Avenue 42, Central City</address>
+        <established>1965</established>
+    </info>
+
+    <courses>
+        <course id="C001">
+            <title>Introduction to Computer Science</title>
+            <professor ref="P001"/>
+            <department>Computer Science</department>
+            <credits>6</credits>
+            <active>true</active>
+        </course>
+        <course id="C002">
+            <title>Data Structures</title>
+            <professor ref="P001"/>
+            <department>Computer Science</department>
+            <credits>6</credits>
+            <active>true</active>
+        </course>
+        <course id="C003">
+            <title>Modern History</title>
+            <professor ref="P002"/>
+            <department>History</department>
+            <credits>5</credits>
+            <active>true</active>
+        </course>
+        <course id="C004">
+            <title>Organic Chemistry</title>
+            <professor ref="P003"/>
+            <department>Chemistry</department>
+            <credits>7</credits>
+            <active>false</active>
+        </course>
+    </courses>
+
+    <professors>
+        <professor id="P001">
+            <name>Dr. Alice Carter</name>
+            <birth>1975</birth>
+            <nationality>British</nationality>
+        </professor>
+        <professor id="P002">
+            <name>Dr. Michael Green</name>
+            <birth>1968</birth>
+            <nationality>American</nationality>
+        </professor>
+        <professor id="P003">
+            <name>Dr. Sofia Lopez</name>
+            <birth>1980</birth>
+            <nationality>Spanish</nationality>
+        </professor>
+    </professors>
+
+    <students>
+        <student id="S001">
+            <name>John Miller</name>
+            <enrolled>2022-09-01</enrolled>
+            <course ref="C002"/>
+        </student>
+        <student id="S002">
+            <name>Emma Brown</name>
+            <enrolled>2021-09-01</enrolled>
+            <course ref="C001"/>
+            <course ref="C003"/>
+        </student>
+        <student id="S003">
+            <name>Liam Wilson</name>
+            <enrolled>2023-09-01</enrolled>
+        </student>
+    </students>
+</university>
