@@ -243,3 +243,23 @@
   // apply initial transform
   applyTransform();
 })();
+
+window.openWorkspaceDialog = function () {
+  document.getElementById("workspaceDialog").showModal();
+};
+
+window.closeWorkspaceDialog = function () {
+  document.getElementById("workspaceDialog").close();
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dialog = document.getElementById("workspaceDialog");
+  const addBtn = document.getElementById("workspaceAddBtn");
+  const cancelBtn = document.getElementById("workspaceCancelBtn");
+
+  addBtn.addEventListener("click", openWorkspaceDialog);
+  cancelBtn.addEventListener("click", closeWorkspaceDialog);
+});
+
+
+
