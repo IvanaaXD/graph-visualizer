@@ -54,7 +54,7 @@ def _cmp(a, op, b):
 
 def _subgraph(g: Graph, keep_ids: Iterable[str]) -> Graph:
     keep = set(keep_ids)
-    out = Graph()
+    out = Graph(g.directed)
     id2 = {}
     for n in g.nodes:
         if n.id in keep:

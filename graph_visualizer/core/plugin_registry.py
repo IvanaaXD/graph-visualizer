@@ -1,5 +1,7 @@
-from typing import Dict, List
+from importlib.metadata import entry_points
+from typing import Dict, List, Type
 from api.components.visualizer import VisualizerPlugin
+from api.components.data_source import DataSourceService
 from .exceptions import VisualizerNotFound
 _visualizers: Dict[str, VisualizerPlugin] = {}
 
@@ -16,3 +18,16 @@ def get_visualizer(key: str) -> VisualizerPlugin:
 
 def available_visualizers() -> List[str]:
     return list(_visualizers.keys())
+
+def load_plugins() -> Dict[str, Type[DataSourceService]]:
+    plugins = {}
+    for ep in entry_points(group="graph_explorer.datasources"):
+        plugin_cls = ep.load()
+        if issubclass(plugin_cls, DataSourceService):
+            plugins[ep.name] = plugin_cls
+    return plugins
+
+PLUGINS: Dict[str, Type[DataSourceService]] = load_plugins()
+
+def get_plugin_names():
+    return list(PLUGINS.keys())

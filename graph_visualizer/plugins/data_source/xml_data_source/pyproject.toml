@@ -6,7 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "xml_data_source"
 version = "0.1"
 dependencies = [
-    "api==0.1"
+    "api",
+    "graph_visualizer==0.1"
 ]
 requires-python = ">=3.10"
 
@@ -15,4 +16,4 @@ where = ["."]
 include = ["xml_data_source"]
 
 [project.entry-points."graph_explorer.datasources"]
-xml_data_source = "xml_data_source.xml_data_source:XmlDataSourceLoader"
+xml_data_source = "graph_visualizer.plugins.data_source.xml_data_source.xml_data_source:XmlDataSourceLoader"

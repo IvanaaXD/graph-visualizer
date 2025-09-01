@@ -98,6 +98,7 @@
     </section>
 
     <aside class="panel info">
+      <div>
       <div class="panel-header">
         <h3>Info</h3>
       </div>
@@ -108,12 +109,61 @@
         </ul>
         <p class="muted small">Tip: Successive Search/Filter forms a subgraph; "Reset" returns the initial graph.</p>
       </div>
+      </div>
+      <div class="workspace-info">
+        <div class="workspace-info-header">
+          <h3>Workspaces</h3>
+          <button type="button" id="workspaceAddBtn" class="btn primary">Add</button>
+        </div>
+        <div class="workspaces">
+          {% for wid, ws in workspaces.items %}
+            <div class="workspace {% if wid == active_id %}active{% endif %}">
+              <form action="/switch-workspace/{{ wid }}/" method="post" style="display:inline">
+                {% csrf_token %}
+                <button class="btn" type="submit" class="link-btn">{{ wid }}</button>
+              </form>
+              {% if wid != active_id %}
+              <form action="/close-workspace/{{ wid }}/" method="post" style="display:inline">
+                {% csrf_token %}
+                <button type="submit" class="btn ghost small">×</button>
+              </form>
+              {% endif %}
+            </div>
+          {% empty %}
+            <p class="muted small">No workspaces yet</p>
+          {% endfor %}
+        </div>
+      </div>
+
     </aside>
   </main>
 
   <footer class="footer">
     <span class="muted small">© Graph Visualizer · Demo workspace</span>
   </footer>
+
+  <dialog id="workspaceDialog" class="modal">
+    <div class="modal-content">
+      <h3>Create Workspace</h3>
+      <form action="/create-workspace/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="source">Data Source</label>
+        <select id="source" name="source" required>
+          {% for plugin in plugins %}
+            <option value="{{ plugin }}">{{ plugin }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="file">Choose File</label>
+        <input id="file" name="file" type="file" accept=".xml,.json" required/>
+        <div class="actions">
+          <button type="submit" class="btn primary">Create</button>
+          <button id="workspaceCancelBtn" type="button" class="btn ghost" onclick="closeWorkspaceDialog()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
 
   <script src="{% static 'explorer.js' %}"></script>
   

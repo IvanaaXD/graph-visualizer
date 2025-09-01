@@ -7,4 +7,7 @@ urlpatterns = [
     path("filter", views.apply_filter, name="apply_filter"),
     path("reset", views.reset_workspace, name="reset_workspace"),
     path("remove-query", views.remove_query, name="remove_query"),
+    path('create-workspace/', views.create_workspace, name='create_workspace'),
+    path('switch-workspace/<str:wspace_id>/', views.switch_workspace, name='switch_workspace'),
+    path('close-workspace/<str:wspace_id>/', views.close_workspace, name='close_workspace'),
 ]

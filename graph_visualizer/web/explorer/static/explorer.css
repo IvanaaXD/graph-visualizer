@@ -205,3 +205,115 @@ input[type="text"]:focus {
 #gv-tooltip .t-title { font-weight: 700; margin-bottom: 4px; }
 #gv-tooltip .t-kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; }
 #gv-tooltip .t-kv span:first-child { color: var(--muted); }
+
+
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.workspace-info-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+
+.workspace-info {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+}
+.workspaces {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.workspace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.workspace.active {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent), var(--panel) 90%);
+}
+
+/* ====== Modal Dialog ====== */
+dialog.modal {
+  border: none;
+  padding: 0;
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  width: 90%;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+/* Modal inner content */
+.modal-content {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.modal-content label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+  color: var(--muted);
+}
+
+.modal-content input[type="file"],
+.modal-content select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.modal-content input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 12px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.modal-content input[type="file"]::-webkit-file-upload-button:hover {
+  background: color-mix(in oklab, var(--accent), black 15%);
+}
+
+/* Actions */
+.modal-content .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
