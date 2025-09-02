@@ -25,7 +25,7 @@ JSON_CONFIGS = {
 
 def home(request):
     err = request.session.pop("error", None)
-    visualizer_key = request.GET.get("visualizer", "simple") 
+    visualizer_key = request.GET.get("visualizer", "simple")
 
     ctx = {
         "plugins": get_plugin_names(),
@@ -37,7 +37,9 @@ def home(request):
         "stats": {"nodes": 0, "edges": 0},
         "workspaces": {},
         "active_id": None,
-        "visualizer_key": visualizer_key, 
+        "visualizer_key": visualizer_key,  
+        "current_visualizer": visualizer_key,  
+
     }
 
     active_ws = _WS_MANAGER.get_active()
@@ -53,6 +55,7 @@ def home(request):
         })
         
     return render(request, "explorer.html", ctx)
+
 
 @require_http_methods(["POST"])
 def create_workspace(request):
@@ -109,23 +112,26 @@ def close_workspace(request, wspace_id):
 
 def apply_search(request):
     q = request.GET.get("q", "").strip()
+    visualizer = request.GET.get("visualizer", "simple")
     active_ws = _WS_MANAGER.get_active()
     if active_ws and q:
         active_ws.apply_search(q)
-    return redirect("home")
+    return redirect(f"/?visualizer={visualizer}")
 
 def apply_filter(request):
     expr = request.GET.get("expr", "").strip()
-    if not expr: return redirect("home")
+    visualizer = request.GET.get("visualizer", "simple")
+    if not expr: return redirect(f"/?visualizer={visualizer}")
     
     active_ws = _WS_MANAGER.get_active()
-    if not active_ws: return redirect("home")
+    if not active_ws: return redirect(f"/?visualizer={visualizer}")
     
     try:
         active_ws.apply_filter(expr)
     except (FilterParseError, FilterTypeError) as e:
         request.session["error"] = str(e)
-    return redirect("home")
+    return redirect(f"/?visualizer={visualizer}")
+
 
 @require_http_methods(["POST"])
 def reset_workspace(request):

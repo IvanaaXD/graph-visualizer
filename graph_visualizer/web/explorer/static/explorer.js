@@ -51,190 +51,157 @@
   if (!host) return;
   const svg = host.querySelector("svg.gv-svg");
   if (!svg) return;
-
   const viewport = svg.querySelector("g.viewport");
-  const capture = svg.querySelector("rect.pz-capture");
-  const nodes = Array.from(svg.querySelectorAll("g.nodes > g.node"));
-  const edges = Array.from(svg.querySelectorAll("g.edges > line"));
+  if (!viewport) return;
 
-  // Pan/Zoom state
-  let k = 1;              // scale
-  let tx = 0, ty = 0;     // translate
+  // --- Pan/Zoom State ---
+  let k = 1, tx = 0, ty = 0;
   const K_MIN = 0.2, K_MAX = 4;
 
   function applyTransform() {
     viewport.setAttribute("transform", `translate(${tx},${ty}) scale(${k})`);
   }
 
-  // Client → SVG coords (outer)
+  // --- Client -> World coordinates ---
   function clientToSvg(clientX, clientY) {
     const pt = svg.createSVGPoint();
-    pt.x = clientX; pt.y = clientY;
+    pt.x = clientX;
+    pt.y = clientY;
     const ctm = svg.getScreenCTM();
     return ctm ? pt.matrixTransform(ctm.inverse()) : { x: clientX, y: clientY };
   }
-  // Client → World coords (pre scale/translate)
   function clientToWorld(clientX, clientY) {
     const p = clientToSvg(clientX, clientY);
     return { x: (p.x - tx) / k, y: (p.y - ty) / k };
   }
 
-  // ---------- PAN ----------
-  let panning = false;
-  let panStart = { x: 0, y: 0 };
-  let panAt = { tx: 0, ty: 0 };
-
-  function panStartHandler(e) {
-    // Prevent panning when starting a drag gesture on a node
-    if (e.target.closest("g.node")) return;
-    panning = true;
-    svg.classList.add("panning");
-    panStart = { x: e.clientX, y: e.clientY };
-    panAt = { tx, ty };
-    e.preventDefault();
-  }
-  function panMoveHandler(e) {
-    if (!panning) return;
-    const dx = e.clientX - panStart.x;
-    const dy = e.clientY - panStart.y;
-    tx = panAt.tx + dx;
-    ty = panAt.ty + dy;
+  // --- Pan ---
+  const panState = { active: false, startX: 0, startY: 0 };
+  svg.addEventListener("pointerdown", e => {
+    if (e.target.closest("g.node")) return; // node drag
+    panState.active = true;
+    panState.startX = e.clientX - tx;
+    panState.startY = e.clientY - ty;
+    svg.setPointerCapture(e.pointerId);
+    svg.style.cursor = "grab";
+  });
+  svg.addEventListener("pointermove", e => {
+    if (!panState.active) return;
+    tx = e.clientX - panState.startX;
+    ty = e.clientY - panState.startY;
     applyTransform();
-  }
-  function panEndHandler() {
-    panning = false;
-    svg.classList.remove("panning");
-  }
+  });
+  svg.addEventListener("pointerup", e => {
+    panState.active = false;
+    svg.releasePointerCapture(e.pointerId);
+    svg.style.cursor = "default";
+  });
 
-  (capture || svg).addEventListener("mousedown", panStartHandler);
-  window.addEventListener("mousemove", panMoveHandler);
-  window.addEventListener("mouseup", panEndHandler);
+  // --- Zoom ---
+  svg.addEventListener("wheel", e => {
+    e.preventDefault();
+    const { x: wx, y: wy } = clientToWorld(e.clientX, e.clientY);
+    const delta = -e.deltaY;
+    const factor = Math.exp(delta * 0.0015);
+    const newK = Math.min(K_MAX, Math.max(K_MIN, k * factor));
+    tx = tx - (wx * (newK - k));
+    ty = ty - (wy * (newK - k));
+    k = newK;
+    applyTransform();
+  }, { passive: false });
 
-  // ---------- ZOOM (wheel, zoom-to-cursor) ----------
-  svg.addEventListener("wheel", (e) => {
-  e.preventDefault();
-  const { x: wx, y: wy } = clientToWorld(e.clientX, e.clientY);
-  const delta = -e.deltaY; // up = zoom in
-  const factor = Math.exp(delta * 0.0015);
-  const newK = Math.min(K_MAX, Math.max(K_MIN, k * factor));
+  // --- Node Drag ---
+  const nodes = Array.from(svg.querySelectorAll("g.nodes > g.node"));
+  const edges = Array.from(svg.querySelectorAll("g.edges > line"));
 
-  // keep (wx, wy) under the cursor
-  tx = tx - (wx * (newK - k));
-  ty = ty - (wy * (newK - k));
-
-  k = newK;
-  applyTransform();
-}, { passive: false });
-
-
-  // ---------- DRAG NODES ----------
-  // mapping: nodeId -> lines that start/end at that node
+  // map nodeId -> connected lines
   const linesByNode = new Map();
   nodes.forEach(n => {
     const id = n.getAttribute("data-id");
     if (!id) return;
-    const arr = [];
-    edges.forEach(line => {
-      if (line.getAttribute("data-from") === id || line.getAttribute("data-to") === id) {
-        arr.push(line);
-      }
-    });
+    const arr = edges.filter(l => l.getAttribute("data-from") === id || l.getAttribute("data-to") === id);
     linesByNode.set(id, arr);
   });
 
-  let dragging = null;           // <g class="node">
-  let dragWorldStart = { x: 0, y: 0 };
-  let dragNodeStart = { x: 0, y: 0 };
-
-  function getNodePosition(nodeG) {
-    const tr = nodeG.getAttribute("transform"); // "translate(x,y)"
-    const m = /translate\(([-\d.]+),\s*([-\d.]+)\)/.exec(tr || "");
+  let draggingNode = null;
+  let dragOffset = { x: 0, y: 0 };
+  function getNodePos(node) {
+    const tr = node.getAttribute("transform") || "";
+    const m = /translate\(([-\d.]+),\s*([-\d.]+)\)/.exec(tr);
     return m ? { x: parseFloat(m[1]), y: parseFloat(m[2]) } : { x: 0, y: 0 };
   }
-  function setNodePosition(nodeG, x, y) {
-    nodeG.setAttribute("transform", `translate(${x},${y})`);
+  function setNodePos(node, x, y) {
+    node.setAttribute("transform", `translate(${x},${y})`);
   }
   function updateConnectedLines(nodeId, x, y) {
-    const lines = linesByNode.get(nodeId) || [];
-    lines.forEach(line => {
-      if (line.getAttribute("data-from") === nodeId) {
-        line.setAttribute("x1", x);
-        line.setAttribute("y1", y);
-      }
-      if (line.getAttribute("data-to") === nodeId) {
-        line.setAttribute("x2", x);
-        line.setAttribute("y2", y);
-      }
+    (linesByNode.get(nodeId) || []).forEach(line => {
+      if (line.getAttribute("data-from") === nodeId) { line.setAttribute("x1", x); line.setAttribute("y1", y); }
+      if (line.getAttribute("data-to") === nodeId) { line.setAttribute("x2", x); line.setAttribute("y2", y); }
     });
   }
 
-  nodes.forEach(nodeG => {
-    nodeG.addEventListener("mousedown", (e) => {
-      e.stopPropagation(); // prevent pan
-      dragging = nodeG;
-      nodeG.classList.add("dragging");
-      dragWorldStart = clientToWorld(e.clientX, e.clientY);
-      const p = getNodePosition(nodeG);
-      dragNodeStart = { x: p.x, y: p.y };
-      e.preventDefault();
+  nodes.forEach(node => {
+    const circle = node.querySelector("circle");
+    if (!circle) return;
+
+    circle.addEventListener("pointerdown", e => {
+      e.stopPropagation();
+      draggingNode = node;
+      const pos = getNodePos(node);
+      dragOffset.x = e.clientX - pos.x;
+      dragOffset.y = e.clientY - pos.y;
+      node.classList.add("dragging");
+      svg.setPointerCapture(e.pointerId);
     });
   });
 
-  window.addEventListener("mousemove", (e) => {
-    if (!dragging) return;
-    const { x: wx, y: wy } = clientToWorld(e.clientX, e.clientY);
-    const nx = dragNodeStart.x + (wx - dragWorldStart.x);
-    const ny = dragNodeStart.y + (wy - dragWorldStart.y);
-    setNodePosition(dragging, nx, ny);
-    const id = dragging.getAttribute("data-id");
-    if (id) updateConnectedLines(id, nx, ny);
+  svg.addEventListener("pointermove", e => {
+    if (!draggingNode) return;
+    const x = e.clientX - dragOffset.x;
+    const y = e.clientY - dragOffset.y;
+    setNodePos(draggingNode, x, y);
+    updateConnectedLines(draggingNode.getAttribute("data-id"), x, y);
   });
 
-  window.addEventListener("mouseup", () => {
-    if (dragging) dragging.classList.remove("dragging");
-    dragging = null;
+  svg.addEventListener("pointerup", e => {
+    if (draggingNode) draggingNode.classList.remove("dragging");
+    draggingNode = null;
   });
 
-  // ---------- TOOLTIP ----------
+  // --- Tooltip Hover ---
   const tooltip = document.createElement("div");
   tooltip.id = "gv-tooltip";
   tooltip.style.display = "none";
   document.body.appendChild(tooltip);
 
-  function showTooltip(e, nodeG) {
-    const name = nodeG.getAttribute("data-name") || "";
-    let attrs = {};
-    try { attrs = JSON.parse(nodeG.getAttribute("data-attrs") || "{}"); }
-    catch { attrs = {}; }
+  nodes.forEach(node => {
+    const circle = node.querySelector("circle");
+    if (!circle) return;
 
-    let html = `<div class="t-title">${name}</div>`;
-    const keys = Object.keys(attrs);
-    if (keys.length) {
-      html += `<div class="t-kv">`;
-      keys.forEach(k => {
-        html += `<span>${k}</span><span>${attrs[k]}</span>`;
-      });
-      html += `</div>`;
+    function showTip(e) {
+      const name = node.getAttribute("data-name") || "";
+      let attrs = {};
+      try { attrs = JSON.parse(node.getAttribute("data-attrs") || "{}"); } catch {}
+      let html = `<div class="t-title">${name}</div>`;
+      if (Object.keys(attrs).length) {
+        html += `<div class="t-kv">`;
+        for (const k in attrs) html += `<span>${k}</span><span>${attrs[k]}</span>`;
+        html += `</div>`;
+      }
+      tooltip.innerHTML = html;
+      tooltip.style.display = "block";
+      const pad = 10;
+      let x = e.clientX + pad, y = e.clientY + pad;
+      const rect = tooltip.getBoundingClientRect();
+      if (x + rect.width > window.innerWidth - 6) x = e.clientX - rect.width - pad;
+      if (y + rect.height > window.innerHeight - 6) y = e.clientY - rect.height - pad;
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top = `${y}px`;
     }
-    tooltip.innerHTML = html;
-    tooltip.style.display = "block";
 
-    const pad = 10;
-    let x = e.clientX + pad, y = e.clientY + pad;
-    const rect = tooltip.getBoundingClientRect();
-    if (x + rect.width > window.innerWidth - 6) x = e.clientX - rect.width - pad;
-    if (y + rect.height > window.innerHeight - 6) y = e.clientY - rect.height - pad;
-    tooltip.style.left = `${x}px`;
-    tooltip.style.top = `${y}px`;
-  }
-  function hideTooltip() {
-    tooltip.style.display = "none";
-  }
-
-  nodes.forEach(nodeG => {
-    nodeG.addEventListener("mouseenter", (e) => showTooltip(e, nodeG));
-    nodeG.addEventListener("mousemove", (e) => showTooltip(e, nodeG));
-    nodeG.addEventListener("mouseleave", hideTooltip);
+    node.addEventListener("pointerenter", showTip);
+    node.addEventListener("pointermove", showTip);
+    node.addEventListener("pointerleave", () => { tooltip.style.display = "none"; });
   });
 
   applyTransform();
@@ -252,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dialog = document.getElementById("workspaceDialog");
   const addBtn = document.getElementById("workspaceAddBtn");
   const cancelBtn = document.getElementById("workspaceCancelBtn");
-
+  
   addBtn.addEventListener("click", openWorkspaceDialog);
   cancelBtn.addEventListener("click", closeWorkspaceDialog);
 });
@@ -260,16 +227,22 @@ document.addEventListener("DOMContentLoaded", () => {
 // --------------- SWITCH VISUALZIERS ---------------
 
 window.gvPositions = window.gvPositions || {};
+window.gvCurrentVisualizer = "simple";
 
-function switchVisualizer(type) {
+function switchVisualizer(type, btn) {
+  window.gvCurrentVisualizer = type;
+
   const positions = {};
   document.querySelectorAll(".node, .block-node").forEach(n => {
-    const transform = n.getAttribute("transform");
-    if (transform) {
-      const [x, y] = transform.match(/-?\d+(\.\d+)?/g).map(Number);
+    const transform = n.getAttribute("transform") || "";
+    const m = transform.match(/-?\d+(\.\d+)?/g);
+    if (m && m.length >= 2) {
+      const [x, y] = m.map(Number);
       positions[n.getAttribute("data-id")] = { x, y };
     }
   });
+
+  updatePrimaryButton(btn);
 
   fetch(`/switch-visualizer/${type}/`, {
     method: "POST",
@@ -284,12 +257,23 @@ function switchVisualizer(type) {
     const mainHost = document.getElementById("main-host");
     mainHost.innerHTML = data.html;
 
-    if (window[data.visualizer + "Init"]) {
-      window[data.visualizer + "Init"]();
+    const svg = mainHost.querySelector(".gv-svg");
+    enablePanZoom(svg);
+
+    if (window[type + "Init"]) {
+      window[type + "Init"]();
     }
+
+    bindNodeHoverAndTooltip(svg);
+
+    window.gvCurrentVisualizer = type;
+    const searchInput = document.getElementById("search-visualizer");
+    if (searchInput) searchInput.value = type;
+
   })
   .catch(err => console.error("Switch failed:", err));
 }
+
 
 function getCookie(name) {
   let cookieValue = null;
@@ -304,6 +288,13 @@ function getCookie(name) {
     }
   }
   return cookieValue;
+}
+
+function updatePrimaryButton(activeBtn) {
+  document.querySelectorAll(".btn-group .btn").forEach(btn => {
+    btn.classList.remove("primary");
+  });
+  activeBtn.classList.add("primary");
 }
 
 function simpleInit() {
@@ -328,11 +319,21 @@ function simpleInit() {
       line.setAttribute("y2", y);
     });
 
-    window.gvPositions[nodeId] = { x, y }; 
+    window.gvPositions[nodeId] = { x, y };
   }
 
   svg.querySelectorAll(".node").forEach(node => {
     const circle = node.querySelector("circle");
+
+    node.addEventListener("mouseenter", () => {
+      node.classList.add("hovered");
+      circle.style.cursor = "grab";
+    });
+    node.addEventListener("mouseleave", () => {
+      node.classList.remove("hovered");
+      circle.style.cursor = "default";
+    });
+
     circle.addEventListener("mousedown", e => {
       selectedNode = node;
       const [x, y] = node.getAttribute("transform").match(/-?\d+(\.\d+)?/g).map(Number);
@@ -356,6 +357,8 @@ function simpleInit() {
       selectedNode = null;
     }
   });
+
+  enablePanZoom(svg);
 }
 
 function blockInit() {
@@ -413,4 +416,160 @@ function blockInit() {
       selectedNode = null;
     }
   });
+
+  enablePanZoom(svg);
 }
+
+window.gvPanZoom = window.gvPanZoom || {
+  x: 0, y: 0, scale: 1,
+  svg: null,
+  container: null,
+  isPanning: false,
+  start: { x: 0, y: 0 }
+};
+
+function enablePanZoom(svg) {
+  if (!svg) return;
+
+  const container = svg.querySelector("g.viewport");
+  if (!container) return;
+
+  window.gvPanZoom.svg = svg;
+  window.gvPanZoom.container = container;
+
+  function updateTransform() {
+    const { x, y, scale, container } = window.gvPanZoom;
+    if (container) container.setAttribute("transform", `translate(${x},${y}) scale(${scale})`);
+  }
+
+  if (!enablePanZoom.bound) {
+    document.addEventListener("mousedown", e => {
+      const { svg } = window.gvPanZoom;
+      if (!svg) return;
+      if (e.button === 1 || e.button === 2 || e.shiftKey) {
+        window.gvPanZoom.isPanning = true;
+        window.gvPanZoom.start = { x: e.clientX - window.gvPanZoom.x, y: e.clientY - window.gvPanZoom.y };
+        svg.style.cursor = "grab";
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener("mousemove", e => {
+      if (window.gvPanZoom.isPanning) {
+        window.gvPanZoom.x = e.clientX - window.gvPanZoom.start.x;
+        window.gvPanZoom.y = e.clientY - window.gvPanZoom.start.y;
+        updateTransform();
+      }
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (window.gvPanZoom.isPanning) {
+        window.gvPanZoom.isPanning = false;
+        if (window.gvPanZoom.svg) window.gvPanZoom.svg.style.cursor = "default";
+      }
+    });
+
+    document.addEventListener("wheel", e => {
+      const { svg } = window.gvPanZoom;
+      if (!svg) return;
+      e.preventDefault();
+      const scaleFactor = 1.1;
+      if (e.ctrlKey) {
+        window.gvPanZoom.scale *= e.deltaY < 0 ? scaleFactor : 1 / scaleFactor;
+      } else {
+        window.gvPanZoom.x -= e.deltaX;
+        window.gvPanZoom.y -= e.deltaY;
+      }
+      updateTransform();
+    }, { passive: false });
+
+    enablePanZoom.bound = true;
+  }
+
+  updateTransform();
+}
+
+function bindNodeHoverAndTooltip(svg) {
+  if (!svg) return;
+  
+  const tooltip = document.getElementById("gv-tooltip") || (() => {
+    const t = document.createElement("div");
+    t.id = "gv-tooltip";
+    t.style.display = "none";
+    document.body.appendChild(t);
+    return t;
+  })();
+
+  svg.querySelectorAll(".node").forEach(nodeG => {
+    const circle = nodeG.querySelector("circle");
+    if (!circle) return;
+
+    // Hover class i cursor
+    nodeG.addEventListener("mouseenter", () => {
+      nodeG.classList.add("hovered");
+      circle.style.cursor = "grab";
+    });
+    nodeG.addEventListener("mouseleave", () => {
+      nodeG.classList.remove("hovered");
+      circle.style.cursor = "default";
+      tooltip.style.display = "none";
+    });
+
+    function showTooltip(e) {
+      const name = nodeG.getAttribute("data-name") || "";
+      let attrs = {};
+      try { attrs = JSON.parse(nodeG.getAttribute("data-attrs") || "{}"); } catch {}
+      
+      let html = `<div class="t-title">${name}</div>`;
+      const keys = Object.keys(attrs);
+      if (keys.length) {
+        html += `<div class="t-kv">`;
+        keys.forEach(k => html += `<span>${k}</span><span>${attrs[k]}</span>`);
+        html += `</div>`;
+      }
+      tooltip.innerHTML = html;
+      tooltip.style.display = "block";
+
+      const pad = 10;
+      let x = e.clientX + pad, y = e.clientY + pad;
+      const rect = tooltip.getBoundingClientRect();
+      if (x + rect.width > window.innerWidth - 6) x = e.clientX - rect.width - pad;
+      if (y + rect.height > window.innerHeight - 6) y = e.clientY - rect.height - pad;
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top = `${y}px`;
+    }
+
+    nodeG.addEventListener("mousemove", showTooltip);
+    nodeG.addEventListener("mouseenter", showTooltip);
+  });
+}
+
+ // --------------- SEARCH AND FILTER --------------
+
+document.addEventListener("DOMContentLoaded", () => {
+  const mainHost = document.getElementById("main-host");
+  const type = mainHost?.dataset.visualizer || "simple";
+  window.gvCurrentVisualizer = type;
+
+  // Obeleži dugme koje odgovara vizualizeru
+  document.querySelectorAll(".btn-group .btn").forEach(btn => btn.classList.remove("primary"));
+  const activeBtn = document.querySelector(`.btn-group .btn[data-visualizer="${type}"]`);
+  if (activeBtn) activeBtn.classList.add("primary");
+
+  // Dodaj vizualizer u search/filter forme pre submit
+  document.querySelectorAll('form[action="/search"], form[action="/filter"]').forEach(form => {
+    form.addEventListener("submit", () => {
+      let input = form.querySelector('input[name="visualizer"]');
+      if (!input) {
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "visualizer";
+        form.appendChild(input);
+      }
+      input.value = window.gvCurrentVisualizer;
+    });
+  });
+});
+
+
+
