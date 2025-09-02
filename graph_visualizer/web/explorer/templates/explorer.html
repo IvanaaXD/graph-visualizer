@@ -20,16 +20,19 @@
 
     <div class="toolbar">
       <form action="/search" method="get" class="tool">
+        <input type="hidden" name="visualizer" value="{{ current_visualizer }}">
         <label class="sr-only" for="q">Search</label>
         <input id="q" name="q" type="text" placeholder="Search… (e.g. Alice, Gender, 45)" />
         <button type="submit" class="btn primary">Search</button>
       </form>
 
       <form action="/filter" method="get" class="tool">
+        <input type="hidden" name="visualizer" value="{{ current_visualizer }}">
         <label class="sr-only" for="expr">Filter</label>
         <input id="expr" name="expr" type="text" placeholder="Filter… e.g. Age >= 30" />
         <button type="submit" class="btn">Apply</button>
       </form>
+
 
       <form action="/reset" method="post" class="tool">{% csrf_token %}
         <button type="submit" class="btn ghost" title="Reset to initial graph">Reset</button>
@@ -89,12 +92,18 @@
     </aside>
 
     <section class="panel main">
-      <div class="panel-header">
-        <h3>Main View (Simple)</h3>
+      <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="margin: 0;">Main View</h3>
+        <div class="btn-group">
+          <button class="btn" data-visualizer="simple" onclick="switchVisualizer('simple', this)">Simple</button>
+          <button class="btn" data-visualizer="block" onclick="switchVisualizer('block', this)">Block</button>
+        </div>
       </div>
-      <div class="panel-body canvas" id="main-host">
+
+      <div class="panel-body canvas" id="main-host" data-visualizer="{{ current_visualizer}}">
         {{ main_html|safe }}
       </div>
+
     </section>
 
     <aside class="panel info">

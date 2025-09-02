@@ -9,6 +9,7 @@ def register_visualizer(plugin: VisualizerPlugin) -> None:
     if not getattr(plugin, "key", None):
         raise ValueError("Visualizer must define key")
     _visualizers[plugin.key] = plugin
+    print(_visualizers)
 
 def get_visualizer(key: str) -> VisualizerPlugin:
     try:
