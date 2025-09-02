@@ -89,13 +89,21 @@
     </aside>
 
     <section class="panel main">
-      <div class="panel-header">
-        <h3>Main View (Simple)</h3>
+      <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="margin: 0;">Main View</h3>
+        <div class="btn-group">
+          <button class="btn primary" onclick="switchVisualizer('simple')">Simple</button>
+          <button class="btn " onclick="switchVisualizer('block')">Block</button>
+        </div>
+
       </div>
+
       <div class="panel-body canvas" id="main-host">
         {{ main_html|safe }}
       </div>
     </section>
+
+
 
     <aside class="panel info">
       <div>

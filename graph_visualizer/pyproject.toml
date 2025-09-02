@@ -11,4 +11,4 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["graph_visualizer", "graph_visualizer.plugins.*"]
+include = ["graph_visualizer", "graph_visualizer.plugins.*"] 

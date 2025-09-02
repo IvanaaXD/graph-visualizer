@@ -1,3 +1,5 @@
+import json
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_http_methods
 from core.workspace_manager import WorkspaceManager
@@ -23,6 +25,7 @@ JSON_CONFIGS = {
 
 def home(request):
     err = request.session.pop("error", None)
+    visualizer_key = request.GET.get("visualizer", "simple") 
 
     ctx = {
         "plugins": get_plugin_names(),
@@ -34,12 +37,13 @@ def home(request):
         "stats": {"nodes": 0, "edges": 0},
         "workspaces": {},
         "active_id": None,
+        "visualizer_key": visualizer_key, 
     }
 
     active_ws = _WS_MANAGER.get_active()
     if active_ws:
         ctx.update({
-            "main_html": render_graph_html(active_ws.current, "simple", width=1000, height=620),
+            "main_html": render_graph_html(active_ws.current, visualizer_key, width=1000, height=620),
             "tree_html": render_tree_details(active_ws.current),
             "bird_html": render_bird_svg(active_ws.current),
             "applied_queries": active_ws.queries,
@@ -137,3 +141,31 @@ def remove_query(request):
     if active_ws and idx >= 0:
         active_ws.remove_query(idx)
     return redirect("home")
+
+@require_http_methods(["POST"])
+def switch_visualizer(request, visualizer_key):
+    active_ws = _WS_MANAGER.get_active()
+    if not active_ws:
+        return JsonResponse({
+            "html": "<p>No active workspace</p>",
+            "visualizer": visualizer_key
+        })
+
+    try:
+        body = json.loads(request.body)
+        positions = body.get("positions", {})  
+    except json.JSONDecodeError:
+        positions = {}
+
+    html = render_graph_html(
+        active_ws.current,
+        visualizer_key,
+        width=1000,
+        height=620,
+        context={"positions": positions} 
+    )
+
+    return JsonResponse({
+        "html": html,
+        "visualizer": visualizer_key
+    })

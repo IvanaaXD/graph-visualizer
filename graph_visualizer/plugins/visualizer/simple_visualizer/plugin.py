@@ -24,6 +24,12 @@ class SimpleVisualizer(VisualizerPlugin):
         initial_pos = nx.shell_layout(G)
         layout = nx.spring_layout(G, pos=initial_pos, k=0.1, iterations=100, seed=42)
 
+        if context and "positions" in context:
+            for node in graph.nodes:
+                pos_saved = context["positions"].get(node.id)
+                if pos_saved:
+                    layout[node.id] = (pos_saved["x"], pos_saved["y"])
+                    
         # --- Add a little random "noise" to break up overlaps ---
         for node in layout:
             layout[node] += 0.05 * np.random.randn(2)

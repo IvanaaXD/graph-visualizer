@@ -169,10 +169,7 @@
   }
 
   nodes.forEach(nodeG => {
-    const circle = nodeG.querySelector("circle");
-    if (!circle) return;
-
-    circle.addEventListener("mousedown", (e) => {
+    nodeG.addEventListener("mousedown", (e) => {
       e.stopPropagation(); // prevent pan
       dragging = nodeG;
       nodeG.classList.add("dragging");
@@ -240,7 +237,6 @@
     nodeG.addEventListener("mouseleave", hideTooltip);
   });
 
-  // apply initial transform
   applyTransform();
 })();
 
@@ -261,5 +257,160 @@ document.addEventListener("DOMContentLoaded", () => {
   cancelBtn.addEventListener("click", closeWorkspaceDialog);
 });
 
+// --------------- SWITCH VISUALZIERS ---------------
 
+window.gvPositions = window.gvPositions || {};
 
+function switchVisualizer(type) {
+  const positions = {};
+  document.querySelectorAll(".node, .block-node").forEach(n => {
+    const transform = n.getAttribute("transform");
+    if (transform) {
+      const [x, y] = transform.match(/-?\d+(\.\d+)?/g).map(Number);
+      positions[n.getAttribute("data-id")] = { x, y };
+    }
+  });
+
+  fetch(`/switch-visualizer/${type}/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken")
+    },
+    body: JSON.stringify({ positions })  
+  })
+  .then(r => r.json())
+  .then(data => {
+    const mainHost = document.getElementById("main-host");
+    mainHost.innerHTML = data.html;
+
+    if (window[data.visualizer + "Init"]) {
+      window[data.visualizer + "Init"]();
+    }
+  })
+  .catch(err => console.error("Switch failed:", err));
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + "=")) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+function simpleInit() {
+  const svg = document.querySelector(".gv-svg");
+  if (!svg) return;
+
+  let selectedNode = null;
+  let offset = [0, 0];
+
+  function updateEdges(node) {
+    const nodeId = node.getAttribute("data-id");
+    const transform = node.getAttribute("transform");
+    if (!transform) return;
+    const [x, y] = transform.match(/-?\d+(\.\d+)?/g).map(Number);
+
+    document.querySelectorAll(`.edges line[data-from="${nodeId}"]`).forEach(line => {
+      line.setAttribute("x1", x);
+      line.setAttribute("y1", y);
+    });
+    document.querySelectorAll(`.edges line[data-to="${nodeId}"]`).forEach(line => {
+      line.setAttribute("x2", x);
+      line.setAttribute("y2", y);
+    });
+
+    window.gvPositions[nodeId] = { x, y }; 
+  }
+
+  svg.querySelectorAll(".node").forEach(node => {
+    const circle = node.querySelector("circle");
+    circle.addEventListener("mousedown", e => {
+      selectedNode = node;
+      const [x, y] = node.getAttribute("transform").match(/-?\d+(\.\d+)?/g).map(Number);
+      offset = [e.clientX - x, e.clientY - y];
+      node.classList.add("dragging");
+    });
+  });
+
+  document.addEventListener("mousemove", e => {
+    if (selectedNode) {
+      const x = e.clientX - offset[0];
+      const y = e.clientY - offset[1];
+      selectedNode.setAttribute("transform", `translate(${x},${y})`);
+      updateEdges(selectedNode);
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (selectedNode) {
+      selectedNode.classList.remove("dragging");
+      selectedNode = null;
+    }
+  });
+}
+
+function blockInit() {
+  const svg = document.querySelector(".gv-svg");
+  if (!svg) return;
+
+  let selectedNode = null;
+  let offset = [0, 0];
+
+  function updateEdges(node) {
+    const nodeId = node.getAttribute("data-id");
+    const transform = node.getAttribute("transform");
+    if (!transform) return;
+    const [x, y] = transform.match(/-?\d+(\.\d+)?/g).map(Number);
+
+    svg.querySelectorAll(`.edges line[data-from="${nodeId}"], .edges line[data-to="${nodeId}"]`)
+      .forEach(line => {
+        const fromNode = svg.querySelector(`.block-node[data-id="${line.getAttribute("data-from")}"]`);
+        const toNode = svg.querySelector(`.block-node[data-id="${line.getAttribute("data-to")}"]`);
+        if (fromNode && toNode) {
+          const [fx, fy] = fromNode.getAttribute("transform").match(/-?\d+(\.\d+)?/g).map(Number);
+          const [tx, ty] = toNode.getAttribute("transform").match(/-?\d+(\.\d+)?/g).map(Number);
+          line.setAttribute("x1", fx);
+          line.setAttribute("y1", fy);
+          line.setAttribute("x2", tx);
+          line.setAttribute("y2", ty);
+        }
+      });
+
+    window.gvPositions[nodeId] = { x, y };
+  }
+
+  svg.querySelectorAll(".block-node").forEach(node => {
+    const rect = node.querySelector(".block-rect");
+    rect.addEventListener("mousedown", e => {
+      selectedNode = node;
+      const [x, y] = node.getAttribute("transform").match(/-?\d+(\.\d+)?/g).map(Number);
+      offset = [e.clientX - x, e.clientY - y];
+      node.classList.add("dragging");
+    });
+  });
+
+  document.addEventListener("mousemove", e => {
+    if (selectedNode) {
+      const x = e.clientX - offset[0];
+      const y = e.clientY - offset[1];
+      selectedNode.setAttribute("transform", `translate(${x},${y})`);
+      updateEdges(selectedNode);
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (selectedNode) {
+      selectedNode.classList.remove("dragging");
+      selectedNode = null;
+    }
+  });
+}

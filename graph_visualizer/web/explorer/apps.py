@@ -15,3 +15,5 @@ class ExplorerConfig(AppConfig):
             sys.path.insert(0, pr)
 
         importlib.import_module("plugins.visualizer.simple_visualizer")
+        importlib.import_module("plugins.visualizer.block_visualizer")
+
