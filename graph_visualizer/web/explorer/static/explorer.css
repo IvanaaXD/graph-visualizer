@@ -317,3 +317,51 @@ dialog::backdrop {
   gap: 10px;
   margin-top: 12px;
 }
+
+
+/* ====== Tree View ====== */
+.component-tree {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  user-select: none;
+  padding-left: 10px;
+}
+
+.tree-root, .tree-root ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tree-root li {
+  margin: 2px 0;
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle {
+  display: inline-block;
+  width: 14px;
+  margin-right: 6px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000; /* obavezno crna da se vidi */
+}
+
+.tree-label {
+  padding: 2px 4px;
+}
+
+.nested {
+  display: none;
+  margin-left: 16px;
+}
+
+.nested.active {
+  display: block;
+}

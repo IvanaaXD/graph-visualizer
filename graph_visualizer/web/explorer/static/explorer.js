@@ -572,4 +572,53 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+ // -------------- TREE VIEW --------------
+
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("toggle")) {
+    const nested = e.target.closest("li").querySelector(".nested");
+    if (nested) {
+      nested.classList.toggle("active");
+      e.target.textContent = nested.classList.contains("active") ? "−" : "+";
+    }
+  }
+});
+
+function showNodeDropdown(nodeId, event) {
+  event.stopPropagation(); // da se ne propagira klik
+  const existing = document.querySelector(".node-dropdown");
+  if (existing) existing.remove();
+
+  // napravi element
+  const dropdown = document.createElement("div");
+  dropdown.className = "node-dropdown";
+  dropdown.innerHTML = `
+    <p><strong>Node:</strong> ${nodeId}</p>
+    <button onclick="alert('Details for ${nodeId}')">Details</button>
+    <button onclick="alert('Remove ${nodeId}')">Remove</button>
+  `;
+
+  // pozicioniraj pored miša
+  dropdown.style.position = "absolute";
+  dropdown.style.left = event.pageX + "px";
+  dropdown.style.top = event.pageY + "px";
+  dropdown.style.background = "#fff";
+  dropdown.style.border = "1px solid #ccc";
+  dropdown.style.padding = "6px";
+  dropdown.style.borderRadius = "4px";
+  dropdown.style.zIndex = "9999";
+
+  document.body.appendChild(dropdown);
+
+  // zatvaranje na klik van
+  document.addEventListener("click", function close(e) {
+    if (!dropdown.contains(e.target)) {
+      dropdown.remove();
+      document.removeEventListener("click", close);
+    }
+  });
+}
+
+
+
 
