@@ -365,3 +365,10 @@ dialog::backdrop {
 .nested.active {
   display: block;
 }
+
+.panel-body.tree {
+  max-height: 40vh;   /* 40% visine ekrana */
+  overflow-y: auto;   /* vertikalni scroll kad pređe visinu */
+  overflow-x: hidden; /* da ne bude horizontalnog scrolla, po želji */
+}
+
