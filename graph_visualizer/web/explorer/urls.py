@@ -11,4 +11,5 @@ urlpatterns = [
     path('switch-workspace/<str:wspace_id>/', views.switch_workspace, name='switch_workspace'),
     path('close-workspace/<str:wspace_id>/', views.close_workspace, name='close_workspace'),
     path("switch-visualizer/<str:visualizer_key>/", views.switch_visualizer, name="switch_visualizer"),
+    path("bird-render/", views.bird_render, name="bird_render"), 
 ]
