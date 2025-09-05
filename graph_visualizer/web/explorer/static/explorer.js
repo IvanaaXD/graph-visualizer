@@ -60,6 +60,7 @@
 
   function applyTransform() {
     viewport.setAttribute("transform", `translate(${tx},${ty}) scale(${k})`);
+      refreshBird();
   }
 
   // --- Client -> World coordinates ---
@@ -269,11 +270,11 @@ function switchVisualizer(type, btn) {
     window.gvCurrentVisualizer = type;
     const searchInput = document.getElementById("search-visualizer");
     if (searchInput) searchInput.value = type;
-
+  
+    refreshBird();
   })
   .catch(err => console.error("Switch failed:", err));
 }
-
 
 function getCookie(name) {
   let cookieValue = null;
@@ -320,6 +321,7 @@ function simpleInit() {
     });
 
     window.gvPositions[nodeId] = { x, y };
+    refreshBird()
   }
 
   svg.querySelectorAll(".node").forEach(node => {
@@ -407,6 +409,7 @@ function blockInit() {
       const y = e.clientY - offset[1];
       selectedNode.setAttribute("transform", `translate(${x},${y})`);
       updateEdges(selectedNode);
+      refreshBird()
     }
   });
 
@@ -551,12 +554,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const type = mainHost?.dataset.visualizer || "simple";
   window.gvCurrentVisualizer = type;
 
-  // Obeleži dugme koje odgovara vizualizeru
   document.querySelectorAll(".btn-group .btn").forEach(btn => btn.classList.remove("primary"));
   const activeBtn = document.querySelector(`.btn-group .btn[data-visualizer="${type}"]`);
   if (activeBtn) activeBtn.classList.add("primary");
 
-  // Dodaj vizualizer u search/filter forme pre submit
   document.querySelectorAll('form[action="/search"], form[action="/filter"]').forEach(form => {
     form.addEventListener("submit", () => {
       let input = form.querySelector('input[name="visualizer"]');
@@ -571,7 +572,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
  // -------------- TREE VIEW --------------
 
 document.addEventListener("click", function(e) {
@@ -585,11 +585,10 @@ document.addEventListener("click", function(e) {
 });
 
 function showNodeDropdown(nodeId, event) {
-  event.stopPropagation(); // da se ne propagira klik
+  event.stopPropagation(); 
   const existing = document.querySelector(".node-dropdown");
   if (existing) existing.remove();
 
-  // napravi element
   const dropdown = document.createElement("div");
   dropdown.className = "node-dropdown";
   dropdown.innerHTML = `
@@ -598,7 +597,6 @@ function showNodeDropdown(nodeId, event) {
     <button onclick="alert('Remove ${nodeId}')">Remove</button>
   `;
 
-  // pozicioniraj pored miša
   dropdown.style.position = "absolute";
   dropdown.style.left = event.pageX + "px";
   dropdown.style.top = event.pageY + "px";
@@ -610,7 +608,6 @@ function showNodeDropdown(nodeId, event) {
 
   document.body.appendChild(dropdown);
 
-  // zatvaranje na klik van
   document.addEventListener("click", function close(e) {
     if (!dropdown.contains(e.target)) {
       dropdown.remove();
@@ -619,6 +616,49 @@ function showNodeDropdown(nodeId, event) {
   });
 }
 
+ // -------------- BIRD VIEW ------------
 
+function refreshBird() {
+  if (!window.gvPanZoom) return;
 
+  const svg = document.querySelector("#main-host svg");
+  if (!svg) return;
 
+  const viewport = {
+    x: -window.gvPanZoom.x / window.gvPanZoom.scale,
+    y: -window.gvPanZoom.y / window.gvPanZoom.scale,
+    width: svg.clientWidth / window.gvPanZoom.scale,
+    height: svg.clientHeight / window.gvPanZoom.scale
+  };
+
+  const positions = {};
+  document.querySelectorAll(".node, .block-node").forEach(n => {
+    const transform = n.getAttribute("transform") || "";
+    const m = transform.match(/-?\d+(\.\d+)?/g);
+    if (m && m.length >= 2) {
+      const [x, y] = m.map(Number);
+      positions[n.getAttribute("data-id")] = [x, y];
+    }
+  });
+
+  const visualizer = window.gvCurrentVisualizer || "simple";
+
+  fetch("/bird-render/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken")
+    },
+    body: JSON.stringify({ viewport, positions, visualizer })
+  })
+  .then(r => r.json())
+  .then(data => {
+    const birdHost = document.querySelector(".panel-body.bird");
+    if (birdHost && data.html) birdHost.innerHTML = data.html;
+  })
+  .catch(err => console.error("Bird refresh failed:", err));
+}
+
+window.addEventListener("load", () => {
+  refreshBird();
+});

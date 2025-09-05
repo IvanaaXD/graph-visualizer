@@ -350,7 +350,7 @@ dialog::backdrop {
   text-align: center;
   font-weight: bold;
   cursor: pointer;
-  color: #000; /* obavezno crna da se vidi */
+  color: #000;
 }
 
 .tree-label {
@@ -367,8 +367,8 @@ dialog::backdrop {
 }
 
 .panel-body.tree {
-  max-height: 40vh;   /* 40% visine ekrana */
-  overflow-y: auto;   /* vertikalni scroll kad pređe visinu */
-  overflow-x: hidden; /* da ne bude horizontalnog scrolla, po želji */
+  max-height: 40vh;   
+  overflow-y: auto;   
+  overflow-x: hidden; 
 }
 

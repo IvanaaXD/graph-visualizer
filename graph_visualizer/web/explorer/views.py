@@ -175,3 +175,38 @@ def switch_visualizer(request, visualizer_key):
         "html": html,
         "visualizer": visualizer_key
     })
+
+@require_http_methods(["POST"])
+def bird_render(request):
+    try:
+        data = json.loads(request.body.decode("utf-8"))
+        active_ws = _WS_MANAGER.get_active()
+        if not active_ws:
+            return JsonResponse({"error": "No active workspace"}, status=400)
+
+        positions = {}
+        for node_id, coords in (data.get("positions") or {}).items():
+            try:
+                px, py = coords
+                positions[node_id] = [float(px), float(py)]
+            except (TypeError, ValueError, IndexError):
+                positions[node_id] = [0, 0]
+
+        visualizer = data.get("visualizer", "simple")  
+
+        context = {
+            "viewport": data.get("viewport"),
+            "positions": positions,
+            "visualizer": visualizer  
+        }
+
+        html = render_bird_svg(active_ws.current, context=context)
+        return JsonResponse({"html": html})
+
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON"}, status=400)
+    except Exception as e:
+        import traceback
+        tb = traceback.format_exc()
+        return JsonResponse({"error": str(e), "traceback": tb}, status=500)
+
