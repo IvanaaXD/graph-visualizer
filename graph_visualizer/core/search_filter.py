@@ -25,6 +25,15 @@ def _try_date(s: str):
     except Exception:
         return None
 
+def _normalize_left(left):
+    if isinstance(left, str):
+        n = _try_num(left)
+        if n is not None:
+            return n
+        d = _try_date(left)
+        if d is not None:
+            return d
+    return left
 
 def _coerce(sample: Any, raw: str):
     raw = raw.strip().strip('"').strip("'")
@@ -107,19 +116,22 @@ def filter_graph(g: Graph, expr: str) -> Graph:
         raise FilterParseError(f"Attribute '{attr}' does not exist on any node.")
 
     ids = []
+   
     for n in g.nodes:
         if attr not in n.attributes:
             continue
-        left = n.attributes[attr]
+
+        # normalize left side: "50" -> 50, "2024-01-01" -> date
+        left = _normalize_left(n.attributes[attr])
 
         if isinstance(left, bool) and op not in ("==", "!="):
             raise FilterTypeError("For boolean attributes, only the '==' and '!=' operators are supported.")
 
-        # coerce the right-hand value based on the actual type of 'left' for this node
         try:
-            right = _coerce(left, raw)
+            right = _coerce(left, raw)  # coerces "50" -> 50 if left is numeric
             if _cmp(left, op, right):
                 ids.append(n.id)
+
         except FilterTypeError:
             # propagate the error so the UI can display the message
             raise
