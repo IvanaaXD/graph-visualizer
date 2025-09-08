@@ -27,22 +27,26 @@ First, clone the project from GitHub:
 ```bash
 git clone [URL_of_your_repository]
 cd graph-visualizer
+```
 
-#### 2.  Set Up the project
+#### 2. Set Up the Project
 
-1.  `cd ./graph-visualizer`
-2.  `python -m venv .venv`
-3.  `.venv/Scripts/activate`
-4.  `pip install -e graph_visualizer`
-5.  `cd graph_visualizer`
-6.  `pip install -e api`
-7.  `cd plugins/data_source`
-8.  `pip install -e json_data_source`
-9.  `pip install -e xml_data_source`
-10. `cd ..\..`
-11. `pip install lxml`
-12. `pip install django`
-13. `pip install numpy`
-14. `pip install networkx`
-15. `python web/manage.py migrate`
-16. `python web/manage.py runserver`
+This section provides a streamlined guide for setting up the virtual environment and installing all necessary components.
+
+```bash
+python -m venv .venv
+.venv/Scripts/activate (source .venv/bin/activate)
+pip install -e graph_visualizer
+cd graph_visualizer
+pip install -e api
+cd plugins/data_source
+pip install -e json_data_source
+pip install -e xml_data_source
+cd ..\..
+pip install lxml
+pip install django
+pip install numpy
+pip install networkx
+python web/manage.py migrate
+python web/manage.py runserver
+```
