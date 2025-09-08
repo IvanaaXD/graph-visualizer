@@ -52,6 +52,25 @@
   const svg = host.querySelector("svg.gv-svg");
   if (!svg) return;
   const viewport = svg.querySelector("g.viewport");
+  const bg = svg.querySelector("rect.pz-capture"); // ADD MMM
+  if (bg) bg.addEventListener("click", () => setSelected(null)); // ADD MMM
+
+  // --- Arrow trim helpers ---
+  const GV_R = 16;        // poluprečnik <circle r="16">
+  const GV_ARROW = 6;     // mali razmak za vrh strelice
+  const GV_TRIM = GV_R + GV_ARROW;
+
+  function parseXY(tr) {
+    const m = (tr || "").match(/-?\d+(\.\d+)?/g);
+    return m && m.length >= 2 ? [Number(m[0]), Number(m[1])] : [0, 0];
+  }
+  function shorten(x1, y1, x2, y2, off) {
+    const dx = x2 - x1, dy = y2 - y1;
+    const L = Math.hypot(dx, dy) || 1;
+    const ux = dx / L, uy = dy / L;
+    return [x1 + ux * off, y1 + uy * off, x2 - ux * off, y2 - uy * off];
+  }
+
   if (!viewport) return;
 
   // --- Pan/Zoom State ---
@@ -113,6 +132,10 @@
 
   // --- Node Drag ---
   const nodes = Array.from(svg.querySelectorAll("g.nodes > g.node"));
+
+  let dragged = false;
+  window.gvSelect = (id, opts) => focusNodeById(id, opts || {});
+
   const edges = Array.from(svg.querySelectorAll("g.edges > line"));
 
   // map nodeId -> connected lines
@@ -123,6 +146,42 @@
     const arr = edges.filter(l => l.getAttribute("data-from") === id || l.getAttribute("data-to") === id);
     linesByNode.set(id, arr);
   });
+  nodes.forEach(n => updateConnectedLines(n.getAttribute("data-id")));
+
+function setSelected(node) {
+  svg.querySelectorAll('.nodes .node').forEach(n => n.classList.remove('selected','dim'));
+  svg.querySelectorAll('.edges line').forEach(l => l.classList.remove('active','dim'));
+  if (!node) return;
+
+  node.classList.add('selected');
+
+  const id = node.getAttribute('data-id');
+  const connected = linesByNode.get(id) || [];
+
+  svg.querySelectorAll('.nodes .node').forEach(n => { if (n !== node) n.classList.add('dim'); });
+  svg.querySelectorAll('.edges line').forEach(l => { if (!connected.includes(l)) l.classList.add('dim'); });
+  connected.forEach(l => l.classList.add('active'));
+}
+
+function focusNodeById(nodeId, opts = {}) {
+  const node = svg.querySelector(`g.nodes > g.node[data-id="${nodeId}"]`);
+  if (!node) return;
+  const [nx, ny] = parseXY(node.getAttribute('transform'));
+
+  const targetK = Math.max(opts.scale ?? 1.2, k);
+  const cx = svg.clientWidth / 2;
+  const cy = svg.clientHeight / 2;
+
+  // world -> screen: screen = k*world + t  =>  t = center - k*world
+  k = Math.min(Math.max(targetK, K_MIN), K_MAX);
+  tx = cx - k * nx;
+  ty = cy - k * ny;
+
+  applyTransform();
+  setSelected(node);
+ 
+  updateConnectedLines(nodeId);
+}
 
   let draggingNode = null;
   let dragOffset = { x: 0, y: 0 };
@@ -134,19 +193,33 @@
   function setNodePos(node, x, y) {
     node.setAttribute("transform", `translate(${x},${y})`);
   }
-  function updateConnectedLines(nodeId, x, y) {
+
+  function updateConnectedLines(nodeId) {
+    const getNode = id => svg.querySelector(`g.nodes > g.node[data-id="${id}"]`);
     (linesByNode.get(nodeId) || []).forEach(line => {
-      if (line.getAttribute("data-from") === nodeId) { line.setAttribute("x1", x); line.setAttribute("y1", y); }
-      if (line.getAttribute("data-to") === nodeId) { line.setAttribute("x2", x); line.setAttribute("y2", y); }
+      const a = line.getAttribute("data-from");
+      const b = line.getAttribute("data-to");
+      const ga = getNode(a), gb = getNode(b);
+      if (!ga || !gb) return;
+
+      const [x1, y1] = parseXY(ga.getAttribute("transform"));
+      const [x2, y2] = parseXY(gb.getAttribute("transform"));
+      const [sx1, sy1, sx2, sy2] = shorten(x1, y1, x2, y2, GV_TRIM);
+
+      line.setAttribute("x1", sx1.toFixed(2));
+      line.setAttribute("y1", sy1.toFixed(2));
+      line.setAttribute("x2", sx2.toFixed(2));
+      line.setAttribute("y2", sy2.toFixed(2));
     });
   }
+
 
   nodes.forEach(node => {
     const circle = node.querySelector("circle");
     if (!circle) return;
-
     circle.addEventListener("pointerdown", e => {
       e.stopPropagation();
+      dragged = false;                       
       draggingNode = node;
       const pos = getNodePos(node);
       dragOffset.x = e.clientX - pos.x;
@@ -154,20 +227,33 @@
       node.classList.add("dragging");
       svg.setPointerCapture(e.pointerId);
     });
+    node.addEventListener("dblclick", e => {  
+      e.stopPropagation();
+      focusNodeById(node.getAttribute("data-id"), { scale: 1.6 }); 
+    });
+
   });
 
   svg.addEventListener("pointermove", e => {
     if (!draggingNode) return;
+     dragged = true; 
     const x = e.clientX - dragOffset.x;
     const y = e.clientY - dragOffset.y;
     setNodePos(draggingNode, x, y);
-    updateConnectedLines(draggingNode.getAttribute("data-id"), x, y);
+    updateConnectedLines(draggingNode.getAttribute("data-id"));
   });
 
   svg.addEventListener("pointerup", e => {
-    if (draggingNode) draggingNode.classList.remove("dragging");
-    draggingNode = null;
+    if (draggingNode) {
+      draggingNode.classList.remove("dragging");
+      if (!dragged) setSelected(draggingNode);  
+      draggingNode = null;
+      return;
+    }
+  
+    setSelected(null);                          
   });
+
 
   // --- Tooltip Hover ---
   const tooltip = document.createElement("div");
