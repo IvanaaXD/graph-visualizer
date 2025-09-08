@@ -372,3 +372,122 @@ dialog::backdrop {
   overflow-x: hidden; 
 }
 
+:root {
+  --terminal-bg: #1e1e1e;
+  --terminal-text: #d4d4d4;
+  --terminal-accent: #3b82f6;
+  --terminal-border: #333;
+  --terminal-height: 250px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-bottom: var(--terminal-height);
+}
+
+/* Terminal Toggle Button */
+.terminal-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  width: 60px;
+  height: 60px;
+  background-color: var(--terminal-accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.terminal-toggle:hover {
+  transform: scale(1.1);
+  background-color: #2563eb;
+}
+
+.terminal-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* CLI Terminal Container */
+#cli-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--terminal-height);
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
+  border-top: 1px solid var(--terminal-border);
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#cli-container.open {
+  transform: translateY(0);
+}
+
+/* Output terminal window */
+#cli-output {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#cli-output .command-line {
+  display: flex;
+}
+
+#cli-output .prompt {
+  color: var(--terminal-accent);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+#cli-output .response {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+#cli-output .error {
+  color: #f87171;
+}
+
+/* Terminal input field */
+.cli-input-line {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-top: 1px solid var(--terminal-border);
+}
+
+.cli-input-line .prompt {
+  color: var(--terminal-accent);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+#cli-input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  color: var(--terminal-text);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  outline: none;
+}

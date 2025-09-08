@@ -295,20 +295,21 @@ function focusNodeById(nodeId, opts = {}) {
 })();
 
 window.openWorkspaceDialog = function () {
-  document.getElementById("workspaceDialog").showModal();
+    const dialog = document.getElementById("workspaceDialog");
+    if (dialog) dialog.showModal();
 };
 
 window.closeWorkspaceDialog = function () {
-  document.getElementById("workspaceDialog").close();
+    const dialog = document.getElementById("workspaceDialog");
+    if (dialog) dialog.close();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const dialog = document.getElementById("workspaceDialog");
   const addBtn = document.getElementById("workspaceAddBtn");
   const cancelBtn = document.getElementById("workspaceCancelBtn");
   
-  addBtn.addEventListener("click", openWorkspaceDialog);
-  cancelBtn.addEventListener("click", closeWorkspaceDialog);
+  if(addBtn) addBtn.addEventListener("click", openWorkspaceDialog);
+  if(cancelBtn) cancelBtn.addEventListener("click", closeWorkspaceDialog);
 });
 
 // --------------- SWITCH VISUALZIERS ---------------
@@ -747,4 +748,188 @@ function refreshBird() {
 
 window.addEventListener("load", () => {
   refreshBird();
+});
+// --- CLI LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    const cliContainer = document.getElementById('cli-container');
+    const toggleButton = document.getElementById('terminal-toggle-btn');
+    const cliOutput = document.getElementById('cli-output');
+    const cliInput = document.getElementById('cli-input');
+    const graphContainer = document.getElementById('graph-container');
+
+    const commandHistory = [];
+    let historyIndex = -1;
+    
+    // --- Terminal display logic ---
+    toggleButton.addEventListener('click', () => {
+        cliContainer.classList.toggle('open');
+        if (cliContainer.classList.contains('open')) {
+            cliInput.focus();
+        }
+    });
+
+    // --- Command entry logic ---
+    cliInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && cliInput.value.trim() !== '') {
+            const commandText = cliInput.value.trim();
+            commandHistory.push(commandText);
+            historyIndex = commandHistory.length;
+            
+            logToOutput(commandText);
+            processCommand(commandText);
+            cliInput.value = '';
+        } else if (e.key === 'ArrowUp') {
+            if (historyIndex > 0) {
+                historyIndex--;
+                cliInput.value = commandHistory[historyIndex];
+            }
+            e.preventDefault();
+        } else if (e.key === 'ArrowDown') {
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                cliInput.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = commandHistory.length;
+                cliInput.value = '';
+            }
+            e.preventDefault();
+        }
+    });
+
+    function logToOutput(text, type = 'command') {
+        const prompt = `<span class="prompt">&gt;</span>`;
+        let line;
+        if (type === 'command') {
+            line = `<div class="command-line">${prompt}<div>${text}</div></div>`;
+        } else {
+            line = `<div class="response ${type}">${text}</div>`;
+        }
+        cliOutput.innerHTML += line;
+        cliOutput.scrollTop = cliOutput.scrollHeight;
+    }
+
+    // --- Processing and sending commands ---
+    async function processCommand(commandText) {
+        const [command, ...args] = commandText.split(/\s+/);
+
+        let payload = {};
+        let isValid = true;
+        
+        try {
+            switch(command.toLowerCase()) {
+                case 'create-node':
+                    if (args.length < 1) throw new Error("Potreban je ID čvora.");
+                    const [id, ...restCreate] = args;
+                    payload = { id, ...parseKeyValues(restCreate) };
+                    break;
+                
+                case 'update-node':
+                    if (args.length < 2) throw new Error("Potreban je ID čvora i bar jedan atribut za izmenu.");
+                    const [nodeIdUpdate, ...updates] = args;
+                    payload = { id: nodeIdUpdate, updates: parseKeyValues(updates) };
+                    break;
+
+                case 'delete-node':
+                  if (args.length !== 1) throw new Error("Potreban je tačno jedan ID čvora.");
+                  payload = { id: args[0] };
+                  break;
+
+                case 'create-edge':
+                  if (args.length < 2) throw new Error("Potrebno je dva id-ja i tip grane.");
+                  payload = { from: args[0], to: args[1], type: args[2]};
+                  break;
+
+                case 'filter':
+                    if (args.length < 1) throw new Error("Potreban je izraz za filtriranje.");
+                    payload = { expression: args.join(' ') };
+                    break;
+                
+                case 'search':
+                    if (args.length < 1) throw new Error("Potreban je upit za pretragu.");
+                    payload = { query: args.join(' ') };
+                    break;
+                    
+                case 'help':
+                    logHelp();
+                    isValid = false; 
+                    break;
+
+                case 'clear':
+                    cliOutput.innerHTML = '';
+                    isValid = false; 
+                    break;
+
+                default:
+                    throw new Error(`Unknown command: '${command}'. Type 'help' for a list of commands.`);
+            }
+        } catch (error) {
+            logToOutput(error.message, 'error');
+            isValid = false;
+        }
+
+        if (isValid) {
+            await sendCommandToServer(command.toLowerCase(), payload);
+        }
+    }
+
+    function parseKeyValues(args) {
+        const result = {};
+        args.forEach(arg => {
+            const parts = arg.split('=');
+            if (parts.length === 2) {
+                result[parts[0]] = parts[1];
+            }
+        });
+        return result;
+    }
+    
+    function logHelp() {
+        const helpText = `
+Available commands:
+- <strong>create-node &lt;id&gt; [label=...] [color=...]</strong>: Creates a new node.
+- <strong>update-node &lt;id&gt; [label=...] [color=...]</strong>: Changes the attributes of an existing node.
+- <strong>delete-node &lt;id&gt;</strong>: Deletes a node and its connections..
+- <strong>create-edge &lt;fromNodeId&gt; &lt;toNodeId&gt; type=... </strong>: Creates a new branch between two nodes.
+- <strong>filter &lt;expression&gt;</strong>: Filters the graph based on an expression.
+- <strong>search &lt;query&gt;</strong>: Searches the graph.
+- <strong>clear</strong>: Clear terminal window.
+- <strong>help</strong>: Showing this help.
+        `;
+        logToOutput(helpText.replace(/\n/g, '<br>'), 'info');
+    }
+
+    async function sendCommandToServer(command, payload) {
+        try {
+            const response = await fetch('/api/graph-command/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({ command, payload })
+            });
+            
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || `Server je vratio grešku ${response.status}`);
+            }
+            
+            logToOutput('Command executed successfully.', 'success');
+            redrawGraph(result.graph);
+
+        } catch (error) {
+            logToOutput(`Error: ${error.message}`, 'error');
+        }
+    }
+    
+    function redrawGraph(graphData) {
+        simpleInit()
+        blockInit()
+        
+        logToOutput("I'm refreshing the page to show the changes", 'info');
+        setTimeout(() => window.location.reload(), 1000);
+    }
+
+    logToOutput("Welcome to the Graph CLI. Type 'help' for a list of commands.");
 });
