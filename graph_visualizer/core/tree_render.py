@@ -73,6 +73,12 @@ def render_tree_details(graph: Graph) -> str:
         .tree-label:hover .tooltip {{
             display: block;
         }}
+        .component-tree li.tree-selected > .node-header {{
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 6px;
+            background: color-mix(in oklab, var(--panel), var(--accent) 10%);
+        }}
     </style>
 
     <ul class="component-tree tree-root">
@@ -135,11 +141,44 @@ def render_tree_details(graph: Graph) -> str:
         }});
     }}
 
+    window.selectInTree = function(nodeId) {{
+        const tree = document.querySelector(".component-tree");
+        if (!tree) return;
+
+        tree.querySelectorAll("li.tree-selected").forEach(li => li.classList.remove("tree-selected"));
+        if (!nodeId) return;
+
+        const li = tree.querySelector(`li[data-node-id="${{CSS.escape(String(nodeId))}}"]`);
+        if (!li) return;
+
+        li.classList.add("tree-selected");
+
+        const header = li.querySelector(".node-header");
+        if (header) header.scrollIntoView({{ block: "nearest", inline: "nearest", behavior: "smooth" }});
+    }};
+
+    document.addEventListener("click", function(e) {{
+        const label = e.target.closest(".component-tree .tree-label");
+        if (!label) return;
+
+        const li = label.closest('li[data-node-id]');
+        if (!li) return;
+
+        const id = li.getAttribute("data-node-id");
+
+        if (typeof window.gvSelect === "function") {{
+            window.gvSelect(id, {{ scale: 1.6 }});
+        }} else if (typeof window.focusNodeById === "function") {{
+            window.focusNodeById(id, {{ scale: 1.6 }});
+        }}
+
+        e.stopPropagation();
+    }});
+
     document.addEventListener("DOMContentLoaded", function() {{
         const root = document.querySelector(".component-tree");
         attachToggleEvents(root);
 
-        // inicijalni tooltip render za root čvorove
         root.querySelectorAll("li").forEach(li => {{
             const nodeId = li.getAttribute("data-node-id");
             const node = getNodeById(nodeId);

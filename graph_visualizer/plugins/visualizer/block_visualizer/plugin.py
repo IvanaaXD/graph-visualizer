@@ -9,6 +9,7 @@ from api.model.graph import Graph
 class BlockVisualizer(VisualizerPlugin):
     """
     A visualizer that renders a graph as a series of interconnected blocks with attributes.
+    Supports directed edges with arrow markers.
     """
     key = "block"
 
@@ -16,24 +17,26 @@ class BlockVisualizer(VisualizerPlugin):
         if not graph.nodes:
             return '<div class="viz-empty">No data</div>'
 
-        # Force-directed layout
-        G = nx.Graph()
+        # --- NetworkX graph with directed option ---
+        is_directed = graph.directed or any(e.directed for e in graph.edges)
+        G = nx.DiGraph() if is_directed else nx.Graph()
         for node in graph.nodes:
             G.add_node(node.id)
         for e in graph.edges:
             G.add_edge(e.from_node.id, e.to_node.id)
-        
+
+        # --- Force-directed layout ---
         initial_pos = nx.shell_layout(G)
         layout = nx.spring_layout(G, pos=initial_pos, k=0.1, iterations=100, seed=42)
 
-        # Ako context sadrži positions, prepiši layout
+        # --- If context contains saved positions, override layout ---
         if context and "positions" in context:
             for node in graph.nodes:
                 pos_saved = context["positions"].get(node.id)
                 if pos_saved:
                     layout[node.id] = (pos_saved["x"], pos_saved["y"])
-                    
-        # Normalization + centering
+
+        # --- Normalization + centering ---
         xs = [coord[0] for coord in layout.values()]
         ys = [coord[1] for coord in layout.values()]
         min_x, max_x = min(xs), max(xs)
@@ -62,22 +65,26 @@ class BlockVisualizer(VisualizerPlugin):
 
         for node_id, (x, y) in pos.items():
             pos[node_id] = (x + offset_x, y + offset_y)
-        
-        # SVG skeleton with custom styling for blocks
+
+        # --- SVG skeleton ---
         parts = [f'<svg class="gv-svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">']
 
         parts.append("""
         <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 Z" fill="#888"></path>
+                <path d="M0,0 L10,5 L0,10 Z" fill="#888"></path>
             </marker>
             <style>
-            .edges line { stroke:#888; stroke-width:1.2; }
-            .edges line.directed { marker-end:url(#arrow); }
-            .nodes text { font-size:11px; font-family: ui-sans-serif, system-ui, sans-serif; pointer-events:none; }
-            .nodes .block-rect { fill:#e6f0ff; stroke:#333; rx:5; ry:5; pointer-events: visiblePainted;}
-            .nodes .node-title { font-weight: bold; }
-            .node.dragging .block-rect { opacity:.85; }
+                .edges line { stroke:#888; stroke-width:1.2; }
+                .edges line.directed { marker-end:url(#arrow); }
+                .nodes text { font-size:11px; font-family: ui-sans-serif, system-ui, sans-serif; pointer-events:none; }
+                .nodes .block-rect { fill:#e6f0ff; stroke:#333; rx:5; ry:5; pointer-events: visiblePainted;}
+                .nodes .node-title { font-weight: bold; }
+                .node.dragging .block-rect { opacity:.85; }
+                .nodes .node.selected .block-rect { stroke:#1976d2; stroke-width:3; }
+                .nodes .node.dim { opacity:.35; }
+                .edges line.active { stroke:#1976d2; stroke-width:1.8; }
+                .edges line.dim { opacity:.25; }
             </style>
         </defs>
         """)
@@ -85,33 +92,42 @@ class BlockVisualizer(VisualizerPlugin):
         parts.append(f' <g class="viewport">')
         parts.append(f'   <rect class="pz-capture" x="0" y="0" width="{width}" height="{height}" fill="transparent"></rect>')
 
-        # Edges
+        # --- Shorten edges so arrows don't overlap blocks ---
+        node_w, node_h = 120, 40
+        arrow_pad = 6
+
+        def _shorten(x1, y1, x2, y2, off):
+            dx, dy = x2 - x1, y2 - y1
+            L = (dx*dx + dy*dy) ** 0.5 or 1.0
+            ux, uy = dx / L, dy / L
+            return x1 + ux*off, y1 + uy*off, x2 - ux*off, y2 - uy*off
+
+        # --- Edges ---
         parts.append('   <g class="edges">')
         for e in graph.edges:
             x1, y1 = pos[e.from_node.id]
             x2, y2 = pos[e.to_node.id]
-            cls = "directed" if e.directed else ""
+            sx1, sy1, sx2, sy2 = _shorten(x1, y1, x2, y2, max(node_w, node_h)/2 + arrow_pad)
+            cls = "directed" if (graph.directed or e.directed) else ""
             parts.append(
                 f'<line class="{cls}" data-from="{html.escape(e.from_node.id)}" data-to="{html.escape(e.to_node.id)}" '
-                f'x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}"></line>'
+                f'x1="{sx1:.2f}" y1="{sy1:.2f}" x2="{sx2:.2f}" y2="{sy2:.2f}"></line>'
             )
         parts.append('   </g>')
 
-        # Nodes as blocks
+        # --- Nodes as blocks ---
         parts.append('   <g class="nodes">')
         for node in graph.nodes:
             x, y = pos[node.id]
             attrs_json = json.dumps(node.attributes, ensure_ascii=False)
             attrs_json = html.escape(attrs_json, quote=True)
 
-            # Generate attributes list for display
             attr_lines = [f'<tspan x="0" dy="1.2em">{html.escape(key)}: {html.escape(str(value))}</tspan>'
                           for key, value in node.attributes.items()]
-            
-            # Determine block height based on number of attributes
+
             num_lines = len(node.attributes) + 1
             block_height = 20 + num_lines * 16
-            
+
             parts.append(
                 f'<g class="node block-node" data-id="{html.escape(node.id)}" data-name="{html.escape(node.name)}" '
                 f'data-attrs="{attrs_json}" transform="translate({x:.2f},{y:.2f})">'
@@ -126,4 +142,5 @@ class BlockVisualizer(VisualizerPlugin):
 
         parts.append(' </g>')
         parts.append('</svg>')
+
         return "".join(parts)
