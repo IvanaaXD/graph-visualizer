@@ -1,10 +1,10 @@
 from typing import Any, List, Dict
 from api.model.graph import Graph
-from .search_filter import search_graph, filter_graph
 from core.create_node import create_node
 from core.update_node import update_node
 from core.delete_node import delete_node
 from core.create_edge import create_edge
+from .query_strategies import STRATEGIES  
 
 Query = Dict[str, str] 
 
@@ -31,21 +31,25 @@ class GraphWorkspace:
 
     def create_node(self, node_data: Dict[str, Any]) -> Graph:
         g = create_node(self.current, node_data)
+        self._original = g 
         self._reapply_all_queries()
         return g
 
     def update_node(self, node_id: str, updates: Dict[str, Any]) -> Graph:
         g = update_node(self.current, node_id, updates)
+        self._original = g 
         self._reapply_all_queries()
         return g
 
     def delete_node(self, node_id: str) -> Graph:
         g = delete_node(self.current, node_id)
+        self._original = g 
         self._reapply_all_queries()
         return g
     
     def create_edge(self, from_id: str, to_id: str, edge_type: str) -> Graph:
         g = create_edge(self.current, from_id, to_id, edge_type)
+        self._original = g 
         self._reapply_all_queries()
         return g
 
@@ -53,16 +57,21 @@ class GraphWorkspace:
         self._history = [self._original]; self._cursor = 0; self._queries.clear()
 
     def apply_search(self, q: str) -> Graph:
-        g = search_graph(self.current, q)
-        self._history.append(g); self._cursor += 1
-        self._queries.append({"type":"search","value":q,"label":f"search: {q}"})
+        if not q.strip():
+            return self.current  
 
+        strat = STRATEGIES["search"]
+        g = strat.apply(self.current, q)
+        self._history.append(g); self._cursor += 1
+        self._queries.append({"type": strat.kind, "value": q, "label": strat.label(q)})
         return g
-
+       
     def apply_filter(self, expr: str) -> Graph:
-        g = filter_graph(self.current, expr)
+        if not expr.strip(): return self.current
+        strat = STRATEGIES["filter"]
+        g = strat.apply(self.current, expr)
         self._history.append(g); self._cursor += 1
-        self._queries.append({"type":"filter","value":expr,"label":f"filter: {expr}"})
+        self._queries.append({"type": strat.kind, "value": expr, "label": strat.label(expr)})
         return g
 
     def remove_query(self, index: int) -> None:
