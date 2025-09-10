@@ -89,9 +89,9 @@ class SimpleVisualizer(VisualizerPlugin):
             .nodes circle { fill:#e6f0ff; stroke:#333; }
             .node.dragging circle { opacity:.85; }
     
-            .nodes .node.selected circle { stroke:#1976d2; stroke-width:3; }
+            .nodes .node.selected circle { stroke:var(--accent); stroke-width:3; }
             .nodes .node.dim { opacity:.35; }
-            .edges line.active { stroke:#1976d2; stroke-width:1.8; }
+            .edges line.active { stroke:var(--accent); stroke-width:1.8; }
             .edges line.dim { opacity:.25; }
           </style>
         </defs>

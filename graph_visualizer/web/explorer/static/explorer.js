@@ -81,7 +81,6 @@ window.gvCurrentVisualizer = "simple";
 
   function applyTransform() {
     viewport.setAttribute("transform", `translate(${tx},${ty}) scale(${k})`);
-      refreshBird();
   }
 
   // --- Client -> World coordinates ---
@@ -165,6 +164,7 @@ function setSelected(nodeOrId) {
 
   if (!nodeOrId) {
     if (typeof window.selectInTree === "function") window.selectInTree(null);
+    if (typeof window.selectInBird === "function") window.selectInBird(null);
     return;
   }
   let node;
@@ -190,6 +190,10 @@ function setSelected(nodeOrId) {
 
   if (typeof window.selectInTree === "function") {
     window.selectInTree(id);
+  }
+
+  if (typeof window.selectInBird === "function") {
+    window.selectInBird(id);
   }
 }
 window.setSelected = setSelected;
@@ -369,6 +373,7 @@ window.focusNodeById = function(nodeId, opts = {}) {
 window.openWorkspaceDialog = function () {
     const dialog = document.getElementById("workspaceDialog");
     if (dialog) dialog.showModal();
+    refreshBird(null);
 };
 
 window.closeWorkspaceDialog = function () {
@@ -380,7 +385,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.getElementById("workspaceAddBtn");
   const cancelBtn = document.getElementById("workspaceCancelBtn");
   
-  if(addBtn) addBtn.addEventListener("click", openWorkspaceDialog);
+  if(addBtn) {
+    addBtn.addEventListener("click", openWorkspaceDialog);
+    refreshBird(null);
+  } 
   if(cancelBtn) cancelBtn.addEventListener("click", closeWorkspaceDialog);
 
   const mainHost = document.getElementById("main-host"); 
@@ -436,7 +444,7 @@ function switchVisualizer(type, btn) {
     const searchInput = document.getElementById("search-visualizer");
     if (searchInput) searchInput.value = type;
 
-    refreshBird();
+    refreshBird(selectedId);
 
     if (selectedId) {
       if (typeof window.gvSelect === "function") {
@@ -519,6 +527,7 @@ document.addEventListener("pointerup", () => {
   if (window.draggingNode) {
     window.draggingNode.classList.remove("dragging");
     setSelected(window.draggingNode);
+    refreshBird(window.draggingNode.getAttribute('data-id'));
     window.draggingNode = null;
   }
 });
@@ -552,8 +561,11 @@ function simpleInit() {
       line.setAttribute("y2", y);
     });
 
+    const selectedNode = svg.querySelector('.node.selected');
+    const selectedId = selectedNode ? selectedNode.getAttribute('data-id') : null;
+
     window.gvPositions[nodeId] = { x, y };
-    refreshBird();
+    refreshBird(selectedId);
   };
 
   svg.querySelectorAll(".node").forEach(node => {
@@ -668,8 +680,11 @@ function blockInit() {
       line.setAttribute("y2", ny2);
     });
 
+    const selectedNode = svg.querySelector('.block-node.selected');
+    const selectedId = selectedNode ? selectedNode.getAttribute('data-id') : null;
+
     window.gvPositions[nodeId] = { x, y };
-    refreshBird();
+    refreshBird(selectedId);
   };
 
   nodes.forEach(node => {
@@ -940,7 +955,7 @@ document.addEventListener("click", function(e) {
 
  // -------------- BIRD VIEW ------------
 
-function refreshBird() {
+function refreshBird(selectedNodeId = null) {
   if (!window.gvPanZoom) return;
 
   const svg = document.querySelector("#main-host svg");
@@ -976,15 +991,41 @@ function refreshBird() {
   .then(r => r.json())
   .then(data => {
     const birdHost = document.querySelector(".panel-body.bird");
-    if (birdHost && data.html) birdHost.innerHTML = data.html;
+    if (birdHost && data.html) {
+      birdHost.innerHTML = data.html;
+      if (selectedNodeId) {
+        window.selectInBird(selectedNodeId);
+      }
+    }
   })
   .catch(err => console.error("Bird refresh failed:", err));
 }
 
-window.addEventListener("load", () => {
-  refreshBird();
+document.addEventListener("DOMContentLoaded", () => {
+  const svg = document.querySelector("#main-host svg");
+  if (svg && !window.gvPanZoom) {
+    window.gvPanZoom = { x: 0, y: 0, scale: 1, svg, container: svg.querySelector("g.viewport") };
+  }
+
+  refreshBird(null);
 });
-// --- CLI LOGIC ---
+
+window.selectInBird = function(nodeId) {
+  const bird = document.querySelector(".bird-svg");
+  if (!bird) return;
+
+  bird.querySelectorAll(".bird-nodes circle, .bird-nodes g.block-node").forEach(n =>
+    n.classList.remove("selected")
+  );
+
+  if (!nodeId) return;
+
+  const el = bird.querySelector(`[data-id="${CSS.escape(String(nodeId))}"]`);
+  if (el) el.classList.add("selected");
+};
+
+// -------------------- CLI LOGIC -------------------
+
 document.addEventListener('DOMContentLoaded', () => {
     const cliContainer = document.getElementById('cli-container');
     const toggleButton = document.getElementById('terminal-toggle-btn');

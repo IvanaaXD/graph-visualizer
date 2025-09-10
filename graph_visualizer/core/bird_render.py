@@ -1,8 +1,6 @@
 import html
 from api.model.graph import Graph
 from typing import Optional, Dict
-from django.views.decorators.http import require_http_methods
-from django.http import JsonResponse
 
 def render_bird_svg(graph: Graph, width: int = 220, height: int = 160, context: Optional[Dict] = None) -> str:
     if not graph.nodes:
@@ -12,7 +10,7 @@ def render_bird_svg(graph: Graph, width: int = 220, height: int = 160, context: 
     positions = context.get("positions") if context else None
     visualizer = context.get("visualizer") if context else None
 
-    # --- safe xs/ys ---
+    # compute node positions
     try:
         if positions:
             xs = [float(p[0]) for p in positions.values()]
@@ -53,28 +51,48 @@ def render_bird_svg(graph: Graph, width: int = 220, height: int = 160, context: 
 
     parts = [f'<svg class="bird-svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">']
 
+    # define styles with tree view selection
     if visualizer == "block":
-        # --- Draw blocks instead of circles ---
         parts.append("""
         <style>
         .bird-edges line { stroke:#888; stroke-width:1.2; }
         .bird-nodes .block-rect { fill:#e6f0ff; stroke:#333; rx:3; ry:3; }
         .bird-nodes text { font-size:8px; font-family: sans-serif; pointer-events:none; }
+        .bird-nodes .selected > .block-rect {
+            stroke: var(--accent);
+            stroke-width: 2;
+            fill: color-mix(in oklab, var(--panel), var(--accent) 20%);
+        }
         </style>
         """)
-        # edges
-        parts.append('<g class="bird-edges">')
-        for e in graph.edges:
-            if e.from_node.id in pos and e.to_node.id in pos:
-                x1, y1 = pos[e.from_node.id]
-                x2, y2 = pos[e.to_node.id]
-                parts.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"></line>')
-        parts.append('</g>')
+    else:
+        parts.append("""
+        <style>
+        .bird-edges line { stroke:#aaa; stroke-width:0.8; }
+        .bird-nodes circle { fill:#e6f0ff; stroke:#333; r:3; }
+        .bird-viewport { fill: none; stroke: red; stroke-width: 1; stroke-dasharray: 3 2; }
+        .bird-nodes circle.selected {
+            stroke: var(--accent);
+            stroke-width: 2;
+            fill: var(--accent);
+        }
+        </style>
+        """)
 
-        # nodes as blocks
-        parts.append('<g class="bird-nodes">')
-        for n in graph.nodes:
-            x, y = pos[n.id]
+    # edges
+    parts.append('<g class="bird-edges">')
+    for e in graph.edges:
+        if e.from_node.id in pos and e.to_node.id in pos:
+            x1, y1 = pos[e.from_node.id]
+            x2, y2 = pos[e.to_node.id]
+            parts.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"></line>')
+    parts.append('</g>')
+
+    # nodes
+    parts.append('<g class="bird-nodes">')
+    for n in graph.nodes:
+        x, y = pos[n.id]
+        if visualizer == "block":
             width_block, height_block = 16, 16
             parts.append(
                 f'<g class="block-node" data-id="{html.escape(n.id)}" transform="translate({x:.1f},{y:.1f})">'
@@ -82,31 +100,11 @@ def render_bird_svg(graph: Graph, width: int = 220, height: int = 160, context: 
                 f'<text text-anchor="middle" dy=".35em">{html.escape(n.name)}</text>'
                 f'</g>'
             )
-        parts.append('</g>')
-
-    else:
-        # --- Standard bird circles ---
-        parts.append("""
-        <style>
-        .bird-edges line { stroke:#aaa; stroke-width:0.8; }
-        .bird-nodes circle { fill:#4da6ff; stroke:#333; r:3; }
-        .bird-viewport { fill: none; stroke: red; stroke-width: 1; stroke-dasharray: 3 2; }
-        </style>
-        """)
-        parts.append('<g class="bird-edges">')
-        for e in graph.edges:
-            if e.from_node.id in pos and e.to_node.id in pos:
-                x1, y1 = pos[e.from_node.id]
-                x2, y2 = pos[e.to_node.id]
-                parts.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}"></line>')
-        parts.append('</g>')
-        parts.append('<g class="bird-nodes">')
-        for n in graph.nodes:
-            x, y = pos[n.id]
+        else:
             parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" data-id="{html.escape(n.id)}"></circle>')
-        parts.append('</g>')
+    parts.append('</g>')
 
-    # viewport
+    # viewport (optional)
     viewport = context.get("viewport") if context else None
     if viewport:
         vx = (viewport["x"] - min_x)*scale + offset_x
@@ -115,15 +113,28 @@ def render_bird_svg(graph: Graph, width: int = 220, height: int = 160, context: 
         vheight = viewport["height"]*scale
         vx = max(margin, min(vx, width - margin - vwidth))
         vy = max(margin, min(vy, height - margin - vheight))
-        parts.append(
-            f'<rect class="bird-viewport" x="{vx:.1f}" y="{vy:.1f}" width="{vwidth:.1f}" height="{vheight:.1f}" '
-            f'style="fill:none;stroke:red;stroke-width:1;stroke-dasharray:3 2;"></rect>'
-        )
-    else:
-        parts.append(
-            f'<rect class="bird-viewport" x="{margin}" y="{margin}" width="50" height="40" '
-            f'style="fill:none;stroke:red;stroke-width:1;stroke-dasharray:3 2;"></rect>'
-        )
+        parts.append(f'<rect class="bird-viewport" x="{vx:.1f}" y="{vy:.1f}" width="{vwidth:.1f}" height="{vheight:.1f}" style="fill:none;stroke:red;stroke-width:1;stroke-dasharray:3 2;"></rect>')
 
     parts.append('</svg>')
-    return "".join(parts)
+
+    # --- selection sync script ---
+    parts.append("""
+    <script>
+    (function(){
+        const bird = document.querySelector('.bird-svg');
+        if (!bird) return;
+
+        window.selectInBird = function(nodeId) {
+            bird.querySelectorAll('.bird-nodes circle, .bird-nodes g.block-node').forEach(n =>
+                n.classList.remove('selected')
+            );
+
+            if (!nodeId) return;
+            const el = bird.querySelector('[data-id="' + CSS.escape(String(nodeId)) + '"]');
+            if (el) el.classList.add('selected');
+        };
+    })();
+    </script>
+    """)
+
+    return ''.join(parts)
