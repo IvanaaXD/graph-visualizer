@@ -81,9 +81,9 @@ class BlockVisualizer(VisualizerPlugin):
                 .nodes .block-rect { fill:#e6f0ff; stroke:#333; rx:5; ry:5; pointer-events: visiblePainted;}
                 .nodes .node-title { font-weight: bold; }
                 .node.dragging .block-rect { opacity:.85; }
-                .nodes .node.selected .block-rect { stroke:#1976d2; stroke-width:3; }
+                .nodes .node.selected .block-rect { stroke:var(--accent); stroke-width:3; }
                 .nodes .node.dim { opacity:.35; }
-                .edges line.active { stroke:#1976d2; stroke-width:1.8; }
+                .edges line.active { stroke:var(--accent); stroke-width:1.8; }
                 .edges line.dim { opacity:.25; }
             </style>
         </defs>
