@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graph type="directed">
+    <node id="1">
+        <name>Earth</name>
+        <population>8000000000</population>
+        <discovered>Prehistory</discovered>
+        <children>
+            <node id="2">
+                <name>Europe</name>
+                <area>10180000</area>
+                <children>
+                    <node id="3">
+                        <name>Germany</name>
+                        <capital>Berlin</capital>
+                        <children>
+                            <node id="4">
+                                <name>Cycle to Europe</name>
+                                <node ref="2"/>
+                            </node>
+                        </children>
+                    </node>
+                    <node id="5">
+                        <name>France</name>
+                        <capital>Paris</capital>
+                    </node>
+                </children>
+            </node>
+            <node id="6">
+                <name>Asia</name>
+                <area>44579000</area>
+                <children>
+                    <node id="7">
+                        <name>Japan</name>
+                        <capital>Tokyo</capital>
+                    </node>
+                    <node id="8">
+                        <name>India</name>
+                        <capital>New Delhi</capital>
+                        <children>
+                            <node id="9">
+                                <name>Cycle to Asia</name>
+                                <node ref="6"/>
+                            </node>
+                        </children>
+                    </node>
+                </children>
+            </node>
+        </children>
+    </node>
+</graph>

@@ -1,0 +1,10 @@
+.DS_Store
+/venv/
+
+*/.egg-info/
+*.egg-info/
+
+**/__pycache__/
+__pycache__/
+
+db.sqlite3

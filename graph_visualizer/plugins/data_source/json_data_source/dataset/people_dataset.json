@@ -1,0 +1,30 @@
+{
+  "person1": {
+      "gender": "Female",
+      "knows": [
+        "person2"
+      ],
+      "type": "Person",
+      "age": "56",
+      "name": "Person 1"
+    },
+    "person2": {
+      "gender": "Male",
+      "knows": [
+        "person3",
+        "person1"
+      ],
+      "type": "Person",
+      "age": "56",
+      "name": "Person 2"
+    },
+  "person3": {
+  "gender": "Female",
+  "knows": [
+    "person1"
+  ],
+  "type": "Person",
+  "age": "56",
+  "name": "Person 3"
+}
+}

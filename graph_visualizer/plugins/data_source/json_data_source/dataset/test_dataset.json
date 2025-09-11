@@ -1,0 +1,2870 @@
+{
+  "directed" : true,
+  "person179": {
+    "gender": "Male",
+    "knows": [
+      "person153",
+      "person148"
+    ],
+    "name": "Person 179",
+    "age": "67",
+    "type": "Person"
+  },
+  "person15": {
+    "knows": [
+      "person12",
+      "person208",
+      "person129",
+      "person27",
+      "person245"
+    ],
+    "age": "75",
+    "gender": "Female",
+    "name": "Person 15",
+    "type": "Person"
+  },
+  "person108": {
+    "name": "Person 108",
+    "gender": "Male",
+    "knows": [
+      "person19",
+      "person0",
+      "person55"
+    ],
+    "age": "38",
+    "type": "Person"
+  },
+  "person169": {
+    "gender": "Male",
+    "name": "Person 169",
+    "knows": [
+      "person32",
+      "person145",
+      "person249",
+      "person95",
+      "person66"
+    ],
+    "age": "34",
+    "type": "Person"
+  },
+  "person230": {
+    "knows": [
+      "person215",
+      "person124",
+      "person226",
+      "person10",
+      "person201"
+    ],
+    "name": "Person 230",
+    "age": "54",
+    "type": "Person",
+    "gender": "Male"
+  },
+  "person119": {
+    "age": "67",
+    "type": "Person",
+    "name": "Person 119",
+    "knows": [
+      "person65",
+      "person36"
+    ],
+    "gender": "Female"
+  },
+  "person18": {
+    "knows": [
+      "person181",
+      "person161",
+      "person245",
+      "person242"
+    ],
+    "age": "36",
+    "gender": "Male",
+    "name": "Person 18",
+    "type": "Person"
+  },
+  "person195": {
+    "knows": [
+      "person48",
+      "person177",
+      "person217",
+      "person114",
+      "person26"
+    ],
+    "age": "40",
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 195"
+  },
+  "person61": {
+    "knows": [
+      "person175",
+      "person170",
+      "person60",
+      "person179",
+      "person18"
+    ],
+    "gender": "Male",
+    "age": "71",
+    "name": "Person 61",
+    "type": "Person"
+  },
+  "person126": {
+    "knows": [
+      "person90",
+      "person8",
+      "person114",
+      "person26",
+      "person84"
+    ],
+    "gender": "Male",
+    "name": "Person 126",
+    "type": "Person",
+    "age": "42"
+  },
+  "person43": {
+    "knows": [
+      "person180",
+      "person195",
+      "person64"
+    ],
+    "age": "27",
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 43"
+  },
+  "person136": {
+    "age": "22",
+    "gender": "Female",
+    "knows": [
+      "person23",
+      "person48"
+    ],
+    "type": "Person",
+    "name": "Person 136"
+  },
+  "person29": {
+    "gender": "Male",
+    "name": "Person 29",
+    "age": "32",
+    "knows": [
+      "person84",
+      "person49",
+      "person79"
+    ],
+    "type": "Person"
+  },
+  "person98": {
+    "knows": [
+      "person73",
+      "person144",
+      "person62",
+      "person242",
+      "person32"
+    ],
+    "gender": "Female",
+    "name": "Person 98",
+    "age": "54",
+    "type": "Person"
+  },
+  "person158": {
+    "age": "67",
+    "knows": [
+      "person193",
+      "person113",
+      "person91",
+      "person11",
+      "person42"
+    ],
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 158"
+  },
+  "person45": {
+    "knows": [
+      "person48",
+      "person106"
+    ],
+    "age": "42",
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 45"
+  },
+  "person211": {
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 211",
+    "knows": [
+      "person148",
+      "person10",
+      "person68"
+    ],
+    "age": "20"
+  },
+  "person240": {
+    "gender": "Male",
+    "knows": [
+      "person64",
+      "person86",
+      "person68",
+      "person144",
+      "person208"
+    ],
+    "name": "Person 240",
+    "type": "Person",
+    "age": "28"
+  },
+  "person77": {
+    "age": "71",
+    "gender": "Male",
+    "knows": [
+      "person63",
+      "person61",
+      "person100"
+    ],
+    "name": "Person 77",
+    "type": "Person"
+  },
+  "person142": {
+    "gender": "Female",
+    "age": "49",
+    "name": "Person 142",
+    "knows": [
+      "person60",
+      "person139",
+      "person92"
+    ],
+    "type": "Person"
+  },
+  "person247": {
+    "knows": [
+      "person82",
+      "person184",
+      "person183",
+      "person107"
+    ],
+    "name": "Person 247",
+    "gender": "Female",
+    "age": "60",
+    "type": "Person"
+  },
+  "person213": {
+    "age": "36",
+    "knows": [
+      "person22",
+      "person24"
+    ],
+    "gender": "Male",
+    "name": "Person 213",
+    "type": "Person"
+  },
+  "person228": {
+    "age": "48",
+    "type": "Person",
+    "knows": [
+      "person52",
+      "person33"
+    ],
+    "name": "Person 228",
+    "gender": "Male"
+  },
+  "person171": {
+    "knows": [
+      "person55",
+      "person194",
+      "person248",
+      "person86"
+    ],
+    "age": "34",
+    "gender": "Female",
+    "name": "Person 171",
+    "type": "Person"
+  },
+  "person152": {
+    "gender": "Female",
+    "age": "66",
+    "knows": [
+      "person144",
+      "person100"
+    ],
+    "name": "Person 152",
+    "type": "Person"
+  },
+  "person53": {
+    "gender": "Male",
+    "age": "49",
+    "knows": [
+      "person184",
+      "person148",
+      "person10"
+    ],
+    "name": "Person 53",
+    "type": "Person"
+  },
+  "person140": {
+    "knows": [
+      "person4",
+      "person96",
+      "person206",
+      "person41"
+    ],
+    "age": "62",
+    "name": "Person 140",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person1": {
+    "gender": "Male",
+    "age": "70",
+    "knows": [
+      "person46",
+      "person89",
+      "person2"
+    ],
+    "name": "Person 1",
+    "type": "Person"
+  },
+  "person83": {
+    "knows": [
+      "person194",
+      "person71",
+      "person3",
+      "person12",
+      "person242"
+    ],
+    "gender": "Male",
+    "name": "Person 83",
+    "age": "35",
+    "type": "Person"
+  },
+  "person241": {
+    "age": "79",
+    "type": "Person",
+    "knows": [
+      "person142",
+      "person188",
+      "person96",
+      "person136"
+    ],
+    "name": "Person 241",
+    "gender": "Female"
+  },
+  "person67": {
+    "knows": [
+      "person134",
+      "person186",
+      "person125"
+    ],
+    "gender": "Male",
+    "type": "Person",
+    "age": "34",
+    "name": "Person 67"
+  },
+  "person102": {
+    "age": "22",
+    "gender": "Male",
+    "knows": [
+      "person182",
+      "person33"
+    ],
+    "type": "Person",
+    "name": "Person 102"
+  },
+  "person197": {
+    "name": "Person 197",
+    "knows": [
+      "person173",
+      "person206",
+      "person87",
+      "person17"
+    ],
+    "gender": "Female",
+    "age": "19",
+    "type": "Person"
+  },
+  "person32": {
+    "name": "Person 32",
+    "knows": [
+      "person102",
+      "person239",
+      "person53",
+      "person90"
+    ],
+    "age": "42",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person13": {
+    "knows": [
+      "person234",
+      "person183",
+      "person140"
+    ],
+    "type": "Person",
+    "age": "56",
+    "name": "Person 13",
+    "gender": "Male"
+  },
+  "person248": {
+    "name": "Person 248",
+    "gender": "Male",
+    "knows": [
+      "person245",
+      "person134",
+      "person197",
+      "person123",
+      "person101"
+    ],
+    "age": "31",
+    "type": "Person"
+  },
+  "person207": {
+    "type": "Person",
+    "gender": "Female",
+    "knows": [
+      "person167",
+      "person134"
+    ],
+    "name": "Person 207",
+    "age": "25"
+  },
+  "person202": {
+    "knows": [
+      "person248",
+      "person140",
+      "person83",
+      "person175",
+      "person145"
+    ],
+    "gender": "Male",
+    "age": "18",
+    "type": "Person",
+    "name": "Person 202"
+  },
+  "person132": {
+    "gender": "Male",
+    "knows": [
+      "person222",
+      "person120"
+    ],
+    "age": "49",
+    "name": "Person 132",
+    "type": "Person"
+  },
+  "person16": {
+    "knows": [
+      "person242",
+      "person98"
+    ],
+    "name": "Person 16",
+    "type": "Person",
+    "age": "39",
+    "gender": "Female"
+  },
+  "person194": {
+    "type": "Person",
+    "age": "18",
+    "gender": "Female",
+    "name": "Person 194",
+    "knows": [
+      "person179",
+      "person186"
+    ]
+  },
+  "person64": {
+    "age": "79",
+    "knows": [
+      "person243",
+      "person163"
+    ],
+    "gender": "Male",
+    "type": "Person",
+    "name": "Person 64"
+  },
+  "person109": {
+    "knows": [
+      "person193",
+      "person179",
+      "person165",
+      "person80",
+      "person177"
+    ],
+    "age": "74",
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 109"
+  },
+  "person8": {
+    "age": "72",
+    "knows": [
+      "person157",
+      "person125",
+      "person229",
+      "person228",
+      "person102"
+    ],
+    "gender": "Male",
+    "name": "Person 8",
+    "type": "Person"
+  },
+  "person183": {
+    "knows": [
+      "person235",
+      "person0"
+    ],
+    "gender": "Male",
+    "type": "Person",
+    "age": "52",
+    "name": "Person 183"
+  },
+  "person186": {
+    "age": "59",
+    "type": "Person",
+    "knows": [
+      "person53",
+      "person147",
+      "person185",
+      "person149"
+    ],
+    "name": "Person 186",
+    "gender": "Male"
+  },
+  "person182": {
+    "name": "Person 182",
+    "gender": "Male",
+    "knows": [
+      "person25",
+      "person53",
+      "person2",
+      "person213",
+      "person65"
+    ],
+    "type": "Person",
+    "age": "71"
+  },
+  "person237": {
+    "knows": [
+      "person17",
+      "person5",
+      "person240",
+      "person51"
+    ],
+    "name": "Person 237",
+    "gender": "Male",
+    "age": "75",
+    "type": "Person"
+  },
+  "person221": {
+    "gender": "Male",
+    "knows": [
+      "person189",
+      "person25",
+      "person196",
+      "person190"
+    ],
+    "name": "Person 221",
+    "age": "73",
+    "type": "Person"
+  },
+  "person176": {
+    "age": "51",
+    "knows": [
+      "person220",
+      "person244",
+      "person74",
+      "person123",
+      "person75"
+    ],
+    "type": "Person",
+    "name": "Person 176",
+    "gender": "Female"
+  },
+  "person59": {
+    "name": "Person 59",
+    "type": "Person",
+    "knows": [
+      "person66",
+      "person163",
+      "person92"
+    ],
+    "gender": "Male",
+    "age": "27"
+  },
+  "person210": {
+    "name": "Person 210",
+    "knows": [
+      "person19",
+      "person57"
+    ],
+    "age": "78",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person68": {
+    "type": "Person",
+    "gender": "Female",
+    "knows": [
+      "person230",
+      "person16",
+      "person10",
+      "person214"
+    ],
+    "age": "25",
+    "name": "Person 68"
+  },
+  "person218": {
+    "knows": [
+      "person182",
+      "person72",
+      "person18"
+    ],
+    "type": "Person",
+    "age": "49",
+    "name": "Person 218",
+    "gender": "Male"
+  },
+  "person14": {
+    "knows": [
+      "person206",
+      "person62",
+      "person171",
+      "person167",
+      "person20"
+    ],
+    "age": "37",
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 14"
+  },
+  "person25": {
+    "knows": [
+      "person186",
+      "person116",
+      "person23",
+      "person1"
+    ],
+    "name": "Person 25",
+    "gender": "Male",
+    "type": "Person",
+    "age": "60"
+  },
+  "person54": {
+    "knows": [
+      "person1",
+      "person30",
+      "person198",
+      "person79",
+      "person151"
+    ],
+    "name": "Person 54",
+    "age": "71",
+    "gender": "Male",
+    "type": "Person"
+  },
+  "person69": {
+    "knows": [
+      "person225",
+      "person135",
+      "person204",
+      "person44",
+      "person108"
+    ],
+    "type": "Person",
+    "name": "Person 69",
+    "age": "21",
+    "gender": "Female"
+  },
+  "person56": {
+    "gender": "Female",
+    "age": "35",
+    "knows": [
+      "person119",
+      "person217",
+      "person153"
+    ],
+    "type": "Person",
+    "name": "Person 56"
+  },
+  "person31": {
+    "age": "66",
+    "knows": [
+      "person101",
+      "person118",
+      "person226"
+    ],
+    "type": "Person",
+    "name": "Person 31",
+    "gender": "Female"
+  },
+  "person226": {
+    "type": "Person",
+    "knows": [
+      "person35",
+      "person144",
+      "person126",
+      "person87"
+    ],
+    "gender": "Female",
+    "age": "34",
+    "name": "Person 226"
+  },
+  "person244": {
+    "knows": [
+      "person193",
+      "person30",
+      "person155"
+    ],
+    "type": "Person",
+    "name": "Person 244",
+    "gender": "Female",
+    "age": "34"
+  },
+  "person49": {
+    "type": "Person",
+    "gender": "Male",
+    "knows": [
+      "person1",
+      "person27",
+      "person146",
+      "person26",
+      "person229"
+    ],
+    "name": "Person 49",
+    "age": "64"
+  },
+  "person51": {
+    "knows": [
+      "person224",
+      "person181",
+      "person39",
+      "person134"
+    ],
+    "type": "Person",
+    "age": "78",
+    "name": "Person 51",
+    "gender": "Female"
+  },
+  "person46": {
+    "knows": [
+      "person142",
+      "person16",
+      "person91",
+      "person151"
+    ],
+    "age": "31",
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 46"
+  },
+  "person101": {
+    "age": "24",
+    "gender": "Male",
+    "knows": [
+      "person99",
+      "person223",
+      "person21"
+    ],
+    "name": "Person 101",
+    "type": "Person"
+  },
+  "person205": {
+    "knows": [
+      "person236",
+      "person124",
+      "person31"
+    ],
+    "name": "Person 205",
+    "gender": "Female",
+    "age": "80",
+    "type": "Person"
+  },
+  "person121": {
+    "gender": "Male",
+    "knows": [
+      "person11",
+      "person57",
+      "person197",
+      "person108",
+      "person119"
+    ],
+    "name": "Person 121",
+    "age": "37",
+    "type": "Person"
+  },
+  "person28": {
+    "gender": "Female",
+    "knows": [
+      "person207",
+      "person158"
+    ],
+    "type": "Person",
+    "name": "Person 28",
+    "age": "60"
+  },
+  "person191": {
+    "name": "Person 191",
+    "knows": [
+      "person213",
+      "person41",
+      "person233"
+    ],
+    "type": "Person",
+    "gender": "Male",
+    "age": "50"
+  },
+  "person160": {
+    "knows": [
+      "person28",
+      "person172",
+      "person247",
+      "person10"
+    ],
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 160",
+    "age": "25"
+  },
+  "person208": {
+    "knows": [
+      "person203",
+      "person163",
+      "person247",
+      "person227"
+    ],
+    "name": "Person 208",
+    "age": "38",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person88": {
+    "knows": [
+      "person231",
+      "person47",
+      "person140",
+      "person166"
+    ],
+    "age": "47",
+    "type": "Person",
+    "name": "Person 88",
+    "gender": "Female"
+  },
+  "person139": {
+    "knows": [
+      "person14",
+      "person49"
+    ],
+    "name": "Person 139",
+    "type": "Person",
+    "gender": "Male",
+    "age": "73"
+  },
+  "person97": {
+    "age": "29",
+    "type": "Person",
+    "knows": [
+      "person216",
+      "person74"
+    ],
+    "name": "Person 97",
+    "gender": "Female"
+  },
+  "person147": {
+    "knows": [
+      "person214",
+      "person230",
+      "person138",
+      "person107",
+      "person193"
+    ],
+    "type": "Person",
+    "age": "24",
+    "gender": "Male",
+    "name": "Person 147"
+  },
+  "person115": {
+    "gender": "Male",
+    "knows": [
+      "person73",
+      "person30",
+      "person100"
+    ],
+    "name": "Person 115",
+    "age": "64",
+    "type": "Person"
+  },
+  "person104": {
+    "gender": "Male",
+    "knows": [
+      "person195",
+      "person193",
+      "person175",
+      "person48",
+      "person86"
+    ],
+    "type": "Person",
+    "age": "26",
+    "name": "Person 104"
+  },
+  "person70": {
+    "age": "52",
+    "knows": [
+      "person47",
+      "person132",
+      "person87"
+    ],
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 70"
+  },
+  "person48": {
+    "knows": [
+      "person225",
+      "person160",
+      "person203"
+    ],
+    "age": "47",
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 48"
+  },
+  "person156": {
+    "knows": [
+      "person214",
+      "person67",
+      "person243",
+      "person125",
+      "person98"
+    ],
+    "age": "65",
+    "gender": "Female",
+    "name": "Person 156",
+    "type": "Person"
+  },
+  "person113": {
+    "gender": "Female",
+    "age": "34",
+    "knows": [
+      "person143",
+      "person96",
+      "person206",
+      "person170",
+      "person202"
+    ],
+    "type": "Person",
+    "name": "Person 113"
+  },
+  "person5": {
+    "knows": [
+      "person134",
+      "person176"
+    ],
+    "gender": "Male",
+    "age": "32",
+    "type": "Person",
+    "name": "Person 5"
+  },
+  "person222": {
+    "knows": [
+      "person175",
+      "person216",
+      "person0",
+      "person130",
+      "person193"
+    ],
+    "age": "24",
+    "name": "Person 222",
+    "gender": "Male",
+    "type": "Person"
+  },
+  "person223": {
+    "gender": "Female",
+    "age": "44",
+    "type": "Person",
+    "knows": [
+      "person3",
+      "person33",
+      "person205"
+    ],
+    "name": "Person 223"
+  },
+  "person167": {
+    "knows": [
+      "person191",
+      "person189",
+      "person136",
+      "person85"
+    ],
+    "gender": "Male",
+    "age": "32",
+    "type": "Person",
+    "name": "Person 167"
+  },
+  "person65": {
+    "knows": [
+      "person44",
+      "person112"
+    ],
+    "gender": "Male",
+    "age": "39",
+    "type": "Person",
+    "name": "Person 65"
+  },
+  "person95": {
+    "gender": "Female",
+    "name": "Person 95",
+    "type": "Person",
+    "knows": [
+      "person104",
+      "person145",
+      "person183",
+      "person191",
+      "person29"
+    ],
+    "age": "51"
+  },
+  "person164": {
+    "age": "54",
+    "type": "Person",
+    "name": "Person 164",
+    "knows": [
+      "person237",
+      "person111",
+      "person90",
+      "person129",
+      "person59"
+    ],
+    "gender": "Male"
+  },
+  "person111": {
+    "gender": "Male",
+    "knows": [
+      "person56",
+      "person214",
+      "person120"
+    ],
+    "age": "19",
+    "type": "Person",
+    "name": "Person 111"
+  },
+  "person225": {
+    "gender": "Female",
+    "knows": [
+      "person31",
+      "person148",
+      "person83",
+      "person96"
+    ],
+    "type": "Person",
+    "name": "Person 225",
+    "age": "39"
+  },
+  "person144": {
+    "knows": [
+      "person53",
+      "person146",
+      "person151",
+      "person112"
+    ],
+    "name": "Person 144",
+    "type": "Person",
+    "gender": "Female",
+    "age": "78"
+  },
+  "person184": {
+    "age": "46",
+    "knows": [
+      "person172",
+      "person44",
+      "person107"
+    ],
+    "gender": "Male",
+    "name": "Person 184",
+    "type": "Person"
+  },
+  "person62": {
+    "gender": "Male",
+    "knows": [
+      "person101",
+      "person137",
+      "person17"
+    ],
+    "name": "Person 62",
+    "type": "Person",
+    "age": "55"
+  },
+  "person175": {
+    "age": "59",
+    "knows": [
+      "person118",
+      "person185",
+      "person42",
+      "person178",
+      "person133"
+    ],
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 175"
+  },
+  "person85": {
+    "knows": [
+      "person63",
+      "person125"
+    ],
+    "age": "23",
+    "name": "Person 85",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person124": {
+    "name": "Person 124",
+    "type": "Person",
+    "knows": [
+      "person112",
+      "person221"
+    ],
+    "gender": "Male",
+    "age": "46"
+  },
+  "person58": {
+    "knows": [
+      "person215",
+      "person95"
+    ],
+    "name": "Person 58",
+    "type": "Person",
+    "age": "64",
+    "gender": "Male"
+  },
+  "person216": {
+    "type": "Person",
+    "age": "20",
+    "name": "Person 216",
+    "knows": [
+      "person231",
+      "person46"
+    ],
+    "gender": "Male"
+  },
+  "person212": {
+    "knows": [
+      "person226",
+      "person1",
+      "person149",
+      "person186"
+    ],
+    "age": "74",
+    "gender": "Male",
+    "name": "Person 212",
+    "type": "Person"
+  },
+  "person42": {
+    "knows": [
+      "person114",
+      "person18"
+    ],
+    "name": "Person 42",
+    "gender": "Female",
+    "age": "55",
+    "type": "Person"
+  },
+  "person155": {
+    "knows": [
+      "person213",
+      "person235",
+      "person129",
+      "person209"
+    ],
+    "name": "Person 155",
+    "type": "Person",
+    "gender": "Male",
+    "age": "74"
+  },
+  "person100": {
+    "knows": [
+      "person93",
+      "person48",
+      "person52",
+      "person180",
+      "person166"
+    ],
+    "age": "64",
+    "type": "Person",
+    "name": "Person 100",
+    "gender": "Male"
+  },
+  "person181": {
+    "knows": [
+      "person211",
+      "person230",
+      "person141",
+      "person223"
+    ],
+    "gender": "Male",
+    "age": "25",
+    "name": "Person 181",
+    "type": "Person"
+  },
+  "person24": {
+    "gender": "Female",
+    "knows": [
+      "person4",
+      "person108"
+    ],
+    "type": "Person",
+    "age": "37",
+    "name": "Person 24"
+  },
+  "person4": {
+    "name": "Person 4",
+    "type": "Person",
+    "knows": [
+      "person69",
+      "person157",
+      "person240",
+      "person35"
+    ],
+    "age": "26",
+    "gender": "Female"
+  },
+  "person127": {
+    "knows": [
+      "person169",
+      "person164"
+    ],
+    "age": "25",
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 127"
+  },
+  "person116": {
+    "knows": [
+      "person141",
+      "person210",
+      "person229",
+      "person8"
+    ],
+    "name": "Person 116",
+    "age": "37",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person76": {
+    "type": "Person",
+    "age": "23",
+    "knows": [
+      "person64",
+      "person210"
+    ],
+    "name": "Person 76",
+    "gender": "Female"
+  },
+  "person151": {
+    "gender": "Female",
+    "type": "Person",
+    "age": "24",
+    "knows": [
+      "person237",
+      "person136",
+      "person226",
+      "person54"
+    ],
+    "name": "Person 151"
+  },
+  "person26": {
+    "knows": [
+      "person184",
+      "person133"
+    ],
+    "name": "Person 26",
+    "age": "50",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person134": {
+    "knows": [
+      "person226",
+      "person92",
+      "person154",
+      "person18",
+      "person102"
+    ],
+    "gender": "Female",
+    "type": "Person",
+    "age": "58",
+    "name": "Person 134"
+  },
+  "person17": {
+    "age": "20",
+    "gender": "Female",
+    "knows": [
+      "person217",
+      "person160",
+      "person97"
+    ],
+    "name": "Person 17",
+    "type": "Person"
+  },
+  "person185": {
+    "type": "Person",
+    "knows": [
+      "person170",
+      "person87",
+      "person180"
+    ],
+    "name": "Person 185",
+    "age": "60",
+    "gender": "Female"
+  },
+  "person215": {
+    "age": "60",
+    "name": "Person 215",
+    "type": "Person",
+    "knows": [
+      "person55",
+      "person84"
+    ],
+    "gender": "Male"
+  },
+  "person21": {
+    "knows": [
+      "person23",
+      "person2",
+      "person203",
+      "person149",
+      "person197"
+    ],
+    "type": "Person",
+    "age": "72",
+    "gender": "Female",
+    "name": "Person 21"
+  },
+  "person19": {
+    "knows": [
+      "person134",
+      "person123",
+      "person8",
+      "person214",
+      "person88"
+    ],
+    "age": "70",
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 19"
+  },
+  "person120": {
+    "knows": [
+      "person245",
+      "person88"
+    ],
+    "gender": "Female",
+    "age": "40",
+    "name": "Person 120",
+    "type": "Person"
+  },
+  "person166": {
+    "knows": [
+      "person189",
+      "person46",
+      "person151",
+      "person180"
+    ],
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 166",
+    "age": "44"
+  },
+  "person204": {
+    "knows": [
+      "person219",
+      "person119",
+      "person93"
+    ],
+    "gender": "Male",
+    "age": "65",
+    "name": "Person 204",
+    "type": "Person"
+  },
+  "person232": {
+    "name": "Person 232",
+    "knows": [
+      "person180",
+      "person74",
+      "person42"
+    ],
+    "gender": "Male",
+    "age": "35",
+    "type": "Person"
+  },
+  "person36": {
+    "knows": [
+      "person132",
+      "person75",
+      "person143"
+    ],
+    "age": "74",
+    "name": "Person 36",
+    "gender": "Female",
+    "type": "Person"
+  },
+  "person135": {
+    "age": "33",
+    "type": "Person",
+    "name": "Person 135",
+    "knows": [
+      "person172",
+      "person62",
+      "person150",
+      "person29",
+      "person63"
+    ],
+    "gender": "Male"
+  },
+  "person190": {
+    "knows": [
+      "person59",
+      "person41",
+      "person138",
+      "person116",
+      "person244"
+    ],
+    "age": "64",
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 190"
+  },
+  "person9": {
+    "knows": [
+      "person59",
+      "person222",
+      "person153"
+    ],
+    "type": "Person",
+    "name": "Person 9",
+    "age": "80",
+    "gender": "Male"
+  },
+  "person174": {
+    "knows": [
+      "person182",
+      "person95",
+      "person231",
+      "person164",
+      "person13"
+    ],
+    "type": "Person",
+    "name": "Person 174",
+    "gender": "Female",
+    "age": "64"
+  },
+  "person131": {
+    "gender": "Female",
+    "knows": [
+      "person23",
+      "person211",
+      "person147",
+      "person166"
+    ],
+    "type": "Person",
+    "name": "Person 131",
+    "age": "21"
+  },
+  "person162": {
+    "type": "Person",
+    "knows": [
+      "person55",
+      "person71",
+      "person228",
+      "person193"
+    ],
+    "name": "Person 162",
+    "gender": "Male",
+    "age": "70"
+  },
+  "person153": {
+    "gender": "Female",
+    "knows": [
+      "person233",
+      "person44",
+      "person6",
+      "person61",
+      "person194"
+    ],
+    "type": "Person",
+    "name": "Person 153",
+    "age": "37"
+  },
+  "person22": {
+    "gender": "Male",
+    "knows": [
+      "person242",
+      "person84",
+      "person62",
+      "person23"
+    ],
+    "age": "36",
+    "name": "Person 22",
+    "type": "Person"
+  },
+  "person141": {
+    "type": "Person",
+    "gender": "Female",
+    "knows": [
+      "person35",
+      "person248",
+      "person38"
+    ],
+    "age": "32",
+    "name": "Person 141"
+  },
+  "person41": {
+    "name": "Person 41",
+    "type": "Person",
+    "knows": [
+      "person194",
+      "person157"
+    ],
+    "gender": "Female",
+    "age": "68"
+  },
+  "person94": {
+    "knows": [
+      "person99",
+      "person168"
+    ],
+    "age": "43",
+    "gender": "Male",
+    "name": "Person 94",
+    "type": "Person"
+  },
+  "person236": {
+    "type": "Person",
+    "age": "69",
+    "knows": [
+      "person62",
+      "person138",
+      "person188",
+      "person146"
+    ],
+    "name": "Person 236",
+    "gender": "Male"
+  },
+  "person242": {
+    "knows": [
+      "person86",
+      "person89",
+      "person94",
+      "person204"
+    ],
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 242",
+    "age": "38"
+  },
+  "person245": {
+    "name": "Person 245",
+    "knows": [
+      "person40",
+      "person182",
+      "person163",
+      "person81",
+      "person131"
+    ],
+    "type": "Person",
+    "age": "77",
+    "gender": "Male"
+  },
+  "person66": {
+    "type": "Person",
+    "knows": [
+      "person18",
+      "person99",
+      "person21",
+      "person182",
+      "person232"
+    ],
+    "age": "54",
+    "name": "Person 66",
+    "gender": "Female"
+  },
+  "person170": {
+    "knows": [
+      "person93",
+      "person145",
+      "person28",
+      "person239"
+    ],
+    "age": "65",
+    "name": "Person 170",
+    "type": "Person",
+    "gender": "Male"
+  },
+  "person96": {
+    "name": "Person 96",
+    "knows": [
+      "person228",
+      "person245",
+      "person157"
+    ],
+    "age": "75",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person233": {
+    "gender": "Male",
+    "knows": [
+      "person107",
+      "person223"
+    ],
+    "type": "Person",
+    "name": "Person 233",
+    "age": "61"
+  },
+  "person243": {
+    "type": "Person",
+    "knows": [
+      "person104",
+      "person233"
+    ],
+    "gender": "Female",
+    "name": "Person 243",
+    "age": "25"
+  },
+  "person106": {
+    "knows": [
+      "person134",
+      "person27"
+    ],
+    "name": "Person 106",
+    "type": "Person",
+    "gender": "Male",
+    "age": "75"
+  },
+  "person189": {
+    "knows": [
+      "person114",
+      "person219"
+    ],
+    "gender": "Male",
+    "age": "59",
+    "name": "Person 189",
+    "type": "Person"
+  },
+  "person0": {
+    "type": "Person",
+    "knows": [
+      "person84",
+      "person14",
+      "person161",
+      "person38"
+    ],
+    "gender": "Female",
+    "name": "Person 0",
+    "age": "58"
+  },
+  "person145": {
+    "knows": [
+      "person212",
+      "person163",
+      "person173",
+      "person103",
+      "person40"
+    ],
+    "gender": "Male",
+    "name": "Person 145",
+    "type": "Person",
+    "age": "76"
+  },
+  "person130": {
+    "knows": [
+      "person58",
+      "person39"
+    ],
+    "age": "42",
+    "gender": "Male",
+    "name": "Person 130",
+    "type": "Person"
+  },
+  "person86": {
+    "knows": [
+      "person45",
+      "person192",
+      "person36",
+      "person94",
+      "person180"
+    ],
+    "type": "Person",
+    "age": "65",
+    "name": "Person 86",
+    "gender": "Female"
+  },
+  "person177": {
+    "gender": "Male",
+    "knows": [
+      "person87",
+      "person216",
+      "person0",
+      "person76"
+    ],
+    "age": "53",
+    "name": "Person 177",
+    "type": "Person"
+  },
+  "person10": {
+    "knows": [
+      "person157",
+      "person115",
+      "person161"
+    ],
+    "name": "Person 10",
+    "type": "Person",
+    "gender": "Male",
+    "age": "59"
+  },
+  "person234": {
+    "type": "Person",
+    "knows": [
+      "person206",
+      "person240"
+    ],
+    "age": "53",
+    "name": "Person 234",
+    "gender": "Female"
+  },
+  "person3": {
+    "gender": "Female",
+    "knows": [
+      "person244",
+      "person43",
+      "person1",
+      "person178"
+    ],
+    "type": "Person",
+    "age": "56",
+    "name": "Person 3"
+  },
+  "person157": {
+    "knows": [
+      "person221",
+      "person131"
+    ],
+    "type": "Person",
+    "gender": "Female",
+    "age": "65",
+    "name": "Person 157"
+  },
+  "person201": {
+    "name": "Person 201",
+    "age": "33",
+    "gender": "Male",
+    "knows": [
+      "person10",
+      "person214"
+    ],
+    "type": "Person"
+  },
+  "person227": {
+    "type": "Person",
+    "gender": "Female",
+    "knows": [
+      "person51",
+      "person170",
+      "person16",
+      "person164",
+      "person193"
+    ],
+    "age": "77",
+    "name": "Person 227"
+  },
+  "person34": {
+    "knows": [
+      "person234",
+      "person24"
+    ],
+    "type": "Person",
+    "name": "Person 34",
+    "age": "23",
+    "gender": "Male"
+  },
+  "person81": {
+    "type": "Person",
+    "age": "65",
+    "name": "Person 81",
+    "knows": [
+      "person96",
+      "person8"
+    ],
+    "gender": "Male"
+  },
+  "person23": {
+    "age": "67",
+    "knows": [
+      "person114",
+      "person225",
+      "person39",
+      "person77",
+      "person238"
+    ],
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 23"
+  },
+  "person39": {
+    "name": "Person 39",
+    "type": "Person",
+    "knows": [
+      "person115",
+      "person90",
+      "person33",
+      "person116",
+      "person134"
+    ],
+    "age": "23",
+    "gender": "Male"
+  },
+  "person90": {
+    "name": "Person 90",
+    "age": "18",
+    "gender": "Male",
+    "type": "Person",
+    "knows": [
+      "person104",
+      "person96",
+      "person206"
+    ]
+  },
+  "person219": {
+    "knows": [
+      "person240",
+      "person26",
+      "person3",
+      "person222"
+    ],
+    "age": "55",
+    "name": "Person 219",
+    "gender": "Male",
+    "type": "Person"
+  },
+  "person123": {
+    "name": "Person 123",
+    "knows": [
+      "person30",
+      "person0"
+    ],
+    "gender": "Male",
+    "age": "20",
+    "type": "Person"
+  },
+  "person180": {
+    "gender": "Female",
+    "type": "Person",
+    "age": "40",
+    "name": "Person 180",
+    "knows": [
+      "person147",
+      "person15",
+      "person54"
+    ]
+  },
+  "person118": {
+    "gender": "Female",
+    "age": "23",
+    "name": "Person 118",
+    "knows": [
+      "person82",
+      "person97"
+    ],
+    "type": "Person"
+  },
+  "person235": {
+    "age": "75",
+    "knows": [
+      "person14",
+      "person181",
+      "person192"
+    ],
+    "type": "Person",
+    "name": "Person 235",
+    "gender": "Male"
+  },
+  "person125": {
+    "type": "Person",
+    "gender": "Male",
+    "knows": [
+      "person158",
+      "person187",
+      "person191",
+      "person16",
+      "person233"
+    ],
+    "age": "33",
+    "name": "Person 125"
+  },
+  "person150": {
+    "knows": [
+      "person110",
+      "person20",
+      "person53",
+      "person50",
+      "person2"
+    ],
+    "name": "Person 150",
+    "age": "51",
+    "gender": "Male",
+    "type": "Person"
+  },
+  "person99": {
+    "age": "42",
+    "knows": [
+      "person161",
+      "person0",
+      "person145"
+    ],
+    "type": "Person",
+    "gender": "Male",
+    "name": "Person 99"
+  },
+  "person105": {
+    "type": "Person",
+    "name": "Person 105",
+    "knows": [
+      "person11",
+      "person40",
+      "person146"
+    ],
+    "gender": "Male",
+    "age": "37"
+  },
+  "person89": {
+    "age": "34",
+    "name": "Person 89",
+    "type": "Person",
+    "gender": "Female",
+    "knows": [
+      "person14",
+      "person111"
+    ]
+  },
+  "person165": {
+    "knows": [
+      "person156",
+      "person31",
+      "person182"
+    ],
+    "gender": "Female",
+    "type": "Person",
+    "age": "31",
+    "name": "Person 165"
+  },
+  "person143": {
+    "knows": [
+      "person246",
+      "person98",
+      "person88"
+    ],
+    "type": "Person",
+    "age": "59",
+    "gender": "Female",
+    "name": "Person 143"
+  },
+  "person44": {
+    "knows": [
+      "person78",
+      "person177",
+      "person83"
+    ],
+    "type": "Person",
+    "name": "Person 44",
+    "gender": "Male",
+    "age": "53"
+  },
+  "person7": {
+    "type": "Person",
+    "age": "76",
+    "knows": [
+      "person181",
+      "person159",
+      "person242",
+      "person216",
+      "person31"
+    ],
+    "gender": "Male",
+    "name": "Person 7"
+  },
+  "person231": {
+    "type": "Person",
+    "knows": [
+      "person154",
+      "person199",
+      "person0",
+      "person86",
+      "person234"
+    ],
+    "gender": "Male",
+    "name": "Person 231",
+    "age": "52"
+  },
+  "person37": {
+    "type": "Person",
+    "age": "48",
+    "knows": [
+      "person52",
+      "person63",
+      "person31"
+    ],
+    "name": "Person 37",
+    "gender": "Male"
+  },
+  "person30": {
+    "knows": [
+      "person137",
+      "person88",
+      "person52",
+      "person31"
+    ],
+    "gender": "Female",
+    "age": "62",
+    "name": "Person 30",
+    "type": "Person"
+  },
+  "person220": {
+    "gender": "Male",
+    "type": "Person",
+    "age": "29",
+    "name": "Person 220",
+    "knows": [
+      "person167",
+      "person11"
+    ]
+  },
+  "person206": {
+    "name": "Person 206",
+    "knows": [
+      "person147",
+      "person21",
+      "person198",
+      "person228"
+    ],
+    "age": "65",
+    "gender": "Female",
+    "type": "Person"
+  },
+  "person57": {
+    "knows": [
+      "person4",
+      "person54",
+      "person161",
+      "person64",
+      "person70"
+    ],
+    "age": "34",
+    "type": "Person",
+    "name": "Person 57",
+    "gender": "Male"
+  },
+  "person74": {
+    "name": "Person 74",
+    "gender": "Female",
+    "age": "58",
+    "knows": [
+      "person45",
+      "person186"
+    ],
+    "type": "Person"
+  },
+  "person2": {
+    "name": "Person 2",
+    "type": "Person",
+    "age": "65",
+    "knows": [
+      "person60",
+      "person43",
+      "person3"
+    ],
+    "gender": "Male"
+  },
+  "person20": {
+    "knows": [
+      "person211",
+      "person164",
+      "person234"
+    ],
+    "name": "Person 20",
+    "age": "53",
+    "gender": "Female",
+    "type": "Person"
+  },
+  "person161": {
+    "age": "35",
+    "type": "Person",
+    "knows": [
+      "person70",
+      "person192"
+    ],
+    "gender": "Female",
+    "name": "Person 161"
+  },
+  "person27": {
+    "name": "Person 27",
+    "knows": [
+      "person74",
+      "person97"
+    ],
+    "type": "Person",
+    "gender": "Male",
+    "age": "35"
+  },
+  "person78": {
+    "knows": [
+      "person148",
+      "person80"
+    ],
+    "type": "Person",
+    "age": "25",
+    "name": "Person 78",
+    "gender": "Female"
+  },
+  "person55": {
+    "knows": [
+      "person211",
+      "person147",
+      "person59",
+      "person219",
+      "person87"
+    ],
+    "name": "Person 55",
+    "gender": "Male",
+    "type": "Person",
+    "age": "60"
+  },
+  "person52": {
+    "age": "58",
+    "gender": "Male",
+    "knows": [
+      "person1",
+      "person214"
+    ],
+    "name": "Person 52",
+    "type": "Person"
+  },
+  "person114": {
+    "gender": "Male",
+    "knows": [
+      "person57",
+      "person176",
+      "person195",
+      "person49",
+      "person43"
+    ],
+    "age": "74",
+    "name": "Person 114",
+    "type": "Person"
+  },
+  "person133": {
+    "gender": "Female",
+    "age": "47",
+    "knows": [
+      "person183",
+      "person248"
+    ],
+    "name": "Person 133",
+    "type": "Person"
+  },
+  "person217": {
+    "name": "Person 217",
+    "knows": [
+      "person147",
+      "person5",
+      "person111"
+    ],
+    "gender": "Female",
+    "age": "30",
+    "type": "Person"
+  },
+  "person35": {
+    "knows": [
+      "person164",
+      "person157",
+      "person208",
+      "person24"
+    ],
+    "gender": "Female",
+    "name": "Person 35",
+    "age": "22",
+    "type": "Person"
+  },
+  "person72": {
+    "knows": [
+      "person224",
+      "person170",
+      "person230",
+      "person141"
+    ],
+    "age": "33",
+    "type": "Person",
+    "name": "Person 72",
+    "gender": "Male"
+  },
+  "person80": {
+    "gender": "Female",
+    "name": "Person 80",
+    "knows": [
+      "person100",
+      "person1",
+      "person121"
+    ],
+    "type": "Person",
+    "age": "48"
+  },
+  "person103": {
+    "name": "Person 103",
+    "knows": [
+      "person74",
+      "person197"
+    ],
+    "age": "31",
+    "gender": "Female",
+    "type": "Person"
+  },
+  "person229": {
+    "type": "Person",
+    "knows": [
+      "person217",
+      "person187",
+      "person198"
+    ],
+    "name": "Person 229",
+    "age": "20",
+    "gender": "Female"
+  },
+  "person73": {
+    "gender": "Female",
+    "age": "71",
+    "knows": [
+      "person125",
+      "person195"
+    ],
+    "name": "Person 73",
+    "type": "Person"
+  },
+  "person79": {
+    "name": "Person 79",
+    "type": "Person",
+    "gender": "Male",
+    "knows": [
+      "person45",
+      "person146"
+    ],
+    "age": "75"
+  },
+  "person196": {
+    "knows": [
+      "person6",
+      "person33",
+      "person60"
+    ],
+    "type": "Person",
+    "gender": "Female",
+    "age": "71",
+    "name": "Person 196"
+  },
+  "person239": {
+    "knows": [
+      "person211",
+      "person131",
+      "person119"
+    ],
+    "name": "Person 239",
+    "gender": "Female",
+    "age": "29",
+    "type": "Person"
+  },
+  "person203": {
+    "knows": [
+      "person107",
+      "person102"
+    ],
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 203",
+    "age": "51"
+  },
+  "person137": {
+    "type": "Person",
+    "gender": "Female",
+    "knows": [
+      "person242",
+      "person17",
+      "person34",
+      "person56",
+      "person98"
+    ],
+    "name": "Person 137",
+    "age": "31"
+  },
+  "person63": {
+    "knows": [
+      "person44",
+      "person106"
+    ],
+    "gender": "Male",
+    "age": "74",
+    "name": "Person 63",
+    "type": "Person"
+  },
+  "person173": {
+    "name": "Person 173",
+    "gender": "Male",
+    "knows": [
+      "person108",
+      "person78",
+      "person55",
+      "person56",
+      "person19"
+    ],
+    "type": "Person",
+    "age": "66"
+  },
+  "person172": {
+    "knows": [
+      "person26",
+      "person152",
+      "person210",
+      "person201"
+    ],
+    "age": "46",
+    "type": "Person",
+    "name": "Person 172",
+    "gender": "Male"
+  },
+  "person149": {
+    "knows": [
+      "person203",
+      "person15"
+    ],
+    "age": "37",
+    "gender": "Female",
+    "name": "Person 149",
+    "type": "Person"
+  },
+  "person193": {
+    "knows": [
+      "person81",
+      "person189",
+      "person34",
+      "person103"
+    ],
+    "name": "Person 193",
+    "type": "Person",
+    "gender": "Female",
+    "age": "78"
+  },
+  "person163": {
+    "knows": [
+      "person40",
+      "person214",
+      "person130",
+      "person65",
+      "person1"
+    ],
+    "name": "Person 163",
+    "type": "Person",
+    "age": "59",
+    "gender": "Male"
+  },
+  "person198": {
+    "name": "Person 198",
+    "type": "Person",
+    "knows": [
+      "person130",
+      "person106",
+      "person187",
+      "person0"
+    ],
+    "gender": "Female",
+    "age": "36"
+  },
+  "person92": {
+    "knows": [
+      "person184",
+      "person111",
+      "person124",
+      "person1",
+      "person118"
+    ],
+    "name": "Person 92",
+    "type": "Person",
+    "age": "39",
+    "gender": "Female"
+  },
+  "person117": {
+    "gender": "Male",
+    "knows": [
+      "person179",
+      "person65",
+      "person176"
+    ],
+    "age": "38",
+    "name": "Person 117",
+    "type": "Person"
+  },
+  "person40": {
+    "age": "72",
+    "knows": [
+      "person221",
+      "person53",
+      "person3",
+      "person26",
+      "person190"
+    ],
+    "name": "Person 40",
+    "gender": "Female",
+    "type": "Person"
+  },
+  "person6": {
+    "age": "31",
+    "gender": "Female",
+    "knows": [
+      "person195",
+      "person212",
+      "person82"
+    ],
+    "type": "Person",
+    "name": "Person 6"
+  },
+  "person91": {
+    "name": "Person 91",
+    "knows": [
+      "person72",
+      "person102",
+      "person105",
+      "person94",
+      "person216"
+    ],
+    "gender": "Female",
+    "age": "29",
+    "type": "Person"
+  },
+  "person178": {
+    "name": "Person 178",
+    "knows": [
+      "person34",
+      "person123",
+      "person26"
+    ],
+    "type": "Person",
+    "age": "58",
+    "gender": "Male"
+  },
+  "person199": {
+    "gender": "Female",
+    "name": "Person 199",
+    "knows": [
+      "person244",
+      "person148",
+      "person145",
+      "person41",
+      "person4"
+    ],
+    "age": "78",
+    "type": "Person"
+  },
+  "person238": {
+    "knows": [
+      "person213",
+      "person104",
+      "person226",
+      "person177"
+    ],
+    "age": "72",
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 238"
+  },
+  "person200": {
+    "knows": [
+      "person57",
+      "person110",
+      "person45",
+      "person56"
+    ],
+    "gender": "Male",
+    "age": "20",
+    "type": "Person",
+    "name": "Person 200"
+  },
+  "person192": {
+    "knows": [
+      "person60",
+      "person37",
+      "person146",
+      "person161",
+      "person30"
+    ],
+    "age": "77",
+    "gender": "Male",
+    "type": "Person",
+    "name": "Person 192"
+  },
+  "person224": {
+    "knows": [
+      "person23",
+      "person209",
+      "person147"
+    ],
+    "type": "Person",
+    "age": "48",
+    "gender": "Female",
+    "name": "Person 224"
+  },
+  "person11": {
+    "knows": [
+      "person116",
+      "person165",
+      "person125",
+      "person108"
+    ],
+    "gender": "Female",
+    "name": "Person 11",
+    "age": "64",
+    "type": "Person"
+  },
+  "person60": {
+    "knows": [
+      "person48",
+      "person185",
+      "person2",
+      "person117",
+      "person231"
+    ],
+    "type": "Person",
+    "name": "Person 60",
+    "gender": "Male",
+    "age": "28"
+  },
+  "person82": {
+    "gender": "Male",
+    "knows": [
+      "person152",
+      "person127",
+      "person135"
+    ],
+    "age": "73",
+    "type": "Person",
+    "name": "Person 82"
+  },
+  "person246": {
+    "knows": [
+      "person133",
+      "person187",
+      "person140"
+    ],
+    "name": "Person 246",
+    "type": "Person",
+    "gender": "Female",
+    "age": "45"
+  },
+  "person159": {
+    "type": "Person",
+    "knows": [
+      "person96",
+      "person36",
+      "person49",
+      "person206"
+    ],
+    "age": "57",
+    "gender": "Female",
+    "name": "Person 159"
+  },
+  "person47": {
+    "knows": [
+      "person125",
+      "person6",
+      "person121"
+    ],
+    "age": "48",
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 47"
+  },
+  "person148": {
+    "knows": [
+      "person200",
+      "person93",
+      "person225",
+      "person166"
+    ],
+    "name": "Person 148",
+    "age": "68",
+    "type": "Person",
+    "gender": "Male"
+  },
+  "person187": {
+    "name": "Person 187",
+    "gender": "Female",
+    "knows": [
+      "person101",
+      "person163",
+      "person57"
+    ],
+    "type": "Person",
+    "age": "45"
+  },
+  "person93": {
+    "gender": "Male",
+    "knows": [
+      "person179",
+      "person242"
+    ],
+    "type": "Person",
+    "age": "52",
+    "name": "Person 93"
+  },
+  "person138": {
+    "knows": [
+      "person143",
+      "person208",
+      "person179",
+      "person118",
+      "person237"
+    ],
+    "age": "25",
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 138"
+  },
+  "person214": {
+    "age": "49",
+    "knows": [
+      "person125",
+      "person87",
+      "person72"
+    ],
+    "name": "Person 214",
+    "type": "Person",
+    "gender": "Male"
+  },
+  "person122": {
+    "knows": [
+      "person63",
+      "person94",
+      "person37",
+      "person18"
+    ],
+    "age": "18",
+    "gender": "Male",
+    "type": "Person",
+    "name": "Person 122"
+  },
+  "person75": {
+    "knows": [
+      "person53",
+      "person197"
+    ],
+    "type": "Person",
+    "gender": "Female",
+    "age": "65",
+    "name": "Person 75"
+  },
+  "person38": {
+    "knows": [
+      "person233",
+      "person133"
+    ],
+    "name": "Person 38",
+    "type": "Person",
+    "age": "41",
+    "gender": "Female"
+  },
+  "person87": {
+    "knows": [
+      "person215",
+      "person220",
+      "person33",
+      "person58"
+    ],
+    "type": "Person",
+    "gender": "Female",
+    "name": "Person 87",
+    "age": "47"
+  },
+  "person128": {
+    "knows": [
+      "person205",
+      "person107",
+      "person127",
+      "person51",
+      "person11"
+    ],
+    "gender": "Female",
+    "name": "Person 128",
+    "type": "Person",
+    "age": "61"
+  },
+  "person107": {
+    "type": "Person",
+    "knows": [
+      "person66",
+      "person238"
+    ],
+    "age": "38",
+    "name": "Person 107",
+    "gender": "Female"
+  },
+  "person12": {
+    "type": "Person",
+    "knows": [
+      "person26",
+      "person17"
+    ],
+    "gender": "Male",
+    "name": "Person 12",
+    "age": "70"
+  },
+  "person188": {
+    "age": "26",
+    "gender": "Female",
+    "knows": [
+      "person69",
+      "person148",
+      "person202"
+    ],
+    "type": "Person",
+    "name": "Person 188"
+  },
+  "person84": {
+    "name": "Person 84",
+    "age": "55",
+    "knows": [
+      "person86",
+      "person25",
+      "person65"
+    ],
+    "type": "Person",
+    "gender": "Male"
+  },
+  "person168": {
+    "name": "Person 168",
+    "gender": "Female",
+    "type": "Person",
+    "knows": [
+      "person243",
+      "person136",
+      "person97"
+    ],
+    "age": "74"
+  },
+  "person154": {
+    "name": "Person 154",
+    "type": "Person",
+    "knows": [
+      "person104",
+      "person237",
+      "person153",
+      "person163",
+      "person147"
+    ],
+    "age": "22",
+    "gender": "Male"
+  },
+  "person112": {
+    "age": "46",
+    "knows": [
+      "person44",
+      "person197",
+      "person224",
+      "person67"
+    ],
+    "gender": "Male",
+    "type": "Person",
+    "name": "Person 112"
+  },
+  "person249": {
+    "knows": [
+      "person107",
+      "person82",
+      "person36",
+      "person94",
+      "person134"
+    ],
+    "type": "Person",
+    "age": "19",
+    "name": "Person 249",
+    "gender": "Male"
+  },
+  "person146": {
+    "name": "Person 146",
+    "knows": [
+      "person238",
+      "person93",
+      "person226",
+      "person29"
+    ],
+    "type": "Person",
+    "age": "37",
+    "gender": "Female"
+  },
+  "person33": {
+    "knows": [
+      "person83",
+      "person68",
+      "person25",
+      "person170",
+      "person17"
+    ],
+    "age": "41",
+    "gender": "Female",
+    "type": "Person",
+    "name": "Person 33"
+  },
+  "person209": {
+    "gender": "Female",
+    "age": "66",
+    "knows": [
+      "person143",
+      "person165"
+    ],
+    "type": "Person",
+    "name": "Person 209"
+  },
+  "person129": {
+    "age": "68",
+    "knows": [
+      "person75",
+      "person89",
+      "person97"
+    ],
+    "name": "Person 129",
+    "type": "Person",
+    "gender": "Male"
+  },
+  "person110": {
+    "knows": [
+      "person46",
+      "person47",
+      "person236"
+    ],
+    "name": "Person 110",
+    "age": "18",
+    "type": "Person",
+    "gender": "Female"
+  },
+  "person50": {
+    "type": "Person",
+    "age": "36",
+    "gender": "Male",
+    "knows": [
+      "person97",
+      "person121"
+    ],
+    "name": "Person 50"
+  },
+  "person71": {
+    "gender": "Male",
+    "name": "Person 71",
+    "type": "Person",
+    "knows": [
+      "person56",
+      "person219"
+    ],
+    "age": "68"
+  }
+}

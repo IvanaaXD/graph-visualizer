@@ -1,0 +1,22 @@
+<com.example.Persons type="directed">
+    <Person>
+        <name>Alice</name>
+        <info>More info about alice</info>
+        <address>
+            <street>123 Main St</street>
+            <owner>
+                <reference>/com.example.Persons/Person[2]</reference>
+            </owner>
+        </address>
+    </Person>
+
+    <Person>
+        <name>Peter</name>
+        <address>
+            <street>456 Second St</street>
+            <owner>
+                <reference>/com.example.Persons/Person[1]</reference>
+            </owner>
+        </address>
+    </Person>
+</com.example.Persons>
